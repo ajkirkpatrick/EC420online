@@ -33,7 +33,7 @@ opts_chunk$set(
   fig.align="center",
   #dpi=300, 
   fig.path='figs/', # where figs are rendered
-  cache=T,
+  cache=F,
   echo=F,
   message = F,
   warning = F
@@ -141,7 +141,7 @@ The data looks like this:
 
 ```{r Wooldridge2, echo=F, include=T, message = F, warning=F, out.width = '60%'}
 knitr::kable(head(df %>% dplyr::select(wage, educ)), format = 'latex') %>%
-  as_image(file = 'wol2.png', width=4)  # should always be calling xetex from MikTex not Tex Live! cmd > where xetex or where xelatex will show where its pointing. 
+  as_image(file = 'img/wol2.png', width=4)  # should always be calling xetex from MikTex not Tex Live! cmd > where xetex or where xelatex will show where its pointing. 
  
 ```
 ]
