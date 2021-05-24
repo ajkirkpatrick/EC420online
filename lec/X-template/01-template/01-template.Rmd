@@ -1,0 +1,195 @@
+---
+title: "Single Variable Regression: Introduction"
+subtitle: "EC420 MSU Online"
+author: "Justin Kirkpatrick"
+date: "Last updated `r format(Sys.Date(), '%B %d, %Y')`"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    yolo: false
+    css: [default, metropolis, metropolis-fonts, "EC420_SS21.css"]
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+   
+                
+      
+
+---
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+
+library(here) # creates absolute paths, but those won't work in html
+library(knitr)
+library(kableExtra)
+library(tidyverse)
+library(wooldridge)
+
+
+
+# https://yihui.org/knitr/options/
+opts_chunk$set(
+  fig.align="center",
+  #dpi=300, 
+  fig.path='figs/', # where figs are rendered
+  cache=T,
+  echo=F,
+  message = F,
+  warning = F
+  )
+
+# A vital function to take an absolute path and copy the image into a local img folder.
+# # Solves the issue where the rendered html wasn't pointing to the right things. 
+# ## Wrap path into includ_graphics() like so:
+
+    #     include_graphics(copy_to_include(path = "C:/Users/jkirk/OneDrive - Michigan State University/Teaching/EC420online/img/MMfig43a.png"))
+copy_to_include<-function(path){
+  filename.to.use = basename(path)
+  if(!grepl('png$|PNG$|jpg$|JPG$', filename.to.use)) stop('Not a png or jpg')
+  dir.create('img')
+  file.copy(from = path, to = paste0('img/',filename.to.use))
+  return(paste0('img/',filename.to.use))
+}
+
+```
+
+layout: true
+
+<div class="msu-header"></div>  
+
+---
+
+class: inverseMSU
+name: Overview
+
+# This Section  
+
+### __Lectures:__
+
+1. [Create a template](#set1). Here package points to project directory: `r here()`
+
+2. [Talk about the template](#set2). But working directory is `r getwd()`
+
+3. [Conclude the section](#set3). All references are relative to .rmd file
+
+---
+class: heading-slide
+name: set1
+heading slide for Set 1
+---
+
+class: MSU
+# The problem at hand...
+
+## h2
+
+### h3 text
+
+#### h4 text here
+
+Normal text
+
+.MSUgreen[try some MSU green text]. We have some data on two (or more, later) variables that we think move together in an interesting way.
+- (Insert one of many examples we've talked about before here)
+
+--
+
+We want to **quantify** .ul[and test] this .orange[relationship]
+- Predict a change
+- Test a theory
+- Win a bet?
+
+
+---
+class: heading-slide
+name: set2
+
+heading slide set2
+
+### .orange[heading slide text h3]
+---
+class: MSU
+# Set 2
+
+Wage data used in Wooldridge `wage2`
+
+```{r Wooldridge, echo=F, include=T}
+df = wooldridge::wage2
+meanwage = mean(df$wage)
+meaneduc = mean(df$educ)
+covwageeduc = cov(df$educ, df$wage)
+d = ggplot(df, aes(x = educ, y = wage)) + geom_point() + theme_bw()
+d
+```
+
+.footnote[Data from Blackburn and Neumark (1992), "Unobserved Ability, Efficiency Wages, and Interindustry Wage Differentials" *Quarterly Journal of Economics* 107, 1421-1436]
+
+
+---
+class: heading-slide
+name: set3
+
+Set 3 here
+
+---
+class: MSU
+# This is set 3
+
+.pull-left[
+The data looks like this:  
+
+```{r Wooldridge2, echo=F, include=T, message = F, warning=F, out.width = '60%'}
+knitr::kable(head(df %>% dplyr::select(wage, educ)), format = 'latex') %>%
+  as_image(file = 'wol2.png', width=4)  # should always be calling xetex from MikTex not Tex Live! cmd > where xetex or where xelatex will show where its pointing. 
+ 
+```
+]
+
+.pull-right[
+```{r Wooldridge3, echo=F, include=T, warnings=F, out.width='120%'}
+d
+```
+
+<br>
+- $N = 935$
+- $\overline{wage} = `r round(meanwage, 2)`$
+- $\overline{educ} = `r round(meaneduc, 2)`$
+]
+
+--
+
+What we'd like to have is a function that tells us how $wage$ and $educ$ move together in the **population** 
+
+---
+class: heading-slide
+name: set4
+
+
+On to transformations and functional forms!
+
+---
+class: MSU
+# Importing graphics
+
+
+```{r importImages}
+
+# copy_to_include(path = "C:/Users/jkirk/OneDrive - Michigan State University/Teaching/EC420online/img/MMfig43a.png")
+
+include_graphics(copy_to_include(path = "C:/Users/jkirk/OneDrive - Michigan State University/Teaching/EC420online/img/MMfig43a.png"))
+```
+
+```{r outputChromePrint, include=F, eval=F}
+
+require(pagedown)
+currentfile = gsub(pattern='\\.Rmd', '', basename(rstudioapi::getSourceEditorContext()$path))
+inputpath = paste0('https://ajkirkpatrick.github.io/EC420MSU/',currentfile, '/', paste0(currentfile, '.html'))
+browseURL(inputpath)
+pagedown::chrome_print(input = inputpath,
+                   output = file.path(currentfile, paste0(currentfile, '.pdf')),
+                   #wait = 3,
+                   timeout = 300,
+                   format = 'pdf')
+
+```
