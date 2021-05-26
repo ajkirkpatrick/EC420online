@@ -18,13 +18,25 @@ output:
 
 ---
 ```{r setup, include=FALSE}
+
+#          browseURL('https://raw.githack.com/')
+#          browseURL('https://github.com/ajkirkpatrick/EC420MSU')
+
+
+
 options(htmltools.dir.version = FALSE)
+options("getSymbols.warning4.0"=FALSE)
+
 
 library(here) # creates absolute paths, but those won't work in html
 library(knitr)
 library(kableExtra)
 library(tidyverse)
 library(wooldridge)
+require(lubridate)
+require(scales)
+require(broom)
+require(visualize)
 
 
 
@@ -39,6 +51,9 @@ opts_chunk$set(
   warning = F
   )
 
+oldgraphics = "C:/Users/jkirk/OneDrive - Michigan State University/Teaching/EC420MSU/graphics"
+dir.create('img')
+  
 # A vital function to take an absolute path and copy the image into a local img folder.
 # # Solves the issue where the rendered html wasn't pointing to the right things. 
 # ## Wrap path into includ_graphics() like so:
@@ -47,7 +62,7 @@ opts_chunk$set(
 copy_to_include<-function(path){
   filename.to.use = basename(path)
   if(!grepl('png$|PNG$|jpg$|JPG$', filename.to.use)) stop('Not a png or jpg')
-  dir.create('img')
+
   file.copy(from = path, to = paste0('img/',filename.to.use))
   return(paste0('img/',filename.to.use))
 }
@@ -58,24 +73,57 @@ layout: true
 
 <div class="msu-header"></div>  
 
+
+<div style = "position:fixed; visibility: hidden">
+$$\require{color}\definecolor{yellow}{rgb}{1, 0.8, 0.16078431372549}$$
+$$\require{color}\definecolor{orange}{rgb}{0.96078431372549, 0.525490196078431, 0.203921568627451}$$
+$$\require{color}\definecolor{MSUgreen}{rgb}{0.0784313725490196, 0.52156862745098, 0.231372549019608}$$
+</div>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: {
+    Macros: {
+      yellow: ["{\\color{yellow}{#1}}", 1],
+      orange: ["{\\color{orange}{#1}}", 1],
+      MSUgreen: ["{\\color{MSUgreen}{#1}}", 1]
+    },
+    loader: {load: ['[tex]/color']},
+    tex: {packages: {'[+]': ['color']}}
+  }
+});
+</script>
+
+<style>
+.yellow {color: #FFCC29;}
+.orange {color: #F58634;}
+.MSUGreen {color: #14853B;}
+</style>
+
+
+```{r flair_color, echo=FALSE}
+library(flair)
+yellow <- "#FFCC29"
+orange <- "#F58634"
+MSUGreen <- "#14853B"
+```
 ---
 
 class: inverseMSU
 name: Overview
 
-# This Section  
+# This Deck  
 
 ### __Lectures:__
+1. [Create a template](#section1). Here package points to project directory: `r here()`
 
-1. [Create a template](#set1). Here package points to project directory: `r here()`
+2. [Talk about the template](#section2). But working directory is `r getwd()`
 
-2. [Talk about the template](#set2). But working directory is `r getwd()`
-
-3. [Conclude the section](#set3). All references are relative to .rmd file
+3. [Conclude the section](#section3). All references are relative to .rmd file
 
 ---
 class: heading-slide
-name: set1
+name: section1
 heading slide for Set 1
 ---
 
@@ -103,7 +151,7 @@ We want to **quantify** .ul[and test] this .orange[relationship]
 
 ---
 class: heading-slide
-name: set2
+name: section2
 
 heading slide set2
 
@@ -128,7 +176,7 @@ d
 
 ---
 class: heading-slide
-name: set3
+name: section3
 
 Set 3 here
 
@@ -163,7 +211,7 @@ What we'd like to have is a function that tells us how $wage$ and $educ$ move to
 
 ---
 class: heading-slide
-name: set4
+name: section4
 
 
 On to transformations and functional forms!
