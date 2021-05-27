@@ -1361,7 +1361,7 @@ Let's call our hypothesized population mean $\mu_0$. It is the *null hypothesis*
 class: MSU
 # Statistical inference
 
-```{r NormalExAfter2, echo=F, include=T, out.width='60%'}
+```{r NormalExAfter2, echo=F, include=T, out.width='45%'}
 par(mar=c(1,1,0,0)*2)
 curve(dnorm, from=-6, to=6, xlab = 'y-bar', ylab = 'f(y-bar)')
 abline(v = .23, col='blue')
@@ -1438,7 +1438,7 @@ ybar = round(mean(df$Years), 2)
 se = round((sd(df$Years)/sqrt(NROW(df))), 3)
 
 knitr::kable(df, format='latex', booktabs=T, align='c') %>%
-  save_kable(height=3, file='img/setupInferenceExampleTable.png')
+  as_image(height=3, file='img/setupInferenceExampleTable.png')
 ```
 ]
 
@@ -1632,7 +1632,7 @@ Let's go back to our [example "Years to completion of a Ph.D."](#YearsExample)..
 |Statistic   |  Value  |  Note |
 |:-----|:---:|:---|
 | $N$ | 8 | Number of observations  |
-| $\bar{x}$ | 5.5 | Sample mean  |
+| $\bar{y}$ | 5.5 | Sample mean  |
 | $s^2$ | 5.214 | Sample variance |
 | $\frac{s}{\sqrt{N}}$ | 0.807 | Std. error of the mean |
 ]
@@ -1654,7 +1654,7 @@ First, we have to define the rejection region:
 class: MSU
 # Statistical inference
 
-```{r plott, include=T, echo=F, out.width='100%', message=F}
+```{r plott, include=T, echo=F, out.width='60%', message=F}
 visualize.t(stat = round(qt(c(.025, .975), df=7), 2), section='tails', df=7)
 abline(v = round((ybar - 5)/se, 4))
 text(x = round((ybar - 5)/se, 4), y = .35, pos=4, labels=paste0('t=',round((ybar - 5)/se, 4)))
@@ -1735,7 +1735,7 @@ class: MSU
 
 ### Linear functions
 
-A linear function is one where the result is an affine transformation ( $ax + b$ ) of the inputs.
+A linear function is one where the result is a linear transformation ( $ax + b$ ) of the inputs.
 
 $$y = \beta_0 + \beta_1 x$$
 
@@ -1782,7 +1782,7 @@ In a linear equation relating $x$ to $y$, it is the **marginal effect** of $x$.
 class: clear
 
 
-```{r lineExample1, echo=F, include=T, out.width='100%'}
+```{r lineExample1, echo=F, include=T, out.width='50%'}
 df = data.frame(distance_to_landfill = rpois(100, 4))
 df$home_price = 100000 + df$distance_to_landfill*(1/4)*100000
 df$home_price = (df$home_price + rnorm(100, 0, sd = 30000))/1000
@@ -1792,7 +1792,7 @@ hpr = lm(home_price ~ distance_to_landfill, df)
 $$\text{home price} = \beta_0 + \beta_1 \times  \text{distance to landfill} + \epsilon$$
 
 $$\text{home price} = `r round(hpr$coefficients[1], 0)` + `r round(hpr$coefficients[2],0)` \times \text{distance to landfill} + \epsilon$$
-```{r lineExample2, echo=F, include=T, out.width='100%'}
+```{r lineExample2, echo=F, include=T, out.width='50%'}
 plot(df, pch=3, xlab = 'Distance to landfill', ylab = 'Home price ($1,000)',
      main = paste0('beta=', dollar(hpr$coefficients[2], accuracy=2),'k'))
 lines(df$distance_to_landfill, fitted(hpr), col='blue')
@@ -1856,7 +1856,7 @@ class: MSU
 - In economics, "log" almost always means "natural log"
 ]
 
-```{r naturalLog, include=T, echo=F, warning=F, out.width='90%'}
+```{r naturalLog, include=T, echo=F, warning=F, out.width='50%'}
 curve(log(x), 0.000001,2, ylim = c(-10, 2), ylab="ln(x)")
 abline(v=0, col='red')
 ```
@@ -1915,7 +1915,7 @@ class: MSU
 - Explodes quickly with large $x$
 ]
 
-```{r exponentExample, include=T, echo=F, out.width='80%'}
+```{r exponentExample, include=T, echo=F, out.width='50%'}
 curve(exp(x), from=-3, to=5, ylab=expression(e^x))
 ```
 ---
@@ -1931,7 +1931,7 @@ Now is the time to ask questions. Now is the time to say where you got lost.
 
 --
 
-**Now is the time to visit office hours**. Some, maybe even a majority, can be perplexing - this is normal and expected.
+**Now is the time to visit instructor office hours**. Some, maybe even a majority, can be perplexing - this is normal and expected.
 
 --
 
