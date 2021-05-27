@@ -1286,7 +1286,7 @@ curve(dnorm, from=-4, to=4, xlab = 'y-bar', ylab = 'f(y-bar)')
 abline(v = c(-1.96, 1.96))
 ```
 
-<small>The vertical lines are where $F_(z)=\{.025, .975\}$. The area under the curve between the lines is .95<small>
+<small>The vertical lines are where $F(z)=\{.025, .975\}$. The area under the curve between the lines is .95<small>
 
 ---
 class: MSU
@@ -1361,7 +1361,7 @@ Let's call our hypothesized population mean $\mu_0$. It is the *null hypothesis*
 class: MSU
 # Statistical inference
 
-```{r NormalExAfter2, echo=F, include=T, out.width='80%'}
+```{r NormalExAfter2, echo=F, include=T, out.width='60%'}
 par(mar=c(1,1,0,0)*2)
 curve(dnorm, from=-6, to=6, xlab = 'y-bar', ylab = 'f(y-bar)')
 abline(v = .23, col='blue')
