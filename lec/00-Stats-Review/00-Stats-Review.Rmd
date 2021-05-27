@@ -1177,24 +1177,13 @@ $$\bar{y} = \frac{1}{N} \sum_{n=1}^{N} y_n$$
 
 The *estimate* pertains to the realized sample. An *estimator* is a mapping (e.g. a "plan") for learning about the unknown parameters of the distribution.
 
----
-class: MSU
-
-# Statistical inference
-
-The *estimator* is a function of random variables, so it is also a random variable. Let's generalize and refer here to the estimator as $W = h(Y_1,...,Y_n)$, and $\theta$ is the population parameter.
-
-- The distribution of the estimator is known as the **sampling distribution**
-- An estimator is **unbiased** if $E(W) = \theta$ 
-- The bias is given by $Bias(W) = E(W) - \theta$
-
 
 ---
 class: MSU
 # Statistical inference
 Now, relate these to our earlier discussion on mean and variance:
-- $\bar{Y}$ is an unbiased estimator of the population mean $E(Y) = \mu_Y$
-- The *sample variance*, $s^2$ from ealier can be shown to be an unbiased estimate of $Var(Y)=\sigma^2$
+- $\bar{Y}$ is an estimator of the population mean $E(Y) = \mu_Y$
+- The *sample variance*, $s^2$ from ealier is an estimator of $Var(Y)=\sigma^2$
 
 $$s^2 = \frac{1}{N-1} \sum_{n=1}^{N} (Y_i - \bar{Y})^2$$
 
@@ -1225,8 +1214,8 @@ So if $Y \sim N(\mu, \sigma^2_Y)$, then the sampling distribution of $\bar{Y} \s
 <br><br>
 This is a very important link because it tells us:
 - $E[\bar{Y}] = \mu$, the population statistic of interest
-- $Var(\bar{Y})$, so know how much dispersion there is around $\mu$.
-  -\textbf{IF} we know $\sigma^2_Y$.
+- $Var(\bar{Y})$, so we know how much dispersion there is around $\mu$.
+  - **IF** we know $\sigma^2_Y$.
   - Remember, $Var(Y) = \sigma^2_Y$ and $Var(\bar{Y}) = \frac{\sigma^2_Y}{N}$ are different
   
 ---
