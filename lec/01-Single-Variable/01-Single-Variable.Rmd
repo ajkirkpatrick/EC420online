@@ -612,7 +612,7 @@ count: false
 class: MSU
 # OLS in 1 variable
 
-```{r exampleOLSPlot2, echo=F, include=T, out.width='70%', caption='The regression line'}
+```{r exampleOLSPlot2, echo=F, include=T, out.width='60%', caption='The regression line'}
 lm1 = lm(Ynum ~ X, data=ex)
 plot(ex[,c('X','Ynum')], pch=16, cex=2, ylab='Y')
 abline(lm1, col='red')
@@ -620,9 +620,7 @@ abline(lm1, col='red')
 
 The red line is the *sample regression function*, or *SRF*.
 
---
 
-Why is it the "sample" regression function?
 
 
 
