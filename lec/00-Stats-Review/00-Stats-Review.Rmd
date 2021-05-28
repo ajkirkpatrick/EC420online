@@ -468,7 +468,7 @@ That is, the average of the square of a sample is **not** the square of the aver
 
 If we had a sample from $X$ of $\{1,2,6\}$, then $\bar{x} = \frac{1+2+6}{3} = 3$
 
-But $\frac{1+4+36}{3} = 13.6667$ which is **not** $3$.
+But $\frac{1+4+36}{3} = 13.6667$ which is **not** $3^2$.
 
 ---
 class: MSU
