@@ -120,7 +120,7 @@ name: Overview
 ### __Lectures:__
 1. [Population Regression Function: What are we after?](#section1)
 
-2. [Ordinary Least Squares](#section2)
+2. [Ordinary Least Squares](#section2) with an [example](#ExampleOLS)
 
 3. [Goodness of fit measures](#section3)
 
@@ -132,13 +132,11 @@ name: Overview
 
 7. [Regression in R](#section7)
 
-8. [Inference and hypothesis testing](#section8)
+8. [Inference and hypothesis testing: Expectation of $\hat{\beta}_1$](#section8)
 
-9. [Expectation of $\hat{\beta}_1$](#section9)
+9. [Inference and hypothesis testing: Variance of $\hat{\beta}_1$](#section9)
 
-10.[Variance of $\hat{\beta}_1$](#section10)
-
-11.[An example](#section11)
+10. [An example](#section10)
 
 ---
 class: heading-slide
@@ -199,7 +197,7 @@ class: MSU
 The data looks like this:  
 
 ```{r Wooldridge2, echo=F, include=T, message = F, warning=F, cache = T, out.width = '60%'}
-knitr::kable(head(df %>% dplyr::select(wage, educ)), format = 'latex') %>%
+knitr::kable(head(df %>% dplyr::select(wage, educ)), format = 'latex', align='c') %>%
   as_image(file = 'img/wol2.png', width=4)
   
 ```
@@ -226,10 +224,10 @@ class: MSU
 $$g(x) = y$$
 
 Where we give the function any realization of $x$, and it spits out exactly $y$.
-
+--
 
 ### But that isn't going to happen
-Think about the data we just looked at - $educ = 12$ we observed $wage=769$ and $wage=650$. The dream function doesn't exist! There are other things not accounted for besides $educ$.
+Think about the data we just looked at - when $educ = 12$ we observed $wage=769$ and $wage=650$. The dream function doesn't exist! There are other things not accounted for besides $educ$.
 
 ---
 class: MSU
@@ -265,11 +263,17 @@ class: MSU
 
 ### Question: Will the PRF return exactly $y_i$ given a value $x_i$?
 
+--
+
+.orange[No.] It can only give us the expectation.
+
 ---
 class: MSU
 name: WoolPRF
 
 # Population Regression Function
+
+<br>
 
 ```{r Wooldridge21, echo=F, out.width = '50%', fig.cap = 'Ch. 2.1 of Wooldridge, example of a conceptual PRF. The line defines the PRF, the expectation of Y conditional on X'}
 knitr::include_graphics(copy_to_include(file.path(oldgraphics,'Wooldridge/Figure 2-1.jpg')))
@@ -279,9 +283,7 @@ knitr::include_graphics(copy_to_include(file.path(oldgraphics,'Wooldridge/Figure
 
 
 ---
-
 class: MSU
-
 # Population Regression Function
 
 ```{r PRF, echo=F, include=T}
@@ -347,7 +349,7 @@ We will call $u$ the **error term** - it is the difference between the condition
 
 Naturally, we would think that the "right" value of the population parameters, $\beta = \{\beta_0, \beta_1\}$<sup>*</sup>, minimizes all of the $u_i$ values in a sample. That's where Ordinary Least Squares comes in.
 
-----
+
 .footnote[<sup>*</sup> A parameter vector is just a list of numbers.]
 
 ---
@@ -414,7 +416,7 @@ class: MSU
 # Fitting the line
 
 ### We have a linear PRF
-$E[Y|X] = \beta_0 + \beta_1 X$
+$$E[Y|X] = \beta_0 + \beta_1 X$$
 
 ### What happens, then, if we want to write $Y$ exactly?
 The PRF gives us the *expectation* of $Y$
@@ -426,27 +428,10 @@ This is the stochastic population regression function
 $U$ is also the **population error term**, and is itself a **random variable**.
 - It must be that $E[U] = 0$
 
----
-class: MSU
-name: regEqn
-# Fitting the line
 
-### And we can write our **simple linear regression model**:
+### And we can write our SRF:
 
-$$y = \beta_0 + \beta_1 x + u$$
-
-This is a statement about the relationship between observed realizations $(y_i, x_i)$ based on the population parameters $\beta_0, \beta_1$
-
-We will call $u$ the **error term** - it is the difference between the conditional expected mean and the observed $y_i$ given a value of $x_i$.
-- It might be different for two identical realizations of $x_i$
-
---
-
-Naturally, we would think that the "right" value of the population parameters, $\beta = \{\beta_0, \beta_1\}$<sup>*</sup>, minimizes all of the $u_i$ values in a sample.
-
-----
-.footnote[<sup>*</sup> A parameter vector is just a list of numbers.]
-
+$$\hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1 x_i$$
 
 
 
@@ -480,7 +465,6 @@ class: MSU
 
 These are **population moments**
 - A **moment** is a specific attribute of a distribution
-- The mean is the "first moment". Variance is the "second moment".
 
 --
 
@@ -491,7 +475,7 @@ class: MSU
 
 # Fitting the line
 
-Two quick reminders before we introduce the Ordinary Least Squares (OLS) estimator for $\beta$:
+Two quick math reminders before we introduce the Ordinary Least Squares (OLS) estimator for $\beta$:
 $$Cov(Y,X) = E[YX] - E[Y]E[X]$$
 and
 $$\text{If} \quad E[U]=0$$
@@ -521,7 +505,7 @@ Let's write Assumption 1 and Assumption 2 using expectations of the [regression 
 - How many unknowns?
 
 
-## Let's solve for $\beta$. To the board!
+## Let's solve for $\beta$. To the "board"!
 
 --
 
@@ -533,33 +517,23 @@ class: MSU
 
 # OLS in 1 variable
 
-What we just derived on the board depends on **population** moments: $Cov(Y,X)$ and $Var(Y,X)$.
+What we just derived on the board depends on **population** moments: $Cov(X,Y)$ and $Var(X)$.
 
-But, just as before when we didn't know $\mu$ but we could calculate $\bar{y}$ (and we even know something about the distribution of $\bar{y}$)...
+But, just as before when we didn't know $\mu$ but we could calculate $\bar{y}$ (and we even know something about the distribution of $\bar{y}$), .orange[we can calculate sample values for] $Cov(X,Y)$ and $Var(X)$
 
 --
 
-...we can calculate sample values for $Cov(y,x)$ and $Var(x)$
+### Sample estimates get a $\hat{\quad}$
+So if we take a sample and calculate, from that sample, $Var(X)$, we would call it $\widehat{Var}(X)$
 
----
-class: MSU
-# OLS in 1 variable
 
-First, let's tackle the *estimate* of $\beta_0$.
-- We know, from the board, that $\beta_0=E[y] - \beta_1 E[x]$
-- We have a good, unbiased sample estimator for $E[y]$: $\bar{y}$.
-- And we have a good, unbiased sample estimator for $E[X]$: $\bar{x}$
-  - $\bar{y} = \hat{\beta_0} + \hat{\beta_1}\bar{x}$
-  
-The hats stand for (sample) estimates! We don't observe $\beta_0$, but we can estimate it.
-This is very common notation.
 
 ---
 
 class: MSU
 # OLS in 1 variable
 
-Of course, we still have to calculate $\hat{\beta_1}$.
+First, let's tackle the estimate of $\hat{\beta_1}$.
 
 We know how to calculate the sample covariance:
 - $\widehat{Cov}(Y,X) = \frac{1}{N-1} \sum_{i=1}^{N} (x_i - \bar{x})(y_i - \bar{y})$
@@ -575,16 +549,32 @@ What is important here is that **these are all observable in the data, and you k
 
 **As long as your assumptions hold**, you have an estimate of the PRF.
 
----
 
+
+---
 class: MSU
+# OLS in 1 variable
+
+Second, let's tackle the *estimate* of $\beta_0$.
+- We know, from the board, that $\beta_0=E[Y] - \beta_1 E[X]$
+- We have a good, unbiased .orange[sample] estimator for $E[Y]$: $\bar{y}$.
+- And we have a good, unbiased .orange[sample] estimator for $E[X]$: $\bar{x}$
+  - Plugging in: $\bar{y} = \hat{\beta_0} + \hat{\beta_1}\bar{x}$
+
+
+We don't observe $\beta_0$, but we can estimate it by taking sample mean of $y$ and $x$ (if we knew $\hat{\beta}_1$.
+
+
+---
+class: MSU
+name: ExampleOLS
 
 # OLS in 1 varible
 
-So let's "regress x on y" in groups with a very small N: 
+So let's "regress y on x" with a very small N: 
   
 .pull-left[
-```{r exampleOLS, echo=F, include=T, out.width = '40%', cache=T}
+```{r exampleOLS, echo=F, include=T, out.width = '30%', cache=T}
 beta0 = -1
 beta1 = 2
 ex = data.frame(ID = 1:5,
@@ -600,7 +590,7 @@ knitr::kable(ex[,c('Ynum','X')], digits=1, col.names = c('  Y  ','  X  '), align
 # plot(ex[,c('X','Ynum')], pch=16, cex=2, ylab='Y')
 ```
  
-```{r exampleOLSplot, echo=F, include=T, out.width = '100%'}
+```{r exampleOLSplot, echo=F, include=T, out.width = '80%'}
 plot(ex[,c('X','Ynum')], pch=16, cex=2, ylab='Y')
 ```
 ]
@@ -622,7 +612,7 @@ count: false
 class: MSU
 # OLS in 1 variable
 
-```{r exampleOLSPlot2, echo=F, include=T, out.width='90%', caption='The regression line'}
+```{r exampleOLSPlot2, echo=F, include=T, out.width='70%', caption='The regression line'}
 lm1 = lm(Ynum ~ X, data=ex)
 plot(ex[,c('X','Ynum')], pch=16, cex=2, ylab='Y')
 abline(lm1, col='red')
@@ -659,7 +649,7 @@ Note that the residual is not the same as the error term.
 class: MSU
 # OLS in 1 variable
 
-What's inside the error term?
+That error term is doing a lot of work here - it is covering *everything* that isn't $x_1$. So, what's inside the error term?
 
 In $u_i$
 - Omitted variables
@@ -671,7 +661,7 @@ In $u_i$
   
 These are all in $u_i$.
 
-$$y_i = \beta_0 + \beta_1 x_1 + \underbrace{\beta_1 (x^*_1 - x_1) + \beta_2 x_{omitted} + f(nonlinears) + \tilde{u}_i }_{\text{other things, u}}$$
+$$y_i = \beta_0 + \beta_1 x_1 + \underbrace{\beta_2 x_{omitted} + \beta_3 (x^*_1 - x_1) +  f(nonlinears) + \tilde{u}_i }_{\text{other things, u}}$$
 
 Our estimator, $\hat{\beta}$ assumes alllllll these things are 0 in expectation, no matter the value of $x$
 
@@ -679,7 +669,9 @@ Our estimator, $\hat{\beta}$ assumes alllllll these things are 0 in expectation,
 class: MSU
 # OLS in 1 variable
 
-```{r Wool24, echo=F, include=T, out.width='90%', fig.cap='Wooldridge Fig. 2.4'}
+<br>
+
+```{r Wool24, echo=F, include=T, out.width='80%', fig.cap='Wooldridge Fig. 2.4'}
 knitr::include_graphics(copy_to_include(file.path(oldgraphics, 'Wooldridge/Figure 2-4.jpg')))
 ```
 
@@ -689,7 +681,7 @@ class: MSU
 
 # OLS in 1 variable
 
-```{r exampleFit, echo=F, include=T, out.width='90%', fig.cap = 'Regression line for wage2 data'}
+```{r exampleFit, echo=F, include=T, out.width='70%', fig.cap = 'Regression line for wage2 data'}
 dfit = ggplot(df, aes(x = educ, y = wage)) + geom_point() + geom_smooth(method='lm', se=F, col='red') +  theme_bw()
 dfit
 ```
@@ -744,6 +736,7 @@ $y$ is called
 - The "left hand side" (LHS)
 - The outcome variable
 - The response variable
+- The target variable (in ML)
 ]
 
 .pull-right[
@@ -780,20 +773,30 @@ class: MSU
 
 We know that $\beta_{OLS}$ minimizes the sum of squares. How do we measure how good of a fit we get?
 
+We previously defined $SSR = \sum_{i=1}^{N} \hat{u}_i^2$ 
+
 Define two more in addition to $SSR$:
 - Sum of Squares Total: $SST = \sum_{i=1}^N (y_i - \bar{y})^2$
   - $SST$ is a total sum of squares (notice no hats).
+  
 - Sum of Squares Explained: $SSE = \sum_{i=1}^N (\hat{y}_i - \bar{y})^2$
-  - $SSE$ can be thought of as how much is *explained* by $\hat{y}_i$, *...relative to just guessing the obvious:* $\bar{y}$
+  - $SSE$ can be thought of as how much is *explained* by $\hat{y}_i$, *relative to just guessing the obvious:* $\bar{y}$
 
 ---
 class: MSU
 # Goodness of fit
 
 ### $SST = SSR + SSE$
-The total variance is the sum of the variance of the residuals (what isn't explained by your model) and the $SSE$ (the variance that is explained).
+The total variance is the sum of the variance of the residuals ("what isn't explained by your model") and the $SSE$ ("the variance that is explained").
 
-This is a *decomposition* of variance.
+This is a *decomposition* of variance. It is important.
+
+### If your model fits well...
+Then $SSR = \sum_{i=1}^{N} \hat{u}_i^2$ is very small
+- Because if your model fits well, then $\hat{y}_i - y_i = \hat{u}_i$ is very small over all $i$
+
+Then $SSE = \sum_{i=1}^N (\hat{y}_i - \bar{y})^2$ should be large
+- Because if your mdoel fits well, then you are explaining a lot of the observed deviations from $\bar{y}$
 
 ---
 class: MSU
@@ -806,10 +809,12 @@ $R^2$ ('r-square') is the comparison of $SSE$ to $SST$. Since $SSE<SST$ always, 
 
 $$R^2 = \frac{SSE}{SST} = 1 - \frac{SSR}{SST}$$
 
-The $R^2$ is often interpreted as the "fraction of variance explained by the model"
+### Interpretation of $R^2$
+The $R^2$ is interpreted as the "fraction of variance in $y$ explained by the model"
 - Your regression, the SRF, is a model
 - The variance being explained is the variance in the outcome, $y$.
-
+- If it is 0, then $SSE$ is zero. If $SSE$ is zero, then $y_i = \bar{y}$ for all $i$.
+  - And in that case, your model isn't explaining *any* of the variance in $y$.
 
 
 ---
@@ -820,22 +825,10 @@ class: MSU
 
 From earlier:
 
-```{r Wool24b, echo=F, include=T,  fig.cap='Wooldridge Fig. 2.4'}
+```{r Wool24b, echo=F, include=T,  out.width = '70%',  fig.cap='Wooldridge Fig. 2.4'}
 knitr::include_graphics(copy_to_include(file.path(oldgraphics, 'Wooldridge/Figure 2-4.jpg')))
 ```
 
-
----
-
-class: MSU
-# Goodness of fit
-
-
-```{r regression, echo=T, include=T}
-# Ynum is the column name for the outcome variable
-# X is the column name for the independent variable and ex is the name of the data frame
-summary(lm(Ynum ~ X, data=ex))
-```
 
 
 
@@ -943,94 +936,183 @@ We see the $\hat{\beta}_0$ labeled "intercept", and $\hat{\beta}_1$, the "coeffi
 class: heading-slide
 name: section5
 
-Rescaling X and Y
+Rescaling Y and X
 
 ### [top](#Overview)
 
----
-class: MSU
-# Interpretation
-
-Last time, we discussed a single variable regression from Wooldridge `wage2` where $Y$ is $wage$ and $X$ is $educ$:
-
-$$wage = \beta_0 + \beta_1 educ + u$$
-
-```{r Wooldridge0k2, echo=F, include=T, out.width='85%'}
-wage2 = wooldridge::wage2
-meanwage = mean(wage2$wage)
-meaneduc = mean(wage2$educ)
-covwageeduc = cov(wage2$educ, wage2$wage)
-dlm = lm(wage ~ educ, data=wage2)
-d = ggplot(wage2, aes(x = educ, y = wage)) + geom_point() + theme_bw()
-dfit = ggplot(wage2, aes(x = educ, y = wage)) + geom_point() + geom_smooth(method='lm', se=F, col='red') +  theme_bw()
-dfit
-```
-
-This resulted in a $\hat{\beta}_1 = `r round(dlm$coefficients[2], 2)`$. How do we interpret this coefficient?
 
 ---
 class: MSU
-# Interpretation
+# Rescaling Y and X
 
-### Let's start with our simple linear regression model:
-where $wage$ and $educ$ are random variables
-
-$$wage = \beta_0 + \beta_1 educ + u$$
-Our PRF is:
-$$E[wage|educ] = \beta_0 + \beta_1 educ$$
-
---
-
-> "One additional year of education is associated with a $\beta_1 =$ `r round(dlm$coefficients[2], 2)` increase in *expected* monthly earnings, **all else held equal**"
---
-
-- Why "expected"? We are estimating the PRF, so we are looking for the relationship between *expected* monthly earnings and education.
-
---
-
-- Why "all else held equal"? Because we have assumed that $E[U|X]=0$, so our estimate tells us how $E[Y]$ changes as $X$ *and not* $U$ changes.
-  - $U$ is held at zero, no matter the $X$
-  
----
-class: MSU
-# Interpretation
-
-## Ceteris Paribus
-Latin for "all else held equal"
-
---
-
-----
-
+### What happens if we re-scale the dependent variable, wage?
+Maybe we have $wage$ in dollars, but want it in thousands of dollars
 <br><br>
+### We hope that it still gives us the same relationship
+Define $wage1000 = .001 \times wage$
+- Any ideas what will happen to our coefficient?
 
-So the interpretation of $\hat{\beta}_1$ is:
 
-> "The (estimated) increase in the expectation of $wage$ associated with a 1-unit increase in $educ$, ceteris paribus"
-The "all else held equal" part is very important. 
 
 ---
 class: MSU
-# Interpretation
+# Rescaling Y and X
 
-```{r Wooldridgerepeat, echo=F, include=T, out.width='90%'}
-dfit
+```{r Wooldridge1k, echo=F, include=T, out.width='90%'}
+
+wage2$wage1000 = wage2$wage/1000
+
+dklm = lm(wage1000 ~ educ, data=wage2)
+dkfit = ggplot(wage2, aes(x = educ, y = wage1000)) + geom_point() + geom_smooth(method='lm', se=F, col='red') +  theme_bw()
+dkfit
 ```
+Looks pretty similar, right? But the y-axis scale is very different.
 
-- $\hat{\beta}_1$ is $\frac{\Delta wage}{\Delta educ}$
-- $\hat{\beta}_1$ is the slope of the line
-  - The line is $\hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1 x_i$, the $SRF$
-  
 ---
 class: MSU
-# Interpretation
+# Rescaling Y and X
 
-### Regression output:
+### A regression of:
+$$wage1000 = \beta_0 + \beta_1 educ + u$$
+```{r Wooldridge1kout,echo=F}
+summary(dklm)
+``` 
 
-```{r WageRout, echo=T, include=T}
-myRegression = lm(wage ~ educ, data=wage2)
+
+---
+class: MSU
+# Rescaling Y and X
+
+
+$\hat{\beta}_1 = `r round(dklm$coefficients[2], 3)`$ when we use $wage1000$
+
+$\hat{\beta}_1 = `r round(dlm$coefficients[2],  2)`$ when we use $wage$.
+
+
+--
+
+### Re-scaling the dependent variable, *wage*, results in an equal rescaling of the coefficient. 
+
+### The relationship predicted by the *SRF* stays the same.
+
+
+---
+class: MSU
+# Rescaling Y and X
+
+### Now, let's re-scale the *independent* variable 
+- That's the "right hand side" variable, $educ$.
+
+- Let's do education in months: $educMonths = educ \times 12$
+
+--
+
+- Any predictions on what will result?
+
+---
+class: MSU
+# Rescaling Y and X
+
+```{r WooldridgeRescale2, echo=F}
+wage2$educMonths = wage2$educ*12
+dklm12 = lm(wage ~ educMonths, data=wage2)
+summary(dklm12)
+``` 
+
+### What was the result?
+
+---
+class: MSU
+# Rescaling Y and X
+
+### Re-scaling the independent variable simply rescales the coefficient by the *inverse* amount:
+- $12\times educ \Rightarrow \hat{\beta}_1^{new} = \frac{\hat{\beta}_1}{12}$
+
+--
+
+### Re-scaling the dependent variable simply rescales the coefficient on it by an equal amount:
+- $\hat{\beta}_1^{new} = \hat{\beta}_1 \times .001$
+
+--
+
+### The relationship always remains the same
+
+---
+class: MSU
+# Rescaling Y and X
+
+Let's take a look at the $R^2$ of the original regression:
+
+```{r WooldridgeRescale3, echo=F}
 summary(myRegression)
-```
+``` 
+
+---
+class: MSU
+# Rescaling Y and X
+
+Now, the re-scaled dependent variable:
+
+```{r WooldridgeRescale4, echo=F}
+summary(dklm)
+``` 
+
+---
+class: MSU
+# Rescaling Y and X
+
+And the re-scaled independent variable:
+
+```{r WooldridgeRescale5, echo=F}
+summary(dklm12)
+``` 
+
+
+---
+class: MSU
+# Rescaling Y and X
+
+Heck, let's rescale both and look at the $R^2$
+
+```{r WooldridgeRescale6, out.width='90%', echo=F}
+summary(lm(wage1000 ~ educMonths, data=wage2))
+``` 
+
+---
+class: MSU
+# Rescaling Y and X
+
+The $R^2$ is the same in every single one!
+
+The "fraction of variance explained by the model" does not change.
+
+Intuitively, you shouldn't be able to explain more variance simply by re-scaling a variable. The relationship that holds for wages and years of education must hold for 12 x years of education as well.
+
+--
+
+Since rescaling linearly doesn't matter, we can use a scale that is easiest to interpret and to read. 
+- $wage1000$ in thousands of dollars is a lot easier to look at than the larger number we get using $wage$.
+- You often don't want to have very extreme numbers of decimal places (e.g. a coefficient of .00000051 will be a lot easier to talk about if it's in millions: 5.1)
+
+
+---
+class: MSU
+# Rescaling Y and X
+
+Now that we've seen an example, can we derive this result from the definition of $\beta_1$?
+
+$$\beta_1 = \frac{Cov(X,Y)}{Var(X)}$$
+and if we rescale $X$ by $a$:
+
+$$\begin{eqnarray*}
+\beta_1^{rescaled} &=& \frac{Cov(aX,Y)}{Var(aX)} \\
+&=&\frac{a Cov(X,Y)}{a^2Var(X)} \quad \text{(by rules of Cov and Var)} \\
+&=&\frac{Cov(X,Y)}{a Var(X)} \quad \text{(canceling)} \\
+&=&\frac{1}{a}\beta_1
+\end{eqnarray*}$$
+
+
+
 
 
 ---
@@ -1095,10 +1177,13 @@ class: MSU
 # Non-linear functional forms
 
 
-- but imposes that relationship whether it is appropriate (top) or not (bottom).
+- but imposes that relationship whether it is appropriate (left) or not (right).
 
-```{r goodNonlinearExample, echo=F, include=T, out.width='50%'}
+.pull-left[
+```{r goodNonlinearExample, echo=F, include=T, out.width='90%'}
+
 set.seed(092585)
+
 b0 = 1
 b1 = 1
 N = 1000
@@ -1113,16 +1198,17 @@ abline(lm(y~x, df.good), col='red', lwd=1)
 expfit = lm(y~exp(x), df.good)
 curve(expfit$coefficients[1]+expfit$coefficients[2]*exp(x), from=2, to=7, add=T, col='blue', lwd=2)
 ```
+] 
 
-
-```{r badNonlinearExample, echo=F, include=T, out.width='50%'}
+.pull-right[
+```{r badNonlinearExample, echo=F, include=T, out.width='90%'}
 par(mar=c(2,2,0,0))
 plot(ylin~x, df.good)
 abline(lm(ylin~x, df.good), col='red', lwd=1)
 expfit = lm(ylin~exp(x), df.good)
 curve(expfit$coefficients[1]+expfit$coefficients[2]*exp(x), from=2, to=7, add=T, col='blue', lwd=2)
 ```
-
+]
 
 
 
@@ -1142,7 +1228,7 @@ For instance, plant growth rates over temperatures may be quadratic
 
 The *marginal effect* is saying "the change in $y$ per change in $x$", or $\frac{dy}{dx}$.
 
-```{r quadraticExample, echo=F, include=T, fig.width=6, fig.height=1.3}
+```{r quadraticExample, echo=F, include=T, fig.width=6, fig.height=2}
 df.quad = data.frame(Temperature = rnorm(N, 70, 20),
                      u = rnorm(N, 0, 10)) %>%
   dplyr::mutate(Growth = 0 + 3*Temperature + -.02*Temperature^2 + u)
@@ -1338,7 +1424,9 @@ summary(MyRegression)
 class: heading-slide
 name: section8
 
-Inference and hypothesis testing
+Inference and hypothesis testing:
+
+# Expectation of $\hat{\beta}_1$
 
 ### [top](#Overview)
 
@@ -1377,7 +1465,7 @@ class: MSU
 # Review statistical inference
 
 When we have a random variable with a population characteristic of interest
-- $X$ with population mean $\mu_X$
+- For example, $X$ with population mean $\mu_X$
 
 And a sample $x_i$ of observed draws from the RV, then we can make a *hypothesis* about $\mu_X$:
 - $H_0: \mu_X = 0 \quad and \quad H_A: \mu_X \neq 0$
@@ -1411,16 +1499,8 @@ We can test our hypothesis by comparing our sample test statistic result to the 
 
 --
 
-So .MSUGreen[what if we want to test something about $\beta_1$?]
+So .MSUGreen[what if we want to test something about] $\beta_1$?
 - If $H_0$ is our hypothesis about $\beta_1$, and $\hat{\beta}_1$ and $\hat{se}(\hat{\beta}_1)$ is the std. err., then we can test a hypothesis just the same!
-
----
-class: heading-slide
-name: section9
-
-Expectation of $\hat{\beta}_1$
-
-### [top](#Overview)
 
 
 ---
@@ -1648,9 +1728,11 @@ Now, we simply need to fill in the variance of $\hat{\beta}$ to have a test stat
 
 ---
 class: heading-slide
-name: section10
+name: section9
 
-Variance of the estimate 
+Inference and hypothesis testing:
+
+# Variance of $\hat{\beta}_1$
 
 ### [top](#Overview)
 
@@ -1810,6 +1892,7 @@ Let's take a look at this assumption briefly.
 class: MSU
 # Variance of the estimate
 
+<br>
 
 ```{r WooldridgeHomoskedasticity, echo=F, include=T, fig.cap='Homoskedasticity (from Wooldridge)', fig.align = 'center', out.width='65%'}
 include_graphics(copy_to_include(file.path(oldgraphics, 'Wooldridge/Figure 2-8.jpg')))
@@ -1819,13 +1902,29 @@ include_graphics(copy_to_include(file.path(oldgraphics, 'Wooldridge/Figure 2-8.j
 class: MSU
 # Variance of the estimate
 
+<br>
 
 ```{r WooldridgeHeteroskedasticity, echo=F, include=T, fig.cap='Heteroskedasticity (from Wooldridge)', fig.align = 'center', out.width='65%'}
 include_graphics(copy_to_include(file.path(oldgraphics, 'Wooldridge/Figure 2-9.jpg')))
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ---
 class: heading-slide
-name: section11
+name: section10
 
 Single variable inference: an example
 
@@ -1843,6 +1942,7 @@ class: MSU
 
 .pull-left[
 ```{r exampleRegression1, echo=F, include=T, out.width='95%', cache = T}
+set.seed(123)
 beta0 = 4
 beta1 = 2
 df = data.frame(ID = 1:5,
@@ -1903,7 +2003,7 @@ sigma2u = sum(resid^2)/(5-2)
 - Calculate $\hat{u}$ using $y_i - \hat{y}$
 
 - Calculate $\hat{\sigma}^2_u$ 
-  - Remember to divide by $(n-2)$ for correct degrees of freedom
+  - Remember to divide by $(n-2)$ here for correct degrees of freedom
 ]
 
 ----

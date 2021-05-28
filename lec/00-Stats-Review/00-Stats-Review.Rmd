@@ -1703,6 +1703,11 @@ Useful functions and properties
 class: MSU
 # Useful functions and properties
 
+```{r}
+# We cover these in Single variable regression, incl. polys, natural log, elasticity, etc.
+# DELETE if re-doing course
+```
+
 We will cover:
 
 - Linear functions

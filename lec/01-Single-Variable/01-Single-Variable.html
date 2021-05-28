@@ -16,7 +16,7 @@ class: center, middle, inverse, title-slide
 # Single Variable Regression
 ## EC420 MSU Online
 ### Justin Kirkpatrick
-### Last updated May 24, 2021
+### Last updated May 28, 2021
 
 ---
 
@@ -68,7 +68,7 @@ name: Overview
 ### __Lectures:__
 1. [Population Regression Function: What are we after?](#section1)
 
-2. [Ordinary Least Squares](#section2)
+2. [Ordinary Least Squares](#section2) with an [example](#ExampleOLS)
 
 3. [Goodness of fit measures](#section3)
 
@@ -80,13 +80,11 @@ name: Overview
 
 7. [Regression in R](#section7)
 
-8. [Inference and hypothesis testing](#section8)
+8. [Inference and hypothesis testing: Expectation of `\(\hat{\beta}_1\)`](#section8)
 
-9. [Expectation of `\(\hat{\beta}_1\)`](#section9)
+9. [Inference and hypothesis testing: Variance of `\(\hat{\beta}_1\)`](#section9)
 
-10.[Variance of `\(\hat{\beta}_1\)`](#section10)
-
-11.[An example](#section11)
+10. [An example](#section10)
 
 ---
 class: heading-slide
@@ -161,10 +159,10 @@ class: MSU
 `$$g(x) = y$$`
 
 Where we give the function any realization of `\(x\)`, and it spits out exactly `\(y\)`.
-
+--
 
 ### But that isn't going to happen
-Think about the data we just looked at - `\(educ = 12\)` we observed `\(wage=769\)` and `\(wage=650\)`. The dream function doesn't exist! There are other things not accounted for besides `\(educ\)`.
+Think about the data we just looked at - when `\(educ = 12\)` we observed `\(wage=769\)` and `\(wage=650\)`. The dream function doesn't exist! There are other things not accounted for besides `\(educ\)`.
 
 ---
 class: MSU
@@ -200,11 +198,17 @@ class: MSU
 
 ### Question: Will the PRF return exactly `\(y_i\)` given a value `\(x_i\)`?
 
+--
+
+.orange[No.] It can only give us the expectation.
+
 ---
 class: MSU
 name: WoolPRF
 
 # Population Regression Function
+
+&lt;br&gt;
 
 &lt;div class="figure" style="text-align: center"&gt;
 &lt;img src="img/Figure 2-1.jpg" alt="Ch. 2.1 of Wooldridge, example of a conceptual PRF. The line defines the PRF, the expectation of Y conditional on X" width="50%" /&gt;
@@ -213,9 +217,7 @@ name: WoolPRF
 
 
 ---
-
 class: MSU
-
 # Population Regression Function
 
 &lt;img src="figs/PRF-1.png" style="display: block; margin: auto;" /&gt;
@@ -273,7 +275,7 @@ We will call `\(u\)` the **error term** - it is the difference between the condi
 
 Naturally, we would think that the "right" value of the population parameters, `\(\beta = \{\beta_0, \beta_1\}\)`&lt;sup&gt;*&lt;/sup&gt;, minimizes all of the `\(u_i\)` values in a sample. That's where Ordinary Least Squares comes in.
 
-----
+
 .footnote[&lt;sup&gt;*&lt;/sup&gt; A parameter vector is just a list of numbers.]
 
 ---
@@ -340,7 +342,7 @@ class: MSU
 # Fitting the line
 
 ### We have a linear PRF
-`\(E[Y|X] = \beta_0 + \beta_1 X\)`
+`$$E[Y|X] = \beta_0 + \beta_1 X$$`
 
 ### What happens, then, if we want to write `\(Y\)` exactly?
 The PRF gives us the *expectation* of `\(Y\)`
@@ -352,27 +354,10 @@ This is the stochastic population regression function
 `\(U\)` is also the **population error term**, and is itself a **random variable**.
 - It must be that `\(E[U] = 0\)`
 
----
-class: MSU
-name: regEqn
-# Fitting the line
 
-### And we can write our **simple linear regression model**:
+### And we can write our SRF:
 
-`$$y = \beta_0 + \beta_1 x + u$$`
-
-This is a statement about the relationship between observed realizations `\((y_i, x_i)\)` based on the population parameters `\(\beta_0, \beta_1\)`
-
-We will call `\(u\)` the **error term** - it is the difference between the conditional expected mean and the observed `\(y_i\)` given a value of `\(x_i\)`.
-- It might be different for two identical realizations of `\(x_i\)`
-
---
-
-Naturally, we would think that the "right" value of the population parameters, `\(\beta = \{\beta_0, \beta_1\}\)`&lt;sup&gt;*&lt;/sup&gt;, minimizes all of the `\(u_i\)` values in a sample.
-
-----
-.footnote[&lt;sup&gt;*&lt;/sup&gt; A parameter vector is just a list of numbers.]
-
+`$$\hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1 x_i$$`
 
 
 
@@ -406,7 +391,6 @@ class: MSU
 
 These are **population moments**
 - A **moment** is a specific attribute of a distribution
-- The mean is the "first moment". Variance is the "second moment".
 
 --
 
@@ -417,7 +401,7 @@ class: MSU
 
 # Fitting the line
 
-Two quick reminders before we introduce the Ordinary Least Squares (OLS) estimator for `\(\beta\)`:
+Two quick math reminders before we introduce the Ordinary Least Squares (OLS) estimator for `\(\beta\)`:
 `$$Cov(Y,X) = E[YX] - E[Y]E[X]$$`
 and
 `$$\text{If} \quad E[U]=0$$`
@@ -447,7 +431,7 @@ Let's write Assumption 1 and Assumption 2 using expectations of the [regression 
 - How many unknowns?
 
 
-## Let's solve for `\(\beta\)`. To the board!
+## Let's solve for `\(\beta\)`. To the "board"!
 
 --
 
@@ -459,33 +443,23 @@ class: MSU
 
 # OLS in 1 variable
 
-What we just derived on the board depends on **population** moments: `\(Cov(Y,X)\)` and `\(Var(Y,X)\)`.
+What we just derived on the board depends on **population** moments: `\(Cov(X,Y)\)` and `\(Var(X)\)`.
 
-But, just as before when we didn't know `\(\mu\)` but we could calculate `\(\bar{y}\)` (and we even know something about the distribution of `\(\bar{y}\)`)...
+But, just as before when we didn't know `\(\mu\)` but we could calculate `\(\bar{y}\)` (and we even know something about the distribution of `\(\bar{y}\)`), .orange[we can calculate sample values for] `\(Cov(X,Y)\)` and `\(Var(X)\)`
 
 --
 
-...we can calculate sample values for `\(Cov(y,x)\)` and `\(Var(x)\)`
+### Sample estimates get a `\(\hat{\quad}\)`
+So if we take a sample and calculate, from that sample, `\(Var(X)\)`, we would call it `\(\widehat{Var}(X)\)`
 
----
-class: MSU
-# OLS in 1 variable
 
-First, let's tackle the *estimate* of `\(\beta_0\)`.
-- We know, from the board, that `\(\beta_0=E[y] - \beta_1 E[x]\)`
-- We have a good, unbiased sample estimator for `\(E[y]\)`: `\(\bar{y}\)`.
-- And we have a good, unbiased sample estimator for `\(E[X]\)`: `\(\bar{x}\)`
-  - `\(\bar{y} = \hat{\beta_0} + \hat{\beta_1}\bar{x}\)`
-  
-The hats stand for (sample) estimates! We don't observe `\(\beta_0\)`, but we can estimate it.
-This is very common notation.
 
 ---
 
 class: MSU
 # OLS in 1 variable
 
-Of course, we still have to calculate `\(\hat{\beta_1}\)`.
+First, let's tackle the estimate of `\(\hat{\beta_1}\)`.
 
 We know how to calculate the sample covariance:
 - `\(\widehat{Cov}(Y,X) = \frac{1}{N-1} \sum_{i=1}^{N} (x_i - \bar{x})(y_i - \bar{y})\)`
@@ -501,18 +475,34 @@ What is important here is that **these are all observable in the data, and you k
 
 **As long as your assumptions hold**, you have an estimate of the PRF.
 
----
 
+
+---
 class: MSU
+# OLS in 1 variable
+
+Second, let's tackle the *estimate* of `\(\beta_0\)`.
+- We know, from the board, that `\(\beta_0=E[Y] - \beta_1 E[X]\)`
+- We have a good, unbiased .orange[sample] estimator for `\(E[Y]\)`: `\(\bar{y}\)`.
+- And we have a good, unbiased .orange[sample] estimator for `\(E[X]\)`: `\(\bar{x}\)`
+  - Plugging in: `\(\bar{y} = \hat{\beta_0} + \hat{\beta_1}\bar{x}\)`
+
+
+We don't observe `\(\beta_0\)`, but we can estimate it by taking sample mean of `\(y\)` and `\(x\)` (if we knew `\(\hat{\beta}_1\)`.
+
+
+---
+class: MSU
+name: ExampleOLS
 
 # OLS in 1 varible
 
-So let's "regress x on y" in groups with a very small N: 
+So let's "regress y on x" with a very small N: 
   
 .pull-left[
-&lt;img src="img/datatableasdfg.png" width="40%" style="display: block; margin: auto;" /&gt;
+&lt;img src="img/datatableasdfg.png" width="30%" style="display: block; margin: auto;" /&gt;
  
-&lt;img src="figs/exampleOLSplot-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="figs/exampleOLSplot-1.png" width="80%" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
@@ -532,7 +522,7 @@ count: false
 class: MSU
 # OLS in 1 variable
 
-&lt;img src="figs/exampleOLSPlot2-1.png" width="90%" style="display: block; margin: auto;" /&gt;
+&lt;img src="figs/exampleOLSPlot2-1.png" width="70%" style="display: block; margin: auto;" /&gt;
 
 The red line is the *sample regression function*, or *SRF*.
 
@@ -565,7 +555,7 @@ Note that the residual is not the same as the error term.
 class: MSU
 # OLS in 1 variable
 
-What's inside the error term?
+That error term is doing a lot of work here - it is covering *everything* that isn't `\(x_1\)`. So, what's inside the error term?
 
 In `\(u_i\)`
 - Omitted variables
@@ -577,7 +567,7 @@ In `\(u_i\)`
   
 These are all in `\(u_i\)`.
 
-`$$y_i = \beta_0 + \beta_1 x_1 + \underbrace{\beta_1 (x^*_1 - x_1) + \beta_2 x_{omitted} + f(nonlinears) + \tilde{u}_i }_{\text{other things, u}}$$`
+`$$y_i = \beta_0 + \beta_1 x_1 + \underbrace{\beta_2 x_{omitted} + \beta_3 (x^*_1 - x_1) +  f(nonlinears) + \tilde{u}_i }_{\text{other things, u}}$$`
 
 Our estimator, `\(\hat{\beta}\)` assumes alllllll these things are 0 in expectation, no matter the value of `\(x\)`
 
@@ -585,8 +575,10 @@ Our estimator, `\(\hat{\beta}\)` assumes alllllll these things are 0 in expectat
 class: MSU
 # OLS in 1 variable
 
+&lt;br&gt;
+
 &lt;div class="figure" style="text-align: center"&gt;
-&lt;img src="img/Figure 2-4.jpg" alt="Wooldridge Fig. 2.4" width="90%" /&gt;
+&lt;img src="img/Figure 2-4.jpg" alt="Wooldridge Fig. 2.4" width="80%" /&gt;
 &lt;p class="caption"&gt;Wooldridge Fig. 2.4&lt;/p&gt;
 &lt;/div&gt;
 
@@ -597,7 +589,7 @@ class: MSU
 # OLS in 1 variable
 
 &lt;div class="figure" style="text-align: center"&gt;
-&lt;img src="figs/exampleFit-1.png" alt="Regression line for wage2 data" width="90%" /&gt;
+&lt;img src="figs/exampleFit-1.png" alt="Regression line for wage2 data" width="70%" /&gt;
 &lt;p class="caption"&gt;Regression line for wage2 data&lt;/p&gt;
 &lt;/div&gt;
 
@@ -651,6 +643,7 @@ class: MSU
 - The "left hand side" (LHS)
 - The outcome variable
 - The response variable
+- The target variable (in ML)
 ]
 
 .pull-right[
@@ -687,20 +680,30 @@ class: MSU
 
 We know that `\(\beta_{OLS}\)` minimizes the sum of squares. How do we measure how good of a fit we get?
 
+We previously defined `\(SSR = \sum_{i=1}^{N} \hat{u}_i^2\)` 
+
 Define two more in addition to `\(SSR\)`:
 - Sum of Squares Total: `\(SST = \sum_{i=1}^N (y_i - \bar{y})^2\)`
   - `\(SST\)` is a total sum of squares (notice no hats).
+  
 - Sum of Squares Explained: `\(SSE = \sum_{i=1}^N (\hat{y}_i - \bar{y})^2\)`
-  - `\(SSE\)` can be thought of as how much is *explained* by `\(\hat{y}_i\)`, *...relative to just guessing the obvious:* `\(\bar{y}\)`
+  - `\(SSE\)` can be thought of as how much is *explained* by `\(\hat{y}_i\)`, *relative to just guessing the obvious:* `\(\bar{y}\)`
 
 ---
 class: MSU
 # Goodness of fit
 
 ### `\(SST = SSR + SSE\)`
-The total variance is the sum of the variance of the residuals (what isn't explained by your model) and the `\(SSE\)` (the variance that is explained).
+The total variance is the sum of the variance of the residuals ("what isn't explained by your model") and the `\(SSE\)` ("the variance that is explained").
 
-This is a *decomposition* of variance.
+This is a *decomposition* of variance. It is important.
+
+### If your model fits well...
+Then `\(SSR = \sum_{i=1}^{N} \hat{u}_i^2\)` is very small
+- Because if your model fits well, then `\(\hat{y}_i - y_i = \hat{u}_i\)` is very small over all `\(i\)`
+
+Then `\(SSE = \sum_{i=1}^N (\hat{y}_i - \bar{y})^2\)` should be large
+- Because if your mdoel fits well, then you are explaining a lot of the observed deviations from `\(\bar{y}\)`
 
 ---
 class: MSU
@@ -713,10 +716,12 @@ class: MSU
 
 `$$R^2 = \frac{SSE}{SST} = 1 - \frac{SSR}{SST}$$`
 
-The `\(R^2\)` is often interpreted as the "fraction of variance explained by the model"
+### Interpretation of `\(R^2\)`
+The `\(R^2\)` is interpreted as the "fraction of variance in `\(y\)` explained by the model"
 - Your regression, the SRF, is a model
 - The variance being explained is the variance in the outcome, `\(y\)`.
-
+- If it is 0, then `\(SSE\)` is zero. If `\(SSE\)` is zero, then `\(y_i = \bar{y}\)` for all `\(i\)`.
+  - And in that case, your model isn't explaining *any* of the variance in `\(y\)`.
 
 
 ---
@@ -728,44 +733,10 @@ class: MSU
 From earlier:
 
 &lt;div class="figure" style="text-align: center"&gt;
-&lt;img src="img/Figure 2-4.jpg" alt="Wooldridge Fig. 2.4" width="1807" /&gt;
+&lt;img src="img/Figure 2-4.jpg" alt="Wooldridge Fig. 2.4" width="70%" /&gt;
 &lt;p class="caption"&gt;Wooldridge Fig. 2.4&lt;/p&gt;
 &lt;/div&gt;
 
-
----
-
-class: MSU
-# Goodness of fit
-
-
-
-```r
-# Ynum is the column name for the outcome variable
-# X is the column name for the independent variable and ex is the name of the data frame
-summary(lm(Ynum ~ X, data=ex))
-```
-
-```
-## 
-## Call:
-## lm(formula = Ynum ~ X, data = ex)
-## 
-## Residuals:
-##       1       2       3       4       5 
-## -0.9915 -0.3984  1.3983 -0.2113  0.2029 
-## 
-## Coefficients:
-##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)  -1.5591     0.5742  -2.715 0.072827 .  
-## X             2.1521     0.1224  17.581 0.000401 ***
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-## 
-## Residual standard error: 1.03 on 3 degrees of freedom
-## Multiple R-squared:  0.9904,	Adjusted R-squared:  0.9872 
-## F-statistic: 309.1 on 1 and 3 DF,  p-value: 0.0004012
-```
 
 
 
@@ -884,84 +855,140 @@ We see the `\(\hat{\beta}_0\)` labeled "intercept", and `\(\hat{\beta}_1\)`, the
 class: heading-slide
 name: section5
 
-Rescaling X and Y
+Rescaling Y and X
 
 ### [top](#Overview)
 
----
-class: MSU
-# Interpretation
-
-Last time, we discussed a single variable regression from Wooldridge `wage2` where `\(Y\)` is `\(wage\)` and `\(X\)` is `\(educ\)`:
-
-`$$wage = \beta_0 + \beta_1 educ + u$$`
-
-&lt;img src="figs/Wooldridge0k2-1.png" width="85%" style="display: block; margin: auto;" /&gt;
-
-This resulted in a `\(\hat{\beta}_1 = 60.21\)`. How do we interpret this coefficient?
 
 ---
 class: MSU
-# Interpretation
+# Rescaling Y and X
 
-### Let's start with our simple linear regression model:
-where `\(wage\)` and `\(educ\)` are random variables
-
-`$$wage = \beta_0 + \beta_1 educ + u$$`
-Our PRF is:
-`$$E[wage|educ] = \beta_0 + \beta_1 educ$$`
-
---
-
-&gt; "One additional year of education is associated with a `\(\beta_1 =\)` 60.21 increase in *expected* monthly earnings, **all else held equal**"
---
-
-- Why "expected"? We are estimating the PRF, so we are looking for the relationship between *expected* monthly earnings and education.
-
---
-
-- Why "all else held equal"? Because we have assumed that `\(E[U|X]=0\)`, so our estimate tells us how `\(E[Y]\)` changes as `\(X\)` *and not* `\(U\)` changes.
-  - `\(U\)` is held at zero, no matter the `\(X\)`
-  
----
-class: MSU
-# Interpretation
-
-## Ceteris Paribus
-Latin for "all else held equal"
-
---
-
-----
-
+### What happens if we re-scale the dependent variable, wage?
+Maybe we have `\(wage\)` in dollars, but want it in thousands of dollars
 &lt;br&gt;&lt;br&gt;
+### We hope that it still gives us the same relationship
+Define `\(wage1000 = .001 \times wage\)`
+- Any ideas what will happen to our coefficient?
 
-So the interpretation of `\(\hat{\beta}_1\)` is:
 
-&gt; "The (estimated) increase in the expectation of `\(wage\)` associated with a 1-unit increase in `\(educ\)`, ceteris paribus"
-The "all else held equal" part is very important. 
 
 ---
 class: MSU
-# Interpretation
+# Rescaling Y and X
 
-&lt;img src="figs/Wooldridgerepeat-1.png" width="90%" style="display: block; margin: auto;" /&gt;
+&lt;img src="figs/Wooldridge1k-1.png" width="90%" style="display: block; margin: auto;" /&gt;
+Looks pretty similar, right? But the y-axis scale is very different.
 
-- `\(\hat{\beta}_1\)` is `\(\frac{\Delta wage}{\Delta educ}\)`
-- `\(\hat{\beta}_1\)` is the slope of the line
-  - The line is `\(\hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1 x_i\)`, the `\(SRF\)`
-  
 ---
 class: MSU
-# Interpretation
+# Rescaling Y and X
 
-### Regression output:
+### A regression of:
+`$$wage1000 = \beta_0 + \beta_1 educ + u$$`
 
-
-```r
-myRegression = lm(wage ~ educ, data=wage2)
-summary(myRegression)
 ```
+## 
+## Call:
+## lm(formula = wage1000 ~ educ, data = wage2)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.87738 -0.26863 -0.03838  0.20705  2.14826 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 0.146952   0.077715   1.891   0.0589 .  
+## educ        0.060214   0.005695  10.573   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.3823 on 933 degrees of freedom
+## Multiple R-squared:  0.107,	Adjusted R-squared:  0.106 
+## F-statistic: 111.8 on 1 and 933 DF,  p-value: &lt; 2.2e-16
+```
+
+
+---
+class: MSU
+# Rescaling Y and X
+
+
+`\(\hat{\beta}_1 = 0.06\)` when we use `\(wage1000\)`
+
+`\(\hat{\beta}_1 = 60.21\)` when we use `\(wage\)`.
+
+
+--
+
+### Re-scaling the dependent variable, *wage*, results in an equal rescaling of the coefficient. 
+
+### The relationship predicted by the *SRF* stays the same.
+
+
+---
+class: MSU
+# Rescaling Y and X
+
+### Now, let's re-scale the *independent* variable 
+- That's the "right hand side" variable, `\(educ\)`.
+
+- Let's do education in months: `\(educMonths = educ \times 12\)`
+
+--
+
+- Any predictions on what will result?
+
+---
+class: MSU
+# Rescaling Y and X
+
+
+```
+## 
+## Call:
+## lm(formula = wage ~ educMonths, data = wage2)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -877.38 -268.63  -38.38  207.05 2148.26 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 146.9524    77.7150   1.891   0.0589 .  
+## educMonths    5.0179     0.4746  10.573   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 382.3 on 933 degrees of freedom
+## Multiple R-squared:  0.107,	Adjusted R-squared:  0.106 
+## F-statistic: 111.8 on 1 and 933 DF,  p-value: &lt; 2.2e-16
+```
+
+### What was the result?
+
+---
+class: MSU
+# Rescaling Y and X
+
+### Re-scaling the independent variable simply rescales the coefficient by the *inverse* amount:
+- `\(12\times educ \Rightarrow \hat{\beta}_1^{new} = \frac{\hat{\beta}_1}{12}\)`
+
+--
+
+### Re-scaling the dependent variable simply rescales the coefficient on it by an equal amount:
+- `\(\hat{\beta}_1^{new} = \hat{\beta}_1 \times .001\)`
+
+--
+
+### The relationship always remains the same
+
+---
+class: MSU
+# Rescaling Y and X
+
+Let's take a look at the `\(R^2\)` of the original regression:
+
 
 ```
 ## 
@@ -983,6 +1010,127 @@ summary(myRegression)
 ## Multiple R-squared:  0.107,	Adjusted R-squared:  0.106 
 ## F-statistic: 111.8 on 1 and 933 DF,  p-value: &lt; 2.2e-16
 ```
+
+---
+class: MSU
+# Rescaling Y and X
+
+Now, the re-scaled dependent variable:
+
+
+```
+## 
+## Call:
+## lm(formula = wage1000 ~ educ, data = wage2)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.87738 -0.26863 -0.03838  0.20705  2.14826 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 0.146952   0.077715   1.891   0.0589 .  
+## educ        0.060214   0.005695  10.573   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.3823 on 933 degrees of freedom
+## Multiple R-squared:  0.107,	Adjusted R-squared:  0.106 
+## F-statistic: 111.8 on 1 and 933 DF,  p-value: &lt; 2.2e-16
+```
+
+---
+class: MSU
+# Rescaling Y and X
+
+And the re-scaled independent variable:
+
+
+```
+## 
+## Call:
+## lm(formula = wage ~ educMonths, data = wage2)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -877.38 -268.63  -38.38  207.05 2148.26 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 146.9524    77.7150   1.891   0.0589 .  
+## educMonths    5.0179     0.4746  10.573   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 382.3 on 933 degrees of freedom
+## Multiple R-squared:  0.107,	Adjusted R-squared:  0.106 
+## F-statistic: 111.8 on 1 and 933 DF,  p-value: &lt; 2.2e-16
+```
+
+
+---
+class: MSU
+# Rescaling Y and X
+
+Heck, let's rescale both and look at the `\(R^2\)`
+
+
+```
+## 
+## Call:
+## lm(formula = wage1000 ~ educMonths, data = wage2)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.87738 -0.26863 -0.03838  0.20705  2.14826 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 0.1469524  0.0777150   1.891   0.0589 .  
+## educMonths  0.0050179  0.0004746  10.573   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.3823 on 933 degrees of freedom
+## Multiple R-squared:  0.107,	Adjusted R-squared:  0.106 
+## F-statistic: 111.8 on 1 and 933 DF,  p-value: &lt; 2.2e-16
+```
+
+---
+class: MSU
+# Rescaling Y and X
+
+The `\(R^2\)` is the same in every single one!
+
+The "fraction of variance explained by the model" does not change.
+
+Intuitively, you shouldn't be able to explain more variance simply by re-scaling a variable. The relationship that holds for wages and years of education must hold for 12 x years of education as well.
+
+--
+
+Since rescaling linearly doesn't matter, we can use a scale that is easiest to interpret and to read. 
+- `\(wage1000\)` in thousands of dollars is a lot easier to look at than the larger number we get using `\(wage\)`.
+- You often don't want to have very extreme numbers of decimal places (e.g. a coefficient of .00000051 will be a lot easier to talk about if it's in millions: 5.1)
+
+
+---
+class: MSU
+# Rescaling Y and X
+
+Now that we've seen an example, can we derive this result from the definition of `\(\beta_1\)`?
+
+`$$\beta_1 = \frac{Cov(X,Y)}{Var(X)}$$`
+and if we rescale `\(X\)` by `\(a\)`:
+
+`$$\begin{eqnarray*}
+\beta_1^{rescaled} &amp;=&amp; \frac{Cov(aX,Y)}{Var(aX)} \\
+&amp;=&amp;\frac{a Cov(X,Y)}{a^2Var(X)} \quad \text{(by rules of Cov and Var)} \\
+&amp;=&amp;\frac{Cov(X,Y)}{a Var(X)} \quad \text{(canceling)} \\
+&amp;=&amp;\frac{1}{a}\beta_1
+\end{eqnarray*}$$`
+
+
+
 
 
 ---
@@ -1039,13 +1187,15 @@ class: MSU
 # Non-linear functional forms
 
 
-- but imposes that relationship whether it is appropriate (top) or not (bottom).
+- but imposes that relationship whether it is appropriate (left) or not (right).
 
-&lt;img src="figs/goodNonlinearExample-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+.pull-left[
+&lt;img src="figs/goodNonlinearExample-1.png" width="90%" style="display: block; margin: auto;" /&gt;
+] 
 
-
-&lt;img src="figs/badNonlinearExample-1.png" width="50%" style="display: block; margin: auto;" /&gt;
-
+.pull-right[
+&lt;img src="figs/badNonlinearExample-1.png" width="90%" style="display: block; margin: auto;" /&gt;
+]
 
 
 
@@ -1297,7 +1447,9 @@ summary(MyRegression)
 class: heading-slide
 name: section8
 
-Inference and hypothesis testing
+Inference and hypothesis testing:
+
+# Expectation of `\(\hat{\beta}_1\)`
 
 ### [top](#Overview)
 
@@ -1336,7 +1488,7 @@ class: MSU
 # Review statistical inference
 
 When we have a random variable with a population characteristic of interest
-- `\(X\)` with population mean `\(\mu_X\)`
+- For example, `\(X\)` with population mean `\(\mu_X\)`
 
 And a sample `\(x_i\)` of observed draws from the RV, then we can make a *hypothesis* about `\(\mu_X\)`:
 - `\(H_0: \mu_X = 0 \quad and \quad H_A: \mu_X \neq 0\)`
@@ -1370,16 +1522,8 @@ We can test our hypothesis by comparing our sample test statistic result to the 
 
 --
 
-So .MSUGreen[what if we want to test something about `\(\beta_1\)`?]
+So .MSUGreen[what if we want to test something about] `\(\beta_1\)`?
 - If `\(H_0\)` is our hypothesis about `\(\beta_1\)`, and `\(\hat{\beta}_1\)` and `\(\hat{se}(\hat{\beta}_1)\)` is the std. err., then we can test a hypothesis just the same!
-
----
-class: heading-slide
-name: section9
-
-Expectation of `\(\hat{\beta}_1\)`
-
-### [top](#Overview)
 
 
 ---
@@ -1607,9 +1751,11 @@ Now, we simply need to fill in the variance of `\(\hat{\beta}\)` to have a test 
 
 ---
 class: heading-slide
-name: section10
+name: section9
 
-Variance of the estimate 
+Inference and hypothesis testing:
+
+# Variance of `\(\hat{\beta}_1\)`
 
 ### [top](#Overview)
 
@@ -1769,6 +1915,7 @@ Let's take a look at this assumption briefly.
 class: MSU
 # Variance of the estimate
 
+&lt;br&gt;
 
 &lt;div class="figure" style="text-align: center"&gt;
 &lt;img src="img/Figure 2-8.jpg" alt="Homoskedasticity (from Wooldridge)" width="65%" /&gt;
@@ -1779,14 +1926,30 @@ class: MSU
 class: MSU
 # Variance of the estimate
 
+&lt;br&gt;
 
 &lt;div class="figure" style="text-align: center"&gt;
 &lt;img src="img/Figure 2-9.jpg" alt="Heteroskedasticity (from Wooldridge)" width="65%" /&gt;
 &lt;p class="caption"&gt;Heteroskedasticity (from Wooldridge)&lt;/p&gt;
 &lt;/div&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ---
 class: heading-slide
-name: section11
+name: section10
 
 Single variable inference: an example
 
@@ -1809,11 +1972,11 @@ class: MSU
 .pull-right[
 | Statistic | Value |
 |:---:|:---:|
-| `\(\bar{y}\)` | 9.48 |
-| `\(\bar{x}\)` | 2.6 |
-| `\(SST_y = \sum (y_i - \bar{y})^2\)`   | 103.088 |
-| `\(SST_x = \sum (x_i - \bar{x})^2\)`   | 11.2 |
-| `\(\sum (y_i - \bar{y})(x_i - \bar{x})\)` | 31.26 |
+| `\(\bar{y}\)` | 13.68 |
+| `\(\bar{x}\)` | 5 |
+| `\(SST_y = \sum (y_i - \bar{y})^2\)`   | 156.088 |
+| `\(SST_x = \sum (x_i - \bar{x})^2\)`   | 14 |
+| `\(\sum (y_i - \bar{y})(x_i - \bar{x})\)` | 43.1 |
 ]
 
 ----
@@ -1837,7 +2000,7 @@ class: MSU
 - Calculate `\(\hat{u}\)` using `\(y_i - \hat{y}\)`
 
 - Calculate `\(\hat{\sigma}^2_u\)` 
-  - Remember to divide by `\((n-2)\)` for correct degrees of freedom
+  - Remember to divide by `\((n-2)\)` here for correct degrees of freedom
 ]
 
 ----
@@ -1861,10 +2024,10 @@ class: MSU
 Using `\(\hat{\beta}_1\)` and the distribution of `\(\hat{\beta}_1\)`, what is the t-statistic under the null: `\(H_0: \beta_1 = 0\)`:
 
 `$$\hat{t} = \frac{\hat{\beta}_1 - 0}{\hat{se}(\hat{\beta}_1)}$$`
-- Our `\(t\)` is normally distributed&lt;sup&gt;*&lt;\sup&gt;, so we can check the p-value using the back of the Wooldridge book
+- Our `\(t\)` is normally distributed&lt;sup&gt;*&lt;/sup&gt;, so we can check the p-value using the back of the Wooldridge book
   - Or, our "rule of thumb" of `\(|t|&gt;1.96\)`
   
-.footnote[&lt;sup&gt;*&lt;\sup&gt; Since s^2 is estimated, this should be a t-distribution. However, for large enough N, the t and the standard normal are very similar.]
+.footnote[&lt;sup&gt;*&lt;/sup&gt; Since s^2 is estimated, this follows a t-distribution. However, for large enough N, the t distribution and the standard normal are very similar.]
 
 ---
 class: MSU
@@ -1881,19 +2044,19 @@ Check your work here:
 ## lm(formula = Outcome ~ Dose, data = df)
 ## 
 ## Residuals:
-##       1       2       3       4       5 
-## -1.2964  2.0946 -2.1875 -0.7232  2.1125 
+##      1      2      3      4      5 
+## -2.623  2.941  2.177 -1.159 -1.337 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&gt;|t|)  
-## (Intercept)   2.2232     2.0598   1.079   0.3595  
-## Dose          2.7911     0.6866   4.065   0.0268 *
+## (Intercept)  -1.7129     3.9357  -0.435   0.6928  
+## Dose          3.0786     0.7464   4.124   0.0258 *
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 2.298 on 3 degrees of freedom
-## Multiple R-squared:  0.8464,	Adjusted R-squared:  0.7951 
-## F-statistic: 16.53 on 1 and 3 DF,  p-value: 0.02685
+## Residual standard error: 2.793 on 3 degrees of freedom
+## Multiple R-squared:  0.8501,	Adjusted R-squared:  0.8001 
+## F-statistic: 17.01 on 1 and 3 DF,  p-value: 0.02584
 ```
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
