@@ -468,7 +468,7 @@ That is, the average of the square of a sample is **not** the square of the aver
 
 If we had a sample from $X$ of $\{1,2,6\}$, then $\bar{x} = \frac{1+2+6}{3} = 3$
 
-But $\frac{1+4+36}{3} = 13.6667$ which is **not** $9$.
+But $\frac{1+4+36}{3} = 13.6667$ which is **not** $3$.
 
 ---
 class: MSU
@@ -1621,7 +1621,7 @@ Let's go back to our [example "Years to completion of a Ph.D."](#YearsExample)..
 |Statistic   |  Value  |  Note |
 |:-----|:---:|:---|
 | $N$ | 8 | Number of observations  |
-| $\bar{y}$ | 5.5 | Sample mean  |
+| $\bar{x}$ | 5.5 | Sample mean  |
 | $s^2$ | 5.214 | Sample variance |
 | $\frac{s}{\sqrt{N}}$ | 0.807 | Std. error of the mean |
 ]
