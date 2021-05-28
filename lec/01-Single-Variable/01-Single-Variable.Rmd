@@ -956,7 +956,7 @@ Define $wage1000 = .001 \times wage$
 class: MSU
 # Rescaling Y and X
 
-```{r Wooldridge1k, echo=F, include=T, out.width='90%'}
+```{r Wooldridge1k, echo=F, include=T, out.width='65%'}
 
 wage2$wage1000 = wage2$wage/1000
 
