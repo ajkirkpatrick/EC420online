@@ -196,7 +196,7 @@ class: MSU
 # Multivariate regression
 
 ## And a similar interpretation for `\(\beta_2\)`
-We interpret `\(\beta_2\)` as "the effect of `\(experience\)` on the expectation of `\(wage\)`, *all else held equal*"
+We interpret `\(\beta_2\)` as "the effect of `\(ability\)` on the expectation of `\(wage\)`, *all else held equal*"
 
 
 ## This means:
@@ -206,7 +206,7 @@ We interpret `\(\beta_2\)` as "the effect of `\(experience\)` on the expectation
 
 --
 
-Does this require that `\(\frac{\Delta educ}{\Delta experience}\)` be zero?
+Does this require that `\(\frac{\Delta educ}{\Delta ability}\)` be zero?
 
 Nope. But we are measuring the effect of one *while holding the other equal to zero*.
 
@@ -1077,29 +1077,29 @@ class: MSU
  &lt;/thead&gt;
 &lt;tbody&gt;
   &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 24 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 75.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 19 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 66.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
    &lt;td style="text-align:center;"&gt; 3 &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; 27 &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; 80.6 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:center;"&gt; 1 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 32 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 89.6 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:center;"&gt; 1 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 43 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 109.4 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 26 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 78.8 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:center;"&gt; 2 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 31 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 87.8 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:center;"&gt; 4 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 29 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 84.2 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 30 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 86.0 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1121,20 +1121,18 @@ summary(lm(y ~ degC + degF, degdf))
 ## lm(formula = y ~ degC + degF, data = degdf)
 ## 
 ## Residuals:
-##        1        2        3        4        5 
-##  0.02062 -1.25773  0.32990 -0.40206  1.30928 
+##       1       2       3       4       5 
+## -1.4132  0.3653  1.1198  0.2754 -0.3473 
 ## 
 ## Coefficients: (1 not defined because of singularities)
-##             Estimate Std. Error t value Pr(&gt;|t|)  
-## (Intercept)  6.87629    2.87752   2.390   0.0968 .
-## degC        -0.14433    0.08753  -1.649   0.1977  
-## degF              NA         NA      NA       NA  
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+##             Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept)  -2.3234     3.4038  -0.683    0.544
+## degC          0.1557     0.1337   1.165    0.328
+## degF              NA         NA      NA       NA
 ## 
-## Residual standard error: 1.09 on 3 degrees of freedom
-## Multiple R-squared:  0.4754,	Adjusted R-squared:  0.3006 
-## F-statistic: 2.719 on 1 and 3 DF,  p-value: 0.1977
+## Residual standard error: 1.093 on 3 degrees of freedom
+## Multiple R-squared:  0.3114,	Adjusted R-squared:  0.08184 
+## F-statistic: 1.357 on 1 and 3 DF,  p-value: 0.3283
 ```
 
 
@@ -1597,8 +1595,8 @@ linearHypothesis(model = myOLS, hypothesis.matrix = 'jc - univ = 0')
 ## Model 2: wage ~ jc + univ
 ## 
 ##   Res.Df   RSS Df Sum of Sq      F  Pr(&gt;F)  
-## 1    398 10284                              
-## 2    397 10212  1    72.196 2.8066 0.09466 .
+## 1    398 10250                              
+## 2    397 10180  1    70.706 2.7575 0.09759 .
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
@@ -2291,8 +2289,8 @@ coeftest(lm1, vcov = vcovHC(lm1, 'HC1'))
 ## t test of coefficients:
 ## 
 ##             Estimate Std. Error t value  Pr(&gt;|t|)    
-## (Intercept) 4786.507   1041.372  4.5963 7.778e-05 ***
-## age           45.078     15.834  2.8468  0.008028 ** 
+## (Intercept) 5546.943   1164.805  4.7621 4.912e-05 ***
+## age           33.236     18.557  1.7910   0.08373 .  
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
@@ -2324,8 +2322,8 @@ coeftest(lm1b, vcov = vcovHC(lm1b, 'HC1'))
 ## t test of coefficients:
 ## 
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)  7560.74     191.59 39.4631   &lt;2e-16 ***
-## over65TRUE    335.69     313.33  1.0714   0.2928    
+## (Intercept)  7795.58     207.99 37.4802   &lt;2e-16 ***
+## over65TRUE   -323.73     303.08 -1.0681   0.2943    
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
@@ -2356,9 +2354,9 @@ coeftest(lm2, vcov = vcovHC(lm2, 'HC1'))
 ## t test of coefficients:
 ## 
 ##              Estimate Std. Error t value  Pr(&gt;|t|)    
-## (Intercept)  1785.013   1293.095  1.3804    0.1784    
-## age            99.926     21.794  4.5851 8.616e-05 ***
-## over65TRUE  -1133.225    428.763 -2.6430    0.0133 *  
+## (Intercept)  -435.488   1529.310 -0.2848 0.7779227    
+## age           140.068     25.926  5.4025 9.237e-06 ***
+## over65TRUE  -1717.348    387.247 -4.4348 0.0001298 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
@@ -2397,13 +2395,13 @@ t.test(OutOfPocket ~ over65, data=df)
 ## 	Welch Two Sample t-test
 ## 
 ## data:  OutOfPocket by over65
-## t = -1.0716, df = 27.71, p-value = 0.2931
+## t = 1.0676, df = 28.193, p-value = 0.2948
 ## alternative hypothesis: true difference in means is not equal to 0
 ## 95 percent confidence interval:
-##  -977.6554  306.2798
+##  -297.2463  944.7038
 ## sample estimates:
 ## mean in group FALSE  mean in group TRUE 
-##            7560.738            7896.426
+##            7795.576            7471.848
 ```
 
 Compare that to the first regression with only a dummy for `\(1(age&lt;65)\)`

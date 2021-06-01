@@ -253,7 +253,7 @@ class: MSU
 # Multivariate regression
 
 ## And a similar interpretation for $\beta_2$
-We interpret $\beta_2$ as "the effect of $experience$ on the expectation of $wage$, *all else held equal*"
+We interpret $\beta_2$ as "the effect of $ability$ on the expectation of $wage$, *all else held equal*"
 
 
 ## This means:
@@ -263,7 +263,7 @@ $\beta_2 = \frac{\Delta Wage}{\Delta ability}$ when $\underbrace{\Delta educ = \
 
 --
 
-Does this require that $\frac{\Delta educ}{\Delta experience}$ be zero?
+Does this require that $\frac{\Delta educ}{\Delta ability}$ be zero?
 
 Nope. But we are measuring the effect of one *while holding the other equal to zero*.
 
