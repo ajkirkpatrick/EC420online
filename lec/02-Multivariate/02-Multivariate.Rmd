@@ -2343,7 +2343,93 @@ class: MSU
   - The coefficient is the *intercept shift*.
   
   
+
+
+---
+class: MSU
+# Dummy Variables
+
+### Let's sum this all up.
+- A dummy is one variable taking the value of $\{0,1\}$. For example
+  - $1(female)$
+  - $1(age>65)$
+
+### Interpretation
+- A .orange[shift] in the intercept **relative to the base group**
+  - Base group: $male$
+  - Base group: $age<65$
+- The "base group" (or "base level") is represented in the intercept: $\beta_0$
+- The other group(s) ( $female$ , $age>65$ ) have shifted intercepts:
+  - $\beta_0$ for the base (male, under 65)
+  - $\beta_0 + \beta_1$ for a female under 65
+  - $\beta_0 + \beta_1 + \beta_2$ for a female over 65
+  - $\beta_0 + \beta_2$ for a male over 65
   
+$$y = \beta_0 + \beta_1 1(female) + \beta_2 1(age>65) + u$$
+  
+---
+class: MSU
+# Dummy Variables
+
+```{r DummyEx02, include=T, echo=F, out.width='80%', caption='Wooldridge Fig 7-1'}
+knitr::include_graphics(copy_to_include(file.path(oldgraphics, 'Figure 7-1.jpg')))
+```
+
+
+---
+class: MSU
+# Dummy Variables
+
+### Ceteris Paribus still applies
+Interpretation of the dummy variable coefficient is:
+> "The change in the expectation of Y from being in the group relative to being in the base group, *ceteris paribus*"
+
+We are using "in the group" here to mean "the observations for which the dummy is true"
+
+### The "base level" is very important
+- Since the in-group intercept is $E[Y|in-group] = \beta_0 + \beta_1$, but the coefficient is $\beta_1$, we have to be careful.
+- The coefficient is the *difference* between the base level and the in-group.
+- The "base" group is sometimes called **the omitted level**
+
+---
+class: MSU
+# Dummy Variables
+
+## Interpretation of $\{0,1\}$ dummy variables
+
+### In the Wooldridge example
+$$wage = \beta_0 + \beta_1 1(female) + \beta_2 educ + u$$
+> "Conditional on education, females make on average $\beta_1$ more/less than males, ceteris paribus"
+
+.footnote[More/less depending on whether or not the coefficient is negative]
+---
+class: MSU
+# Dummy Variables
+
+
+### In the age example:
+$$Out-of-pocket = \beta_0 + \beta_1 age + \beta_2 1(age>65) + u$$
+> "Individuals over 65 years of age pay $\beta_2$ more/less in out-of-pocket expenses relative to those under 65, controlling for the linear effect of age, ceteris paribus"
+
+Here, we have to be a little more specific since the dummy variable and the continuous variable, $age$, both refer to age. It would be strange to say "conditional on age, being 65 means paying $\beta_1$ more/less".
+
+---
+class: MSU
+# Dummy Variables
+
+### We can have more than one dummy variable:
+$$wage = \beta_0 + \beta_1 1(female) + \beta_2 1(age>65) + u$$
+- $E[wage | male, under 65]$ = $\beta_0$
+
+--
+
+- $E[wage | female, under 65]$ = ??
+
+--
+
+- $E[wage | female, over 65]$ = ??
+
+
   
   
   
@@ -2549,97 +2635,6 @@ Fixed effects with multiple groups
 
 ### [top](#Overview)
 
-
-
----
-class: MSU
-# Fixed Effects
-
-### Last class, we covered a binary variable fixed effect
-- One variable taking the value of $\{0,1\}$. For example
-  - $1(female)$
-  - $1(age>65)$
-
-### Interpretation
-- A .orange[shift] in the intercept **relative to the base group**
-  - Base group: $male$
-  - Base group: $age<65$
-- The "base group" (or "base level") is represented in the intercept: $\beta_0$
-- The other group(s) ( $female$ , $age>65$ ) have shifted intercepts:
-  - $\beta_0$ for the base (male, under 65)
-  - $\beta_0 + \beta_1$ for a female under 65
-  - $\beta_0 + \beta_1 + \beta_2$ for a female over 65
-  - $\beta_0 + \beta_2$ for a male over 65
-  
-$$y = \beta_0 + \beta_1 1(female) + \beta_2 1(age>65) + u$$
-  
----
-class: MSU
-# Fixed Effects
-
-```{r DummyEx02, include=T, echo=F, out.width='80%', caption='Wooldridge Fig 7-1'}
-knitr::include_graphics(copy_to_include(file.path(oldgraphics, 'Figure 7-1.jpg')))
-```
-
-
----
-class: MSU
-# Fixed Effects
-
-### Ceteris Paribus still applies
-Interpretation of the dummy variable fixed effect coefficient is:
-> "The change in the expectation of Y from being in the group relative to being in the base group, *ceteris paribus*"
-
-We are using "in the group" here to mean "the observations for which the dummy is true"
-
-### The "base level" is very important
-- Since the in-group intercept is $E[Y|in-group] = \beta_0 + \beta_1$, but the coefficient is $\beta_1$, we have to be careful.
-- The coefficient is the *difference* between the base level and the in-group.
-- The "base" group is sometimes called **the omitted level**
-
----
-class: MSU
-# Fixed Effects
-
-## Interpretation of $\{0,1\}$ dummy variables
-
-### In the Wooldridge example
-$$wage = \beta_0 + \beta_1 1(female) + \beta_2 educ + u$$
-> "Conditional on education, females make on average $\beta_1$ more/less than males, ceteris paribus"
-
-.footnote[More/less depending on whether or not the coefficient is negative]
----
-class: MSU
-# Fixed Effects
-
-
-### In the age example:
-$$Out-of-pocket = \beta_0 + \beta_1 age + \beta_2 1(age>65) + u$$
-> "Individuals over 65 years of age pay $\beta_2$ more/less in out-of-pocket expenses relative to those under 65, controlling for the linear effect of age, ceteris paribus"
-
-Here, we have to be a little more specific since the fixed effect and the continuous variable, $age$, both refer to age. It would be strange to say "conditional on age, being 65 means paying $\beta_1$ more/less".
-
----
-class: MSU
-# Fixed Effects
-
-### We can have more than one fixed effect:
-$$wage = \beta_0 + \beta_1 1(female) + \beta_2 1(age>65) + u$$
-- $E[wage | male, under 65]$ = $\beta_0$
-
---
-
-- $E[wage | female, under 65]$ = ??
-
---
-
-- $E[wage | female, over 65]$ = ??
-
-
----
-class: heading-slide
-
-Fixed effects with multiple groups
 
 ---
 class: MSU

@@ -18,7 +18,7 @@ class: center, middle, inverse, title-slide
 # Multivariate Regression
 ## EC420 MSU Online
 ### Justin Kirkpatrick
-### Last updated June 01, 2021
+### Last updated June 04, 2021
 
 ---
 
@@ -1077,29 +1077,29 @@ class: MSU
  &lt;/thead&gt;
 &lt;tbody&gt;
   &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 24 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 75.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
    &lt;td style="text-align:center;"&gt; 0 &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; 24 &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; 75.2 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:center;"&gt; 1 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 19 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 66.2 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:center;"&gt; 3 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 27 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 80.6 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 36 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 96.8 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:center;"&gt; 2 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 26 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 78.8 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 25 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 77.0 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:center;"&gt; 2 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 30 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 86.0 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 25 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 77.0 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1121,18 +1121,18 @@ summary(lm(y ~ degC + degF, degdf))
 ## lm(formula = y ~ degC + degF, data = degdf)
 ## 
 ## Residuals:
-##       1       2       3       4       5 
-## -1.4132  0.3653  1.1198  0.2754 -0.3473 
+##         1         2         3         4         5 
+##  1.041199 -0.958801  0.007491  0.955056 -1.044944 
 ## 
 ## Coefficients: (1 not defined because of singularities)
 ##             Estimate Std. Error t value Pr(&gt;|t|)
-## (Intercept)  -2.3234     3.4038  -0.683    0.544
-## degC          0.1557     0.1337   1.165    0.328
+## (Intercept) -1.10861    3.04150  -0.364    0.740
+## degC         0.08614    0.11184   0.770    0.497
 ## degF              NA         NA      NA       NA
 ## 
-## Residual standard error: 1.093 on 3 degrees of freedom
-## Multiple R-squared:  0.3114,	Adjusted R-squared:  0.08184 
-## F-statistic: 1.357 on 1 and 3 DF,  p-value: 0.3283
+## Residual standard error: 1.156 on 3 degrees of freedom
+## Multiple R-squared:  0.1651,	Adjusted R-squared:  -0.1132 
+## F-statistic: 0.5933 on 1 and 3 DF,  p-value: 0.4973
 ```
 
 
@@ -1594,11 +1594,9 @@ linearHypothesis(model = myOLS, hypothesis.matrix = 'jc - univ = 0')
 ## Model 1: restricted model
 ## Model 2: wage ~ jc + univ
 ## 
-##   Res.Df   RSS Df Sum of Sq      F  Pr(&gt;F)  
-## 1    398 10250                              
-## 2    397 10180  1    70.706 2.7575 0.09759 .
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+##   Res.Df   RSS Df Sum of Sq      F Pr(&gt;F)
+## 1    398 11208                           
+## 2    397 11155  1    53.319 1.8976 0.1691
 ```
 Here, I create fake data where I know there are equal effects, and I test `\(H_0: \beta_{jc} = \beta_{univ}\)`. We fail to reject ( `\(p&gt;.05\)` )
 
@@ -2289,8 +2287,8 @@ coeftest(lm1, vcov = vcovHC(lm1, 'HC1'))
 ## t test of coefficients:
 ## 
 ##             Estimate Std. Error t value  Pr(&gt;|t|)    
-## (Intercept) 5546.943   1164.805  4.7621 4.912e-05 ***
-## age           33.236     18.557  1.7910   0.08373 .  
+## (Intercept) 6528.756    745.767  8.7544 1.233e-09 ***
+## age           17.566     11.609  1.5131    0.1411    
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
@@ -2322,8 +2320,8 @@ coeftest(lm1b, vcov = vcovHC(lm1b, 'HC1'))
 ## t test of coefficients:
 ## 
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)  7795.58     207.99 37.4802   &lt;2e-16 ***
-## over65TRUE   -323.73     303.08 -1.0681   0.2943    
+## (Intercept)  7887.74     144.88  54.444   &lt;2e-16 ***
+## over65TRUE   -228.64     213.29  -1.072   0.2926    
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
@@ -2354,9 +2352,9 @@ coeftest(lm2, vcov = vcovHC(lm2, 'HC1'))
 ## t test of coefficients:
 ## 
 ##              Estimate Std. Error t value  Pr(&gt;|t|)    
-## (Intercept)  -435.488   1529.310 -0.2848 0.7779227    
-## age           140.068     25.926  5.4025 9.237e-06 ***
-## over65TRUE  -1717.348    387.247 -4.4348 0.0001298 ***
+## (Intercept)  2988.540   1110.740  2.6906 0.0118911 *  
+## age            86.520     19.201  4.5059 0.0001069 ***
+## over65TRUE  -1521.267    308.078 -4.9379 3.286e-05 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
@@ -2395,13 +2393,13 @@ t.test(OutOfPocket ~ over65, data=df)
 ## 	Welch Two Sample t-test
 ## 
 ## data:  OutOfPocket by over65
-## t = 1.0676, df = 28.193, p-value = 0.2948
+## t = 1.0614, df = 21.963, p-value = 0.3
 ## alternative hypothesis: true difference in means is not equal to 0
 ## 95 percent confidence interval:
-##  -297.2463  944.7038
+##  -218.1461  675.4194
 ## sample estimates:
 ## mean in group FALSE  mean in group TRUE 
-##            7795.576            7471.848
+##            7887.745            7659.108
 ```
 
 Compare that to the first regression with only a dummy for `\(1(age&lt;65)\)`
@@ -2475,7 +2473,91 @@ class: MSU
   - The coefficient is the *intercept shift*.
   
   
+
+
+---
+class: MSU
+# Dummy Variables
+
+### Let's sum this all up.
+- A dummy is one variable taking the value of `\(\{0,1\}\)`. For example
+  - `\(1(female)\)`
+  - `\(1(age&gt;65)\)`
+
+### Interpretation
+- A .orange[shift] in the intercept **relative to the base group**
+  - Base group: `\(male\)`
+  - Base group: `\(age&lt;65\)`
+- The "base group" (or "base level") is represented in the intercept: `\(\beta_0\)`
+- The other group(s) ( `\(female\)` , `\(age&gt;65\)` ) have shifted intercepts:
+  - `\(\beta_0\)` for the base (male, under 65)
+  - `\(\beta_0 + \beta_1\)` for a female under 65
+  - `\(\beta_0 + \beta_1 + \beta_2\)` for a female over 65
+  - `\(\beta_0 + \beta_2\)` for a male over 65
   
+`$$y = \beta_0 + \beta_1 1(female) + \beta_2 1(age&gt;65) + u$$`
+  
+---
+class: MSU
+# Dummy Variables
+
+&lt;img src="img/Figure 7-1.jpg" width="80%" style="display: block; margin: auto;" /&gt;
+
+
+---
+class: MSU
+# Dummy Variables
+
+### Ceteris Paribus still applies
+Interpretation of the dummy variable coefficient is:
+&gt; "The change in the expectation of Y from being in the group relative to being in the base group, *ceteris paribus*"
+
+We are using "in the group" here to mean "the observations for which the dummy is true"
+
+### The "base level" is very important
+- Since the in-group intercept is `\(E[Y|in-group] = \beta_0 + \beta_1\)`, but the coefficient is `\(\beta_1\)`, we have to be careful.
+- The coefficient is the *difference* between the base level and the in-group.
+- The "base" group is sometimes called **the omitted level**
+
+---
+class: MSU
+# Dummy Variables
+
+## Interpretation of `\(\{0,1\}\)` dummy variables
+
+### In the Wooldridge example
+`$$wage = \beta_0 + \beta_1 1(female) + \beta_2 educ + u$$`
+&gt; "Conditional on education, females make on average `\(\beta_1\)` more/less than males, ceteris paribus"
+
+.footnote[More/less depending on whether or not the coefficient is negative]
+---
+class: MSU
+# Dummy Variables
+
+
+### In the age example:
+`$$Out-of-pocket = \beta_0 + \beta_1 age + \beta_2 1(age&gt;65) + u$$`
+&gt; "Individuals over 65 years of age pay `\(\beta_2\)` more/less in out-of-pocket expenses relative to those under 65, controlling for the linear effect of age, ceteris paribus"
+
+Here, we have to be a little more specific since the dummy variable and the continuous variable, `\(age\)`, both refer to age. It would be strange to say "conditional on age, being 65 means paying `\(\beta_1\)` more/less".
+
+---
+class: MSU
+# Dummy Variables
+
+### We can have more than one dummy variable:
+`$$wage = \beta_0 + \beta_1 1(female) + \beta_2 1(age&gt;65) + u$$`
+- `\(E[wage | male, under 65]\)` = `\(\beta_0\)`
+
+--
+
+- `\(E[wage | female, under 65]\)` = ??
+
+--
+
+- `\(E[wage | female, over 65]\)` = ??
+
+
   
   
   
@@ -2750,95 +2832,6 @@ Fixed effects with multiple groups
 
 ### [top](#Overview)
 
-
-
----
-class: MSU
-# Fixed Effects
-
-### Last class, we covered a binary variable fixed effect
-- One variable taking the value of `\(\{0,1\}\)`. For example
-  - `\(1(female)\)`
-  - `\(1(age&gt;65)\)`
-
-### Interpretation
-- A .orange[shift] in the intercept **relative to the base group**
-  - Base group: `\(male\)`
-  - Base group: `\(age&lt;65\)`
-- The "base group" (or "base level") is represented in the intercept: `\(\beta_0\)`
-- The other group(s) ( `\(female\)` , `\(age&gt;65\)` ) have shifted intercepts:
-  - `\(\beta_0\)` for the base (male, under 65)
-  - `\(\beta_0 + \beta_1\)` for a female under 65
-  - `\(\beta_0 + \beta_1 + \beta_2\)` for a female over 65
-  - `\(\beta_0 + \beta_2\)` for a male over 65
-  
-`$$y = \beta_0 + \beta_1 1(female) + \beta_2 1(age&gt;65) + u$$`
-  
----
-class: MSU
-# Fixed Effects
-
-&lt;img src="img/Figure 7-1.jpg" width="80%" style="display: block; margin: auto;" /&gt;
-
-
----
-class: MSU
-# Fixed Effects
-
-### Ceteris Paribus still applies
-Interpretation of the dummy variable fixed effect coefficient is:
-&gt; "The change in the expectation of Y from being in the group relative to being in the base group, *ceteris paribus*"
-
-We are using "in the group" here to mean "the observations for which the dummy is true"
-
-### The "base level" is very important
-- Since the in-group intercept is `\(E[Y|in-group] = \beta_0 + \beta_1\)`, but the coefficient is `\(\beta_1\)`, we have to be careful.
-- The coefficient is the *difference* between the base level and the in-group.
-- The "base" group is sometimes called **the omitted level**
-
----
-class: MSU
-# Fixed Effects
-
-## Interpretation of `\(\{0,1\}\)` dummy variables
-
-### In the Wooldridge example
-`$$wage = \beta_0 + \beta_1 1(female) + \beta_2 educ + u$$`
-&gt; "Conditional on education, females make on average `\(\beta_1\)` more/less than males, ceteris paribus"
-
-.footnote[More/less depending on whether or not the coefficient is negative]
----
-class: MSU
-# Fixed Effects
-
-
-### In the age example:
-`$$Out-of-pocket = \beta_0 + \beta_1 age + \beta_2 1(age&gt;65) + u$$`
-&gt; "Individuals over 65 years of age pay `\(\beta_2\)` more/less in out-of-pocket expenses relative to those under 65, controlling for the linear effect of age, ceteris paribus"
-
-Here, we have to be a little more specific since the fixed effect and the continuous variable, `\(age\)`, both refer to age. It would be strange to say "conditional on age, being 65 means paying `\(\beta_1\)` more/less".
-
----
-class: MSU
-# Fixed Effects
-
-### We can have more than one fixed effect:
-`$$wage = \beta_0 + \beta_1 1(female) + \beta_2 1(age&gt;65) + u$$`
-- `\(E[wage | male, under 65]\)` = `\(\beta_0\)`
-
---
-
-- `\(E[wage | female, under 65]\)` = ??
-
---
-
-- `\(E[wage | female, over 65]\)` = ??
-
-
----
-class: heading-slide
-
-Fixed effects with multiple groups
 
 ---
 class: MSU
