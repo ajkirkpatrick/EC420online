@@ -18,7 +18,7 @@ class: center, middle, inverse, title-slide
 # Multivariate Regression
 ## EC420 MSU Online
 ### Justin Kirkpatrick
-### Last updated June 04, 2021
+### Last updated June 05, 2021
 
 ---
 
@@ -1078,28 +1078,28 @@ class: MSU
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:center;"&gt; 2 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 24 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 75.2 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 34 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 93.2 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:center;"&gt; 0 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 24 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 75.2 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 27 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 80.6 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:center;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 30 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 86.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 3 &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; 36 &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; 96.8 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:center;"&gt; 2 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 25 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 77.0 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:center;"&gt; 0 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 25 &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 77.0 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 27 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 80.6 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1121,18 +1121,18 @@ summary(lm(y ~ degC + degF, degdf))
 ## lm(formula = y ~ degC + degF, data = degdf)
 ## 
 ## Residuals:
-##         1         2         3         4         5 
-##  1.041199 -0.958801  0.007491  0.955056 -1.044944 
+##       1       2       3       4       5 
+## -0.3234  0.5090 -1.4192  0.7246  0.5090 
 ## 
 ## Coefficients: (1 not defined because of singularities)
 ##             Estimate Std. Error t value Pr(&gt;|t|)
-## (Intercept) -1.10861    3.04150  -0.364    0.740
-## degC         0.08614    0.11184   0.770    0.497
+## (Intercept)  3.13772    3.89581   0.805    0.480
+## degC        -0.02395    0.12561  -0.191    0.861
 ## degF              NA         NA      NA       NA
 ## 
-## Residual standard error: 1.156 on 3 degrees of freedom
-## Multiple R-squared:  0.1651,	Adjusted R-squared:  -0.1132 
-## F-statistic: 0.5933 on 1 and 3 DF,  p-value: 0.4973
+## Residual standard error: 1.027 on 3 degrees of freedom
+## Multiple R-squared:  0.01198,	Adjusted R-squared:  -0.3174 
+## F-statistic: 0.03636 on 1 and 3 DF,  p-value: 0.8609
 ```
 
 
@@ -1594,9 +1594,9 @@ linearHypothesis(model = myOLS, hypothesis.matrix = 'jc - univ = 0')
 ## Model 1: restricted model
 ## Model 2: wage ~ jc + univ
 ## 
-##   Res.Df   RSS Df Sum of Sq      F Pr(&gt;F)
-## 1    398 11208                           
-## 2    397 11155  1    53.319 1.8976 0.1691
+##   Res.Df    RSS Df Sum of Sq      F Pr(&gt;F)
+## 1    398 9316.3                           
+## 2    397 9306.4  1    9.9516 0.4245 0.5151
 ```
 Here, I create fake data where I know there are equal effects, and I test `\(H_0: \beta_{jc} = \beta_{univ}\)`. We fail to reject ( `\(p&gt;.05\)` )
 
@@ -2287,8 +2287,8 @@ coeftest(lm1, vcov = vcovHC(lm1, 'HC1'))
 ## t test of coefficients:
 ## 
 ##             Estimate Std. Error t value  Pr(&gt;|t|)    
-## (Intercept) 6528.756    745.767  8.7544 1.233e-09 ***
-## age           17.566     11.609  1.5131    0.1411    
+## (Intercept) 5449.643   1037.603  5.2521 1.259e-05 ***
+## age           35.182     15.605  2.2545   0.03189 *  
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
@@ -2320,8 +2320,8 @@ coeftest(lm1b, vcov = vcovHC(lm1b, 'HC1'))
 ## t test of coefficients:
 ## 
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)  7887.74     144.88  54.444   &lt;2e-16 ***
-## over65TRUE   -228.64     213.29  -1.072   0.2926    
+## (Intercept)  7997.00     215.87 37.0447   &lt;2e-16 ***
+## over65TRUE   -286.17     281.29 -1.0173   0.3174    
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
@@ -2352,9 +2352,9 @@ coeftest(lm2, vcov = vcovHC(lm2, 'HC1'))
 ## t test of coefficients:
 ## 
 ##              Estimate Std. Error t value  Pr(&gt;|t|)    
-## (Intercept)  2988.540   1110.740  2.6906 0.0118911 *  
-## age            86.520     19.201  4.5059 0.0001069 ***
-## over65TRUE  -1521.267    308.078 -4.9379 3.286e-05 ***
+## (Intercept)  1461.715   1100.388  1.3284    0.1948    
+## age           109.073     18.689  5.8363 2.845e-06 ***
+## over65TRUE  -1621.360    285.891 -5.6713 4.449e-06 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```
@@ -2393,13 +2393,13 @@ t.test(OutOfPocket ~ over65, data=df)
 ## 	Welch Two Sample t-test
 ## 
 ## data:  OutOfPocket by over65
-## t = 1.0614, df = 21.963, p-value = 0.3
+## t = 1.0138, df = 24.144, p-value = 0.3207
 ## alternative hypothesis: true difference in means is not equal to 0
 ## 95 percent confidence interval:
-##  -218.1461  675.4194
+##  -296.2129  868.5601
 ## sample estimates:
 ## mean in group FALSE  mean in group TRUE 
-##            7887.745            7659.108
+##            7997.000            7710.827
 ```
 
 Compare that to the first regression with only a dummy for `\(1(age&lt;65)\)`
@@ -2579,10 +2579,10 @@ Panel Data
 class: MSU
 # Panel Data
 
-### Panel Data is what we all a dataset where we have multiple observations for each unit of observation
+### Panel Data is what we call a dataset where we have multiple observations for each unit of observation
 - We have a sample of 100 people
 - For each person, we have 12 years of earnings
-  - We have `\(N=100 \times 12 = 120\)`
+  - We have `\(N=100 \times 12 = 1200\)`
 
 ### Or
 - We have a sample of 15 countries

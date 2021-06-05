@@ -18,7 +18,7 @@ class: center, middle, inverse, title-slide
 # Counterfactuals and Selection Bias
 ## EC420 MSU Online
 ### Justin Kirkpatrick
-### Last updated June 04, 2021
+### Last updated June 05, 2021
 
 ---
 
@@ -73,9 +73,9 @@ name: Overview
 
 - [ATE](#ATEdef)
 
-(4) [Variance of the estimator](#section4)
+(4) [Selection Bias](#section4)
 
-(5) [Perfect multicolinearity](#section5)
+(5) [Randomization and Experiments](#section5)
 
 (6) [Distribution of the estimator and Gauss-Markov for MLR](#section6)
 
@@ -257,7 +257,7 @@ class: MSU
 
 - The red dots are the given data, plotting `\(LifeExp \sim cigarettes\)`
 - The blue triangles are where the points **would be if we could account for** `\(E[\tilde{u}|X]\neq 0\)`
-- Here, `\(E[\tilde{u}|X] = -1.08 \times cigarettes\)`
+- Here, `\(E[\tilde{u}|X] = -1.07 \times cigarettes\)`
 
 ---
 class: MSU
@@ -300,6 +300,7 @@ name: section3
 
 Potential Outcomes Framework
 
+&lt;br&gt;
 ### [top](#Overview)
 
 
@@ -467,13 +468,13 @@ We've got some `\(Y_1\)`'s and some `\(Y_0\)`'s, so we have:
 
 ---
 class: heading-slide
-
+name: section4
 
 
 Selection Bias
 
-&lt;br&gt;&lt;br&gt;&lt;br&gt;
-###[top](#Overview)
+&lt;br&gt;&lt;br&gt;
+### [top](#Overview)
 
 
 
@@ -558,7 +559,6 @@ Note that traditionally, "selection bias" refers to non-random sampling (e.g. yo
 
 ---
 class: MSU
-
 # Selection bias
 
 ### Some examples of selection bias
@@ -579,7 +579,6 @@ If we are interested in the effect of health insurance on some health outcome...
 
 ---
 class: MSU
-
 # Selection bias
 
 ### Some examples of selection bias
@@ -591,7 +590,6 @@ If we are interested in the effect of smoking on probability of stroke (and we i
 
 ---
 class: MSU
-
 # Selection bias
 
 ### Formally, selection bias occurs when
@@ -625,7 +623,6 @@ And when we regress `\(y = \beta_0 + \beta_1 D + u\)`, we are doing a "compariso
 
 ---
 class: MSU
-
 # Selection bias 
 
 ### Another example:
@@ -760,10 +757,9 @@ First, let's be naive. Let's look at the average use **of those who received the
 Why might the naive estimate not be the same as the ATE (or the SATE)
 
 ---
-
 class: MSU
-
 # Selection bias
+
 
 ### Why does our naive comparison of means not yield the (S)ATE?
 
@@ -841,31 +837,42 @@ The main takeaways from the last few lectures:
 
 ---
 class: heading-slide
+name: section5
 
 Randomization and Experiments
 
 
-&lt;br&gt;&lt;br&gt;&lt;br&gt;
-###[top](#Overview)
+&lt;br&gt;
+### [top](#Overview)
 
 
 
 ---
 class: MSU
-
 # Randomization
 
-.pull-left[
-In groups, "draw from the data" by randomly assigning treatment
+You are going to randomly assign treatment to the four people on the [next slide](#data):
 - First, randomly decide to which group each member belongs.
+  - Use `sample(c(T,F), size = 4, replace=T)` to randomly draw 4 treatment assignments in a vector
+  - `TRUE` means that person is treated and we'll use their "with treatment" value, `FALSE` means the opposite
+  
 - Second, build a new observed dataset with the randomly realized observed values
-  - The "with" value if the person is randomly placed in the with-treatment
-  - The "without" value if the person is randomly placed in the without-treatment
+  - Use the "with" value for that person if the person is randomly placed in the with-treatment
+  - Use "without" value for that person if the person is randomly placed in the without-treatment
+  
 - Third, calculate the group means and the difference between the group means.
-- Repeat 15 times.
-]
+  - Repeat 15 times.
+  
+We want to see how this comparison of means between the with-treatment and without-treatment groups does in estimating the `\(ATE\)`.
 
-.pull-right[
+
+---
+class: MSU
+name: data
+# Randomization
+
+
+
 &lt;table class="table table-striped" style="font-size: 18px; margin-left: auto; margin-right: auto;"&gt;
  &lt;thead&gt;
   &lt;tr&gt;
@@ -897,7 +904,7 @@ In groups, "draw from the data" by randomly assigning treatment
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-]
+
  
 
 
@@ -948,7 +955,6 @@ Recall that in a previous lecture, we used some algebra on conditional expectati
 
 ---
 class: MSU
-
 # Randomization
 
 
@@ -1077,6 +1083,8 @@ class: MSU
 # Review
 
 1. We talked more about selection bias and examples of it.
+
+2. We found that violation MLR.4 led to some pretty big problems.
 
 2. We talked about randomization and how it can alleviate selection bias.
 
