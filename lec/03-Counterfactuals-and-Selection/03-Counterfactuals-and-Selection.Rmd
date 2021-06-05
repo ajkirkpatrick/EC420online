@@ -134,13 +134,6 @@ name: Overview
 
 (5) [Randomization and Experiments](#section5)
 
-(6) [Distribution of the estimator and Gauss-Markov for MLR](#section6)
-
-(7) [Heteroskedasticity](#section7)
-
-(8) [Testing Multiple $\beta$'s](#section8)
-
-
 
 
 
