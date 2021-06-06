@@ -1219,7 +1219,7 @@ class: MSU
 
 ### For one endogenous $x$, and one instrument $z$
 $$se(\hat{\beta}_1^{IV}) = \frac{\sigma^2}{n \sigma^2_x \rho^2_{x,z}}$$
-- $n\sigma^2_x$ looks a lot like $SST_x$ since $\hat{\sigma}^2_x = \frac{1}{N-1}\sum (x_i - \bar{x})$
+- $n\sigma^2_x$ looks a lot like $SST_x$ since $\hat{\sigma}^2_x = \frac{1}{N-1}\sum (x_i - \bar{x})^2$
 
 ### What is $\rho_{x,z}$?
 It is the *correlation coefficient* of $x$ and $z$:
@@ -1260,6 +1260,7 @@ class: MSU
 
 ### The AER package in R has an excellent function
 .pseudocode[install.packages('AER')]
+
 .pseudocode[ivreg(Y ~ D + X1 | X1 + Z1 + Z2, data=df)]
 
 - The first part of the forumla is just like an OLS regression
