@@ -241,24 +241,6 @@ $$y = \beta_0 + \beta_1 D + \beta_2 x_1 + u$$
 
 
 
----
-class: MSU
-# Where we're at
-$$y = \beta_0 + \beta_1 x_1 + \beta_2 D + \beta_3 D \times x_1 + u$$
-Let's say:
-- $x_1$ is continuous, 
-- $D$ is binary $\{0,1\}$
-
-----
-Let's calculate some $E[y]$ (that is, $\hat{y}$):
-- $E[y|x_1 = 0, D=1]$:
-- $E[y|x_1 = 2, D=1]$:
-- $E[y|x_1 = 2, D=0]$:
-
-
-
-
-
 
 
 
