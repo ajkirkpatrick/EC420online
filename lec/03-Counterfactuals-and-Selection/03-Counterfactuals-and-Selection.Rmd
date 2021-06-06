@@ -884,7 +884,6 @@ name: section5
 Randomization and Experiments
 
 
-<br>
 ### [top](#Overview)
 
 
