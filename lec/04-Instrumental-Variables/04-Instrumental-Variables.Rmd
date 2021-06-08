@@ -1317,9 +1317,8 @@ This tells us whether or not we should be worried about correlation with $u$.
 --
 
   - Although...we could think of times that even rainfall is endogenous.
-  - Any ideas about how *rainfall* could be endogenous?
   - What about a model that includes the selection of land for farming?
-  - How could we fix this?
+
   
   
 
@@ -1399,7 +1398,7 @@ $$h_i = \alpha_2 w_i + \beta_2 z_{2i} + u_{2i}$$
 
 $h_i$ and $w_i$ are the endogenous variables. Why?
 
-### Because, given $z_{1i},z_{2i},u_{1i},u_{2i}$, then $h_i$ and $w_i$ are completely determined
+### Because, given $z_{1i},z_{2i},u_{1i},u_{2i}$, then $h_i$ and $w_i$ are .orange[completely determined]
 - with a few assumptions about $\alpha_1$ and $\alpha_2$
 
 ### The dependent variable and one or more explanatory variables are jointly determined within the system.
@@ -1473,9 +1472,9 @@ We can formally show the bias in simultaneous equations. Remember, bias occurs w
 $$y_1 = \alpha_1 y_2 + \beta_1 z_1 + u_1$$
 
 $$y_2 = \alpha_2 y_1 + \beta_2 z_2 + u_2$$
-$y_1,y_2$ could be $murdpc$ and $polpc$.
+$y_1,y_2$ could be $murdpc$ and $polpc$ from the previous section.
 
-### But estimating this first equation by OLS would result in a biased $\alpha_1$. So we can't do it. 
+### But estimating either equation by OLS would result in a biased $\alpha$. So we can't do it. 
 - Specifically, we are in trouble on the first if $y_2$ is correlated with $u_1$; 
 - And if $y_1$ is correlated with $u_2$ for the second.
 - Let's see why this is true...
@@ -1486,40 +1485,8 @@ class: MSU
 
 ### To see bias, substitute the first equation into the second
 $$y_2 = \alpha_2 \underbrace{\color{red}{(\alpha_1 y_2 + \beta_1 z_1 + u_1)}}_{y_1} + \beta_2 z_2 + u_2$$
-$$(1-\alpha_2 \alpha_1)y_2 = \alpha_2\beta_1 z_1 + \beta_2 z_2 + \underbrace{\alpha_2 u_1 + u_2}_{uh-oh}$$
-
----
-class: MSU
-# Simultaneity
-
-Divide both sides by $(1-\alpha_2 \alpha_1)$:
-$$y_2 = \frac{\alpha_2 \beta_1}{(1-\alpha_2 \alpha_1)} z_1 + \frac{\beta_2}{(1-\alpha_2 \alpha_1)}z_2 +  \underbrace{ \frac{\alpha_2}{(1-\alpha_2 \alpha_1)} u_1 +\frac{1}{(1-\alpha_2 \alpha_1)}u_2}_{v_2}$$
-
-$$y_2 = \pi_{21} z_1 + \pi_{22} z_2 + v_2$$
-### This is called the *reduced form* equation.
-- We *can* estimate $\pi_{21}$ and $\pi_{22}$, but the coefficients lose their structural interpretation. 
-- Our estimation of $\pi_{21}$ and $\pi_{22}$ is unbiased - $z$'s are exogenous, and $u_1$ itself is uncorrelated wtih $y_2$.
-
-
----
-class: MSU
-# Simultaneity
-
-### Back to checking to see if we have bias in:
-$$y_1 = \alpha_1 y_2 + \beta_1 z_1 + u_1$$
-Remember, we are in trouble if $y_2$ is correlated with $u_1$, right?
-
-Well, we know:
-$$y_2 = \pi_{21} z_1 + \pi_{22} z_2 + v_2$$
-
-and $v_2$, the reduced form error:
-
-$$v_2 = \frac{\alpha_2}{(1-\alpha_2 \alpha_1)} u_1 +\frac{1}{(1-\alpha_2 \alpha_1)}u_2$$
-
-Since $v_2$ has $u_1$ in it, and since $y_2$ has $v_2$ in it, then $y_2$ **is correlated with** $u_1$, and OLS of $y_1 = \alpha_1 y_2 + \beta_1 z_1 + u_1$ is biased.
-
-### This is simultaneity bias
-
+$$(1-\alpha_2 \alpha_1)y_2 =  \beta_2 z_2 + \alpha_2\beta_1 z_1 + \underbrace{\color{red}{\alpha_2 u_1}}_{uh-oh} + u_2$$
+This shows that $y_2$ is correlated with $u_1$. Estimating the $y_2$ equation from the previous slide gives a biased $\alpha_2$. .orange[This is simultaneity bias].
 
 ---
 class: heading-slide
@@ -1530,6 +1497,43 @@ Identification in Simultaneous Equations
 
 
 ### [top](#Overview)
+
+---
+class: MSU
+# Simultaneity
+
+### We started with:
+
+$$y_1 = \alpha_1 y_2 + \beta_1 z_1 + u_1$$
+
+$$y_2 = \alpha_2 y_1 + \beta_2 z_2 + u_2$$
+---
+class: MSU
+# Simultaneity
+
+### We plugged in $y_1$ as a function of $y_2,z_1,u_1$ to estimate $\alpha_2$
+
+
+$$(1-\alpha_2 \alpha_1)y_2 =  \beta_2 z_2 + \alpha_2\beta_1 z_1 + \alpha_2 u_1+ u_2$$
+### and can do the same for $y_2$
+
+$$(1-\alpha_2 \alpha_1)y_1 =  \beta_1 z_1 + \alpha_1\beta_2 z_2 + \alpha_1 u_2+ u_1$$
+
+---
+class: MSU
+# Simultaneity
+
+In the $y_2$ equation, Divide both sides by $(1-\alpha_2 \alpha_1)$:
+
+$$y_2 = \frac{\beta_2}{(1-\alpha_2 \alpha_1)}z_2 +  \frac{\alpha_2 \beta_1}{(1-\alpha_2 \alpha_1)} z_1 + \underbrace{ \frac{\alpha_2}{(1-\alpha_2 \alpha_1)} u_1 +\frac{1}{(1-\alpha_2 \alpha_1)}u_2}_{v_2}$$
+Which gives us:
+
+$$y_2 = \pi_{21} z_1 + \pi_{22} z_2 + v_2$$
+
+### This is called the *reduced form* equation for $y_2$
+- We *can* estimate $\pi_{21}$ and $\pi_{22}$, but the coefficients lose their structural interpretation. 
+- Our estimation of $\pi_{21}$ and $\pi_{22}$ is unbiased - $z$'s are exogenous.
+- $\pi_{21}$ and $\pi_{22}$ are functions of the structural parameters $\{\alpha_1,\alpha_2,\beta_1,\beta_2\}$
 
 
 
@@ -1564,9 +1568,9 @@ class: MSU
 # Simultaneity
 
 ### Our two equation system, again (with the problems in .red[red] and .blue[blue]:
-$$y_1 = \alpha_1 \color{red}{y_2} + \beta_1 z_1 + \color{red}{u_1}$$
+$$y_1 = \alpha_1 \color{red}{y_2} + \color{black}{\beta_1 z_1} + \color{red}{u_1}$$
 
-$$y_2 = \alpha_2 \color{blue}{y_1} + \beta_2 z_2 + \color{blue}{u_2}$$
+$$y_2 = \alpha_2 \color{blue}{y_1} + \color{black}{\beta_2 z_2} + \color{blue}{u_2}$$
 ---
 class: MSU
 # Simultaneity
@@ -1647,7 +1651,7 @@ class: MSU
 # Simultaneity
 
 ### Second stage
-$$y_1 = \alpha_2 \hat{y}_2 + \beta_1 z_1 + u$$
+$$y_1 = \alpha_1 \hat{y}_2 + \beta_1 z_1 + u$$
 ```{r SimRes2, echo=F, include=T}
 lmfin = lm(y1 ~ y2hat + z1, df1)
 summary(lmfin)
