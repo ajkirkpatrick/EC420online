@@ -1642,7 +1642,7 @@ class: MSU
 # Simultaneity
 
 ### First stage
-$$y_2 = \pi_{21} z_1 + \pi_{22} + v_2$$
+$$y_2 = \pi_{21} z_1 + \pi_{22}z_2+ v_2$$
 ```{r SimRes1, echo=F, include=T}
 summary(lm(y2 ~ z1 + z2, df1))
 ```
@@ -1701,9 +1701,9 @@ class: MSU
 A similar result happens if we include the fixed effect. The fixed effect instruments for itself, and is included as an exogenous variable.
 
 #### First stage
-$$y_{it2} = \pi_{21} z_1 + \pi_{22} z_2 + \gamma^{1}_i + v_2$$
+$$y_{it2} = \pi_{21} z_{i1} + \pi_{22} z_{i2} + \gamma^{1}_i + v_{i2}$$
 #### Second stage
-$$y_{it1} = \alpha_1 \hat{y}_{it2} + \beta_1 z_1 + \gamma^{2}_i + u_1$$
+$$y_{it1} = \alpha_1 \hat{y}_{it2} + \beta_1 z_{i1} + \gamma^{2}_i + u_{i1}$$
 
 $\gamma^1_i$ is the fixed effect for each $i$ in the first stage. 
 
