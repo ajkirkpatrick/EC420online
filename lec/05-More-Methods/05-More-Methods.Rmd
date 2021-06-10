@@ -773,7 +773,7 @@ class: MSU
 # DiD in R
 
 ### The result
-Using this simple DiD specification, and assuming parallel trends (see [Causal Inference The Mixtape](https://mixtape.scunning.com/difference-in-differences.html?panelset4=r-code5&panelset5=r-code6#replicating-cheng2013-sort-of) book for a long discussion on parallel trends here), we get a results of $\beta^{DiD} = .0818$. Since the outcome variable is logged homicide rate, this results suggests an 8.1% increase in the homicide rate when castle doctrine is enacted.
+Using this simple DiD specification, and assuming parallel trends (see [Causal Inference The Mixtape](https://mixtape.scunning.com/difference-in-differences.html?panelset4=r-code5&panelset5=r-code6#replicating-cheng2013-sort-of) book for a long discussion on parallel trends here), we get a results of $\beta^{DiD} = .0818$. Since the outcome variable is logged homicide rate, this results suggests an 9.06% increase in the homicide rate when castle doctrine is enacted.
 
 Of course, there are many things omitted to be controlled for, and one could argue that the assumptions do not actually hold. But our task -- learning DiD -- is done.
 
