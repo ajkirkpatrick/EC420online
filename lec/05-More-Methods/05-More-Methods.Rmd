@@ -307,7 +307,7 @@ $$D_{t} = 1(t>\tau)$$
 
 Since $\beta_1$ is the difference in $y_{t<\tau}$ and $y_{t>\tau}$, then:
 .pull-left[$$E[y|D=1] = E[y|t>\tau]$$]
-.pull-right[$$E[y|D=0] = E[y|t>\tau]$$]
+.pull-right[$$E[y|D=0] = E[y|t\leq\tau]$$]
 
 
 ---
@@ -732,6 +732,11 @@ This example looks at the effect of the *castle doctrine* on homicide rates by s
 
 This is a good opportunity for a difference-in-differences because we think there are some state-specific characteristics that might lead to both higher homicide rates *and* selection into passing a castle doctrine.
 
+---
+class: MSU
+# DiD in R
+
+### Before we begin
 You'll need the `haven` packages installed to read `.dta` files. We won't do the full paper recreation done on the Causal Inference website. Instead, we'll generate our interacted (DiD) treatment variable and only use the two-way fixed effects. The book uses far more controls, but the same underlying two-way fixed effects.
 
 ---
