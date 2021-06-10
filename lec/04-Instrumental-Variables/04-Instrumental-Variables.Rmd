@@ -1086,7 +1086,20 @@ We say we are *overidentified* when this is the case. We can test this (Hausman 
 
 Overidentification is not necessarily a bad thing, despite the name.
 
+---
+class: MSU
+# Estimating IV with 2SLS
+count: false
 
+### And one more bit of terminology you may run into:
+
+The **intent to treat effect**, $ITT$ is the numerator of the $LATE$. It is the coefficient on:
+$$y = \gamma_0 + \gamma_1 z + u$$
+
+The term pops up from time to time - you already know *what* it is, we just want to give it a name.
+
+It is not the first stage. Nor is it the second stage. It is the effect of the the instrument on $y$ directly.
+- "The change in test scores per change in winning the lottery"
 
 
 

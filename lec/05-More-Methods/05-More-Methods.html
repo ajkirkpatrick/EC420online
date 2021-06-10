@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>More Methods</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Justin Kirkpatrick" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="EC420_SS21.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# More Methods
+## EC420 MSU Online
+### Justin Kirkpatrick
+### Last updated June 10, 2021
+
+---
+
+
+
+layout: true
+
+&lt;div class="msu-header"&gt;&lt;/div&gt;  
+
+
+&lt;div style = "position:fixed; visibility: hidden"&gt;
+`$$\require{color}\definecolor{yellow}{rgb}{1, 0.8, 0.16078431372549}$$`
+`$$\require{color}\definecolor{orange}{rgb}{0.96078431372549, 0.525490196078431, 0.203921568627451}$$`
+`$$\require{color}\definecolor{MSUgreen}{rgb}{0.0784313725490196, 0.52156862745098, 0.231372549019608}$$`
+&lt;/div&gt;
+
+&lt;script type="text/x-mathjax-config"&gt;
+MathJax.Hub.Config({
+  TeX: {
+    Macros: {
+      yellow: ["{\\color{yellow}{#1}}", 1],
+      orange: ["{\\color{orange}{#1}}", 1],
+      MSUgreen: ["{\\color{MSUgreen}{#1}}", 1]
+    },
+    loader: {load: ['[tex]/color']},
+    tex: {packages: {'[+]': ['color']}}
+  }
+});
+&lt;/script&gt;
+
+&lt;style&gt;
+.yellow {color: #FFCC29;}
+.orange {color: #F58634;}
+.MSUGreen {color: #14853B;}
+&lt;/style&gt;
+
+
+
+---
+
+class: inverseMSU
+name: Overview
+
+# This Deck  
+
+### __Lectures:__
+
+(1) [Motivation](#section1)
+
+Difference in Differences
+
+(2) [Introducing Difference in Differences](#section2)
+
+(3) [DiD Estimation](#section3)
+
+(4) [DiD Assumptions](#section4)
+
+(5) [DiD in R](#section5)
+
+Regression Discontinuity
+
+(6) [Introducing Regression Discontinuity](#section6)
+
+(7) [RD Assumptions and Estimation](#section7)
+
+(8) [RD Examples](#section8)
+
+(9) [More Regression Discontinuity](#section9)
+
+
+---
+class: heading-slide
+name: section1
+
+Motivation
+
+### [top](#Overview)
+
+
+
+---
+class: MSU
+# Motivation
+
+This section is about
+
+- Difference in differences
+
+- Regression Discontinuity
+
+--
+
+These econometric methods
+
+- Estimate the `\(ATE\)` or `\(SATE\)`
+
+- Have a causal interpretation
+
+--
+
+- Depend on assumptions
+
+---
+class: MSU
+# Motivation
+
+In fact, Difference in Differences and Regression Discontinuity use tools you already have
+
+- Estimated with OLS
+
+- Assume MLR.1 - MLR.6
+
+--
+
+But they add some assumptions
+
+- Statements about what is randomly assigned
+
+- Restrictions on the counterfactual values
+
+--
+
+#### It turns out, we can make some minimal assumptions that are, in some contexts, easily justified, that lead to an unbiased estimate of the SATE.
+
+---
+class: MSU
+# Motivation
+
+### Assumptions
+Econometrics is filled with assumptions
+
+- Some are very innocuous, like assuming the data `\(X\)` is full rank.
+
+- Some, it turns out, are frequently not met, like MLR.4
+
+- Some can be relaxed (like MLR.5 on homoskedasticity)
+
+--
+
+Good applied econometric work
+
+- Makes minimal assumptions necessary
+
+- States assumptions clearly
+
+---
+class: MSU
+# Motivation
+
+### Assumptions
+
+&gt; A physicist, a chemist, and an economist are adrift at sea with only a can of food and no way to open it. They decide to each devise and share a plan for opening the can of food. The physicist proposes a mechanism to leverage the waves at sea to open the can. The chemist proposes a saltwater-based solution that will decompose the can's seal to open it. Finally, when the economist is called on to present his plan, he stands up in the life raft and starts with "assume we have a can opener..."
+
+
+- We make assumptions to simplify the problem and make it *tractable*
+
+- In economics, we make this clear and transparent, allowing for robust discussion about those assumptions.
+
+  - In a way, it provides a forum for discussion the accuracy of a model
+  
+---
+class: heading-slide
+name: section2
+
+
+
+Introducing Difference in Differences
+
+### [top](#Overview)
+
+
+---
+class: MSU
+# Diff-in-diff
+
+### Difference-in-differences
+
+&gt; In the absence of random assignment, treatment and control groups are likely to differ for many reasons
+
+.pull-right[MM, Ch. 5]
+
+&lt;br&gt;
+### Our goal is to get a valid counterfactual for `\(E[Y_0|D=1]\)`
+So that we have solved our selection bias problem
+
+But we might not have a good instrument
+
+Or we might worry that there are other unobserved things about the group being treated
+
+DiD is another tool for your econometric toolbox
+
+---
+class: MSU
+# Diff-in-diff
+
+### Diff-in-diff is closely related to our discussion on fixed effects
+`$$y_{it} = \beta_0 + \beta_1 x_{it} + \phi_i + \delta_t + u_{it}$$`
+- Where `\(\phi_i\)` is a vector of effects for each `\(i\)` (except the base or omitted level)
+- And where `\(\delta_t\)` is a vector of effects for each time period `\(t\)` (except for a base or omitted level)
+
+### `\(\phi_i\)` controls for persistent individual-specific effects
+- "persistent" means "constant over time" within `\(i\)`
+- `\(\delta_t\)` does the same, but for effects in a time period `\(t\)` that are constant over all `\(i\)`
+
+---
+class: MSU
+# Diff-in-diff
+
+### Of course, we must have panel data for DID
+- We need multiple `\(i\)` and multiple `\(t\)`
+
+### We have to have some "treated" `\(i\)`, and some "untreated" `\(i\)`
+- The "treatment group"
+- The "control group"
+  - This group helps us build our counterfactual
+  - And our counterfactual helps us fix selection bias
+  - And fixing selection bias gets us to an `\(ATE\)`!
+  
+---
+class: MSU
+# Diff-in-diff
+
+### The intuition:
+
+#### Let's start with a simple difference. We observe some before and after data, where `\(\tau\)` is the time that the treatment starts:
+`$$y_{t} = \beta_0 + \beta_1 D_{t} + u$$`
+and
+`$$D_{t} = 1(t&gt;\tau)$$`
+
+Since `\(\beta_1\)` is the difference in `\(y_{t&lt;\tau}\)` and `\(y_{t&gt;\tau}\)`, then:
+.pull-left[$$E[y|D=1] = E[y|t&gt;\tau]$$]
+.pull-right[$$E[y|D=0] = E[y|t&gt;\tau]$$]
+
+
+---
+class: MSU
+# Diff-in-diff
+
+### Which means
+`$$\beta_1 = E[y|D=1]-E[y|D=0]$$`
+plus:
+`$$\beta_0 = E[y|D=0]$$`
+
+---
+class: MSU
+# Diff-in-diff
+
+### The simple difference is a naive estimator of the treatment effect of interest.
+Even if we take a bunch of before-after observations: `\(y_{it} = \beta_0 + \beta_1 D_{it} + u_{it}\)`, we might still have a problem.
+
+### The problem here is that *treatment is not necessarily as good as randomly assigned*.
+The biggest threat is that there is something *unobserved* that *varies between treated units* that might be correlated with the start of treatment, `\(\tau\)`.
+
+---
+class: MSU
+# Diff-in-diff
+
+### An example
+Let's say `\(\tau\)` is the time that a minimum wage increases in a state, and `\(y\)` is total hours worked in the city
+- Interesting because we want to see the effect of minimum wage on employment
+- **But** when states decide to increase their minimum wage, it's *may be* because they think the national economy is on the rise
+- So treatment is correlated with *better economy* and that can drive employment up.
+- Treatment time is endogenous!
+  
+---
+class: MSU
+# Diff-in-diff
+
+### Some more examples:
+`\(\tau\)` may be the time in which a superfund site is cleaned up, and `\(y\)` is the average home value around the superfund site
+- Economic rationale: If cleaning up a highly polluted site increases the value of homes (by more than the cost of cleanup), we are increasing welfare by cleaning up pollution.
+- **But** it may be the house prices are on the way up when there are good economic times, and government has more revenue during good economic times for cleanup. Or people who move into this neighborhood might be better at lobbying for cleanup.
+- Treatment time is endogenous!
+
+
+---
+class: MSU
+# Diff-in-diff
+
+### Yet another example:
+`\(\tau\)` may be the start of an incentive program for solar panel installation in a state, and `\(y\)` is the number of solar panel installations in a given month.
+- If this incentive program is effective, we would expect to see an increase in the number of solar panels installed after `\(\tau\)`
+- **But** it might be that the program was enacted because policymakers thought solar would be becoming more popular everywhere
+- Treatment time is endogenous!
+  
+  
+--
+
+### The common theme is that treatment time may be endogenous, so `\(\beta_1\)` is biased.
+- `\(E[u|D]\neq 0\)`
+- Those time periods (months, years) that are treated have different `\((Y_{t0},Y_{t1})\)`
+- Here, potential outcomes are over **time**.
+
+---
+class: MSU
+# Diff-in-diff
+
+## Counfounder:
+
+###We might say:
+&gt; There is an unobserved, time-variant trend confouding our estimate
+
+**Confounder** is something that is biasing our estimate by "looking like" our treatment variable `\(D\)`.
+
+**National** trends **confound** our estimate when they coincide with treatment time `\(\tau\)`.
+
+
+
+---
+class: MSU
+# Diff-in-diff
+
+When we have panel data, we have multiple `\(i\)`'s with treatment:
+$$
+`\begin{eqnarray}
+y_{1t} &amp;=&amp; \beta_0 + \beta_1 D_{1t} + u_{1t} \nonumber \\
+y_{2t} &amp;=&amp; \beta_0 + \beta_1 D_{2t} + u_{2t} \nonumber
+\end{eqnarray}`
+$$
+
+Unfortunately, we can't just fixed-effect away the problem. We would worry that:
+`$$y_{it} = \beta_0 + \beta_1 D_{t} + \phi_i + u$$`
+
+is still potentially biased because *some other time-variant effect possibly correlated to the treatment time* confounds `\(\beta_1\)`. 
+- "There were going to be lots of solar panels installed anyways", etc.
+- National trend in employment going up
+
+---
+class: MSU
+# Diff-in-diff
+
+### The control group
+- Observed `\(i\)` that are not treated
+- They provide the counterfactual
+- They are affected by the same unobserved time trend
+- We should be able to "subtract off" that time trend
+- Let's use a new dummy variable for members of this group: 
+  - `\(TREAT_i=0\)` for those in the control group
+  - `\(TREAT_i=1\)` for those in the treatment group
+
+
+Since treatment is time-variant, let's re-name `\(D_t\)`:
+- `\(POST_t=0\)` in the pre-treatment period
+- `\(POST_t=1\)` in the post-treatment period.
+
+A treated `\(t\)` (time) for `\(i\)` (individual/unit) is `\(POST_t \times TREAT_i==1\)`
+
+---
+class: MSU
+# Diff-in-diff
+
+### First, take the before-after differences for the `\(i\)` that get treated:
+`$$\begin{align}
+\delta_{TREAT} &amp;= E[y|POST==1, TREAT==1] \\
+&amp;- E[y|POST==0, TREAT==1]\end{align}$$`
+`\(\delta_{TREAT}\)` is what we had before just looking at treated units before-after.
+
+
+As usual, we could get this from a regression of `\(Y\)` on `\(TREAT\)` and `\(POST\)`
+
+---
+class: MSU
+# Diff-in-diff
+### Second, take the before-after differences for the `\(i\)` that did not get treated:
+`$$\begin{align}\delta_{CONTROL} &amp;= E[y|POST==1, TREAT==0] \\
+&amp;- E[y|POST==0, TREAT==0]\end{align}$$`
+
+If we asssume that *this* `\(\delta_{CONTROL}\)` is "what would have happened to the treated in the absence of treatment", then it provides a good counterfacutal.
+
+---
+class: MSU
+# Diff-in-diff
+
+### Finally, take the *difference* in the *differences*:
+`$$\delta_{DID} = \delta_{TREAT} - \delta_{CONTROL}$$`
+That's it!
+
+--
+
+Plugging in those two equations and using `\(\bar{y}\)` for `\(E[y]\)`:
+`$$\begin{align}\hat{\delta}_{DID} &amp;= \left(\bar{y}_{TREAT=1,POST=1} - \bar{y}_{TREAT=1,POST=0}\right) \\
+&amp;- \left(\bar{y}_{TREAT=0, POST=1} - \bar{y}_{TREAT=0,POST=0} \right)\end{align}$$`
+---
+class: MSU
+# Diff-in-diff
+
+We know that we can get an unbiased and consistent estimate of 
+
+`$$E[y|TREAT=1,POST=1] - E[y|TREAT=1,POST=0]$$`
+
+using a regression **only** on `\(TREAT_i==1\)`:
+
+`$$y_{it} = \beta_0 + \beta_2 POST_t + u \quad \text{(using only treated } i)$$`
+
+Similarly, we could do the same for those observations where `\(TREAT_i==0\)`
+
+**But** there is an easier way to do it. In fact, we can do it in one well-specified regression we can etimate with OLS.
+
+
+---
+class: heading-slide
+name: section3
+
+DiD Estimation
+
+
+### [top](#Overview)
+
+---
+class: MSU
+# DiD Estimation
+
+#### We could regress:
+`$$y_{it} = \beta_0 + \beta_1 TREAT_i + \beta_2 POST_t + \underbrace{\beta_3}_{\delta_{DID}} TREAT_i * POST_t + u$$`
+We can see this by calculating:
+
+- `\(E[Y|TREAT=1,POST=1] = \beta_0 + \beta_1 + \beta_2 + \beta_3\)` 
+- `\(E[Y|TREAT=1,POST=0] = \beta_0 + \beta_1\)` 
+- `\(E[Y|TREAT=0,POST=1] = \beta_0 + \beta_2\)` 
+- `\(E[Y|TREAT=0,POST=0] = \beta_0\)` 
+
+--
+
+`$$\begin{align}\small
+E[y|TREAT=1,POST=1] - E[y|TREAT=1,POST=0] &amp;=&amp; \\ (\beta_0 + \beta_1 + \beta_2 + \beta_3) - (\beta_0 + \beta_1) &amp;=&amp; \beta_2 + \beta_3
+\end{align}$$`
+
+and 
+
+`$$\begin{align}\small
+E[y|TREAT=0,POST=1] - E[y|TREAT=0,POST=0] &amp;=&amp; \\ (\beta_0 + \beta_2 ) - (\beta_0 ) &amp;=&amp; \beta_2
+\end{align}$$`
+
+
+---
+class: MSU
+# DiD Estimation
+
+### In the regression:
+`$$y_{it} = \beta_0 + \beta_1 TREAT_i + \beta_2 POST_t + \underbrace{\beta_3}_{\delta_{DID}} TREAT_i * POST_t + u$$`
+
+`\(\delta_{DID}\)` is the difference between the before-after differences. It is the unexpected "jump" that occurs in the treatment `\(i\)` at time of treatment `\(t=\tau\)` relative to those that don't get treatment. 
+
+We can see this visually, and see the counterfactual.
+
+---
+class: MSU
+# DiD Estimation
+
+
+&lt;img src="img/MMfig51.PNG" width="90%" style="display: block; margin: auto;" /&gt;
+---
+class: MSU
+# DiD Estimation
+
+&lt;img src="img/MMfig54.PNG" width="90%" style="display: block; margin: auto;" /&gt;
+
+Note that the two lines have a common slope (parallel) and a single intercept shift when treatment started (1975).
+
+---
+class: MSU
+# DiD Estimation
+
+
+&lt;img src="img/MMfig53.PNG" width="90%" style="display: block; margin: auto;" /&gt;
+
+
+
+
+
+
+---
+class: heading-slide
+name: section4
+
+DiD Assumptions
+
+
+
+### [top](#Overview)
+
+
+---
+class: MSU
+# DiD Assumptions
+
+### Assumptions:
+
+We made an assumption when we were talking about controls and counterfactuals. Specifically, we made the assumption that the *unobserved time trend* would affect both the **treatment** and the **control** the same.
+
+Another way of saying this is (from MM):
+&gt; Absent any policy differences (treatment), the **trend** in the control group is what we would have seen in the treatment group.
+
+Or, from Wooldridge:
+&gt; The average trends would be the same for the control and treatment in the absence of treatment
+
+---
+class: MSU
+# DiD Assumptions
+
+#### This is the **parallel trends assumption**
+&gt; In the absence of treatment, the trends in both groups would have been the same.
+
+### We do not get to observe this
+We never see the treatment group's untreated trend after treatment.
+- That's why this is an assumption.
+
+### But we do see the pre-treatment trend
+Which may help us make a convincing argument
+- But can never guarantee that we our parallel trend assumption holds
+
+
+---
+class: MSU
+# DiD Assumptions
+
+
+&lt;img src="img/MMfig55.PNG" width="90%" style="display: block; margin: auto;" /&gt;
+
+---
+class: MSU
+# DiD Assumptions
+
+### Restating the parallel trends assumption a different way:
+We have to assume that there are no time-variant, `\(i\)`-specific effects. We can have constant `\(i\)`-specific fixed effects, we can have `\(t\)`-specific fixed effects (trends), but we can't have something that changes over time (e.g. changes right at the treatment time `\(\tau\)`) and *only* happens to the treated units.
+
+### The parallel trends assumption is our *identifying assumption*
+If it does not hold, we are not identifying the ATE as we cannot write it in terms of population parameters we can estimate from the data.
+
+If it does hold, then we do identify the `\(ATE\)` and it is `\(\delta_{DiD}\)`.
+
+---
+class: MSU
+# DiD Assumptions
+
+### More flexible DID
+We don't have to limit our fixed effects to `\(TREAT_i\)`. We can be more flexible:
+
+`$$y_{it} = \beta_0 + \beta_1 POST_t + \beta_2 TREAT_i + \beta_3 POST_t * TREAT_i + \phi_i + u_{it}$$`
+
+Here, `\(\beta_2\)` wouldn't be identified because it just a combination of `\(\phi_i\)`'s (remember our *full rank* assumption). Dropping it out results in a `\(DID\)` estimator that lets every treated (and control) group have its own intercept instead of one common one for all treated `\(i\)`. `\(\beta_3\)` is the `\(DID\)` estimator, has the same interpretation, and is identified.
+
+---
+class: MSU
+# DiD Assumptions
+
+### Time-varying treatment
+What if we have a treatment that isn't the same time period for all `\(i\)`? 
+`$$y_{it} = \beta_0 + \beta_1 D_{t} + \beta_2 TREAT_i + \beta_3 TREAT_i * D_{t} + u_{it}$$`
+This wouldn't work because there isn't a common `\(D_{t}\)`, and if we used `\(D_{it}\)`, we'd be estiamting `\(\beta_3\)`, which is already `\({it}\)`-specific!
+
+But:
+`$$y_{it} = \beta_0 + \beta_1 TREAT_i + \beta_2 TREAT_i * D_t + \delta_{t} + u_{it}$$`
+
+Where `\(\delta_{t}\)` flexibly controls for a common time trend. This would result in `\(\beta_2\)` being the `\(DID\)` estimate. .footnote[Recent work in DiD casts doubt on this when treatments are staggered]
+
+---
+class: MSU
+# Diff-in-diff extensions
+
+Finally, a very flexible:
+
+`$$y_{it} = \beta_0 + \beta_1 D_{it} + \delta_t + \phi_i + u_{it}$$`
+
+Where `\(D_{it}=1\)` during a post-treatment period in a treated `\(i\)`.
+
+---
+class: MSU
+# DiD Assumptions
+
+### `\(i\)`-specific trends
+We can relax the parallel trends assumption a little bit by assuming that we can estimate different time trends (using an interaction) and that these trends would *continue to hold even in the absence of treatment*. This is a "parallel trend in trends" assumption.
+
+`$$y_{it} = \beta_0 + \beta_1 D_{it} + \phi_i + \underbrace{\sum_{t=1}^{T} \delta_i * t}_{i-\text{specific time trend}} + u_{it}$$`
+
+So, we can have non-parallel trends, but we **do** have to assume that those trends **continue** in the absence of treatment.
+
+---
+class: MSU
+# DiD Assumptions
+
+
+
+&lt;img src="img/MMfig56.PNG" width="90%" style="display: block; margin: auto;" /&gt;
+---
+class: MSU
+# DiD Assumptions
+
+### There is no "test" for the parallel trends assumption
+- The assumption is a statement about *what the treated unit would have done in the absence of treatment*
+- We can *look* at the pre-treatment trends, but they do not guarantee us post-treatment trends
+  - If no pre-treatment parallel trends, really hard to say that post-treatment would be parallel.
+  
+
+### We can try a few things
+- A balance comparison like before when we talked about selection on observables
+- We could plot all of the treated units over time, centering them on the treatment date
+  - E.g. plot of 10,9,8,... years before treatment with colors by treated/untreated
+- Placebo test (randomly assign treatment and see if significant. It shouldn't be).
+- Add leads of the treatment variable:
+
+`$$\begin{eqnarray}
+y_{it} &amp;=&amp; \beta_0 + \beta_1 TREATMENT_i + \beta_2 POST_t + \beta_3 TREATMENT_i \times POST_t \\ \nonumber
+&amp;+&amp; \underbrace{\beta_4 TREATMENT_i \times POST_{t+1}}_{\text{Lead of 1}} + u_{it}
+\end{eqnarray}$$`
+
+
+
+---
+class: MSU
+# DiD Assumptions
+
+### Time-varying treatment
+It turns out that time-varying treatment is more complicated than we thought. This is because of two things
+
+- The treatment effect may be different over time
+  - E.g. in the first year after treatment vs. in the 5th year after treatment
+  - "Event study" finds the effect relative to the treatment year
+- When treatments are applied at different times, the "untreated" group being used to estimate the difference is different over time
+  - Never-treated
+  - Not-yet-treated
+  
+Work by many econometricians like Goodman-Bacon, Callaway and Sant'anna, Chaisemartin and D'Haultfoeuille,Sun and Abrahams, and more are working to establish difference-in-differences estimates that acknowledge this.
+
+---
+class: heading-slide
+name: section5
+
+DiD in R
+
+
+### [top](#Overivew)
+
+
+---
+class: MSU
+# DiD in R
+
+### We will use an example from [Scott Cunningham's excellent Causal Inference Mixtape](https://mixtape.scunning.com/difference-in-differences.html?panelset4=r-code5#difference-in-differences).
+- I highly encourage you to read the DiD chapter in this free book, and the rest of the text as well if you're interested in econometrics with causal inference. The book also dives into the Goodman-Bacon DiD decomposition, which addresses some of the varied timing problems we discussed at the end of the last video. 
+- For now, we'll stick to the traditional DiD example, but note that there are issues with the estimate due to differential timing.
+
+This example looks at the effect of the *castle doctrine* on homicide rates by states. The *castle doctrine* basically permits citizens to use deadly force within their home without a duty to retreat. Critics have indicated that this leads to more gun violence, while proponents claim it makes people safer and allows for self-defense. We are econometricians, not politicians, so we are interested in the empirical effects.
+
+This is a good opportunity for a difference-in-differences because we think there are some state-specific characteristics that might lead to both higher homicide rates *and* selection into passing a castle doctrine.
+
+You'll need the `haven` packages installed to read `.dta` files. We won't do the full paper recreation done on the Causal Inference website. Instead, we'll generate our interacted (DiD) treatment variable and only use the two-way fixed effects. The book uses far more controls, but the same underlying two-way fixed effects.
+
+---
+class: MSU
+# DiD in R
+
+The data has a field called `effyear` that shows what year the castle doctrine was enacted in each state. Those with `NA` for `effyear` are never-adopters. So, we need to make a variable that is `1` if `year &gt; effyear` **and** the state is a treatment state (enacted the castle doctrine). We can do that as below:
+
+
+```r
+library(haven) # you need the haven package to read .dta files
+castle = read_dta('https://raw.github.com/scunning1975/mixtape/master/castle.dta')
+
+castle$TREATMENT = !is.na(castle$effyear)
+castle$INTX = castle$TREATMENT==T &amp; castle$year&gt;=castle$effyear
+```
+
+So, `castle$INTX` is our interaction of `TREATMENT` and `POST`. The coefficient will be the DiD coefficient.
+
+
+---
+class: MSU
+# DiD in R
+
+
+
+```r
+myDID = lm(l_homicide ~ INTX + unemployrt + income + police + as.factor(year) + as.factor(state), castle)
+coeftest(myDID, vcov = vcovHC, 'HC1')
+```
+
+```
+## 
+## z test of coefficients:
+## 
+##                                   Estimate  Std. Error  z value  Pr(&gt;|z|)    
+## (Intercept)                     1.5686e+00  3.1805e-01   4.9320 8.139e-07 ***
+## INTXTRUE                        9.0679e-02  3.5627e-02   2.5452 0.0109203 *  
+## unemployrt                     -7.7754e-03  1.1497e-02  -0.6763 0.4988352    
+## income                          5.1356e-06  5.0716e-06   1.0126 0.3112398    
+## police                          5.2316e-04  4.4073e-04   1.1870 0.2352218    
+## as.factor(year)2001             3.1064e-02  5.1337e-02   0.6051 0.5451105    
+## as.factor(year)2002             1.9001e-02  5.1660e-02   0.3678 0.7130218    
+## as.factor(year)2003             6.7740e-02  5.2723e-02   1.2848 0.1988509    
+## as.factor(year)2004             5.8649e-02  4.7427e-02   1.2366 0.2162367    
+## as.factor(year)2005             7.2961e-02  4.7480e-02   1.5367 0.1243701    
+## as.factor(year)2006             6.2021e-02  4.3789e-02   1.4164 0.1566691    
+## as.factor(year)2007             4.8966e-02  4.9130e-02   0.9967 0.3189241    
+## as.factor(year)2008             1.9367e-02  5.5733e-02   0.3475 0.7282187    
+## as.factor(year)2009            -3.4763e-02  8.0289e-02  -0.4330 0.6650351    
+## as.factor(year)2010            -8.2367e-02  7.8454e-02  -1.0499 0.2937703    
+## as.factor(state)Alaska         -4.4131e-01  1.3358e-01  -3.3037 0.0009541 ***
+## as.factor(state)Arizona        -2.3742e-02  5.7070e-02  -0.4160 0.6773937    
+## as.factor(state)Arkansas       -7.9500e-02  6.4654e-02  -1.2296 0.2188415    
+## as.factor(state)California     -1.6096e-01  8.9771e-02  -1.7930 0.0729665 .  
+## as.factor(state)Colorado       -7.8393e-01  9.9331e-02  -7.8921 2.972e-15 ***
+## as.factor(state)Connecticut    -8.7247e-01  1.2179e-01  -7.1639 7.841e-13 ***
+## as.factor(state)Delaware       -6.4259e-01  1.3857e-01  -4.6372 3.531e-06 ***
+## as.factor(state)Florida        -3.0502e-01  6.1623e-02  -4.9497 7.431e-07 ***
+## as.factor(state)Georgia        -8.3297e-02  6.0742e-02  -1.3713 0.1702792    
+## as.factor(state)Hawaii         -1.3053e+00  1.1547e-01 -11.3042 &lt; 2.2e-16 ***
+## as.factor(state)Idaho          -1.2451e+00  1.0597e-01 -11.7495 &lt; 2.2e-16 ***
+## as.factor(state)Illinois       -1.5086e-01  8.5644e-02  -1.7615 0.0781568 .  
+## as.factor(state)Indiana        -2.6341e-01  6.6959e-02  -3.9339 8.359e-05 ***
+## as.factor(state)Iowa           -1.4830e+00  8.7303e-02 -16.9870 &lt; 2.2e-16 ***
+## as.factor(state)Kansas         -6.1800e-01  8.5037e-02  -7.2674 3.663e-13 ***
+## as.factor(state)Kentucky       -3.8155e-01  6.9434e-02  -5.4951 3.905e-08 ***
+## as.factor(state)Louisiana       4.8500e-01  6.9821e-02   6.9464 3.747e-12 ***
+## as.factor(state)Maine          -1.4793e+00  1.0580e-01 -13.9817 &lt; 2.2e-16 ***
+## as.factor(state)Maryland        1.1209e-01  1.2178e-01   0.9205 0.3573160    
+## as.factor(state)Massachusetts  -1.0530e+00  1.0878e-01  -9.6803 &lt; 2.2e-16 ***
+## as.factor(state)Michigan       -1.1771e-01  7.7089e-02  -1.5270 0.1267667    
+## as.factor(state)Minnesota      -1.1949e+00  1.0927e-01 -10.9352 &lt; 2.2e-16 ***
+## as.factor(state)Mississippi     1.7028e-01  7.5461e-02   2.2565 0.0240385 *  
+## as.factor(state)Missouri       -1.3808e-01  6.4838e-02  -2.1296 0.0332041 *  
+## as.factor(state)Montana        -9.0324e-01  9.8383e-02  -9.1808 &lt; 2.2e-16 ***
+## as.factor(state)Nebraska       -8.7370e-01  9.1729e-02  -9.5248 &lt; 2.2e-16 ***
+## as.factor(state)Nevada          6.3348e-03  8.2114e-02   0.0771 0.9385072    
+## as.factor(state)New Hampshire  -1.8681e+00  1.4486e-01 -12.8962 &lt; 2.2e-16 ***
+## as.factor(state)New Jersey     -6.7602e-01  1.4206e-01  -4.7586 1.950e-06 ***
+## as.factor(state)New Mexico      1.1429e-01  7.6657e-02   1.4910 0.1359720    
+## as.factor(state)New York       -5.0085e-01  7.7396e-02  -6.4712 9.724e-11 ***
+## as.factor(state)North Carolina -1.1534e-01  5.0298e-02  -2.2931 0.0218412 *  
+## as.factor(state)North Dakota   -1.7366e+00  1.3500e-01 -12.8638 &lt; 2.2e-16 ***
+## as.factor(state)Ohio           -4.5744e-01  6.8164e-02  -6.7108 1.935e-11 ***
+## as.factor(state)Oklahoma       -2.5459e-01  4.7496e-02  -5.3603 8.310e-08 ***
+## as.factor(state)Oregon         -1.1092e+00  8.9416e-02 -12.4049 &lt; 2.2e-16 ***
+## as.factor(state)Pennsylvania   -2.1943e-01  7.7725e-02  -2.8232 0.0047549 ** 
+## as.factor(state)Rhode Island   -8.9730e-01  1.2087e-01  -7.4239 1.137e-13 ***
+## as.factor(state)South Carolina  3.0929e-02  5.0867e-02   0.6080 0.5431648    
+## as.factor(state)South Dakota   -1.1870e+00  1.7596e-01  -6.7458 1.522e-11 ***
+## as.factor(state)Tennessee      -7.6251e-02  5.8288e-02  -1.3082 0.1908126    
+## as.factor(state)Texas          -2.2452e-01  5.3855e-02  -4.1690 3.059e-05 ***
+## as.factor(state)Utah           -1.2916e+00  1.0371e-01 -12.4538 &lt; 2.2e-16 ***
+## as.factor(state)Vermont        -1.3620e+00  1.2557e-01 -10.8464 &lt; 2.2e-16 ***
+## as.factor(state)Virginia       -3.5717e-01  9.6088e-02  -3.7171 0.0002015 ***
+## as.factor(state)Washington     -8.5921e-01  9.7289e-02  -8.8315 &lt; 2.2e-16 ***
+## as.factor(state)West Virginia  -6.0597e-01  1.0574e-01  -5.7307 1.000e-08 ***
+## as.factor(state)Wisconsin      -8.7189e-01  7.4560e-02 -11.6938 &lt; 2.2e-16 ***
+## as.factor(state)Wyoming        -1.1322e+00  9.7907e-02 -11.5640 &lt; 2.2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+---
+class: MSU
+# DiD in R
+
+### The result
+Using this simple DiD specification, and assuming parallel trends (see [Causal Inference The Mixtape](https://mixtape.scunning.com/difference-in-differences.html?panelset4=r-code5&amp;panelset5=r-code6#replicating-cheng2013-sort-of) book for a long discussion on parallel trends here), we get a results of `\(\beta^{DiD} = .0818\)`. Since the outcome variable is logged homicide rate, this results suggests an 8.1% increase in the homicide rate when castle doctrine is enacted.
+
+Of course, there are many things omitted to be controlled for, and one could argue that the assumptions do not actually hold. But our task -- learning DiD -- is done.
+
+
+&lt;br&gt;&lt;br&gt;
+
+For other interesting examples, see Video 5.1 at [https://mattmasten.github.io/bootcamp/](https://mattmasten.github.io/bootcamp/)
+
+
+
+---
+class: heading-slide
+name: section6
+
+Introducing Regression Discontinuity
+
+
+### [top](#Overview)
+
+
+
+
+
+---
+class: MSU
+
+# Regression Discontinuity
+
+### Let's return to the endogeneity issue:
+`$$\color{blue}{y_{i} = \beta_0 + \beta_1 D_i + \beta_2 x_{i} + u_{i}}$$`
+
+And we have the usual endogeneity problem that: `\(D_i\)` may be correlated with `\(u_i\)`, even once we condition on exogenous `\(x_i\)`.
+
+--
+
+### Let's set up an example
+.pull-left[
+- `\(y_i\)` is semesters of college attended
+- `\(D_i\)` is "getting a scholarship"
+]
+
+.pull-right[
+
+- `\(x_i\)` is parental income
+- `\(u_i\)` is potentially endogenous error
+]
+
+We might think that *ability*
+  1. Affects semesters of college attended
+  2. Unobserved (and thus in `\(u_i\)`)
+  3. Correlated with getting a scholarship
+
+--
+
+`$$\Rightarrow (Y_{i0},Y_{i1}) \not\perp D_i | x_i$$`
+
+
+---
+class: MSU
+# Regression Discontinuity
+
+### Let's return to the endogeneity issue:
+`$$\color{blue}{y_{i} = \beta_0 + \beta_1 D_i + \beta_2 x_{i} + u_{i}}$$`
+
+### What if we had a scholarship that was awarded to all students with a 1200 SAT score or above?
+- `\(D_i = 1(SAT_i &gt; 1200)\)`
+
+### Does this solve our endogeneity problem?
+- Is `\(SAT_i\)`, the student's SAT score, exogenous?
+--
+
+- What do we learn about scholarships in general from understanding the effect of *this* particular scholarship? We'll return to this in a little bit.
+
+---
+class: MSU
+# Regression Discontinuity
+
+### Does this solve our endogeneity problem?
+- Is `\(SAT_i\)`, the student's SAT score, exogenous?
+
+### What if I compared a student with an 800 to a student with a 1600 (and with the exact same `\(x_i\)`)
+
+- Would you be concerned about that unobserved *ability* in `\(u_i\)`?
+
+--
+
+### What about comparing a 900 student to a 1500 student?
+
+--
+
+### What about comparing a 1000 student to a 1400 student?
+
+--
+
+### What about comparing a 1100 student to a 1300 student?
+
+---
+class: MSU
+# Regression Discontinuity
+
+### What about comparing a 1190 student to a 1210 student?
+
+--
+
+### What about comparing a 1199 student to a 1201 student?
+
+---
+class: MSU
+# Regression Discontinuity
+
+&lt;br&gt;&lt;br&gt;
+The intuition behind RD is as follows:
+### If we compare students within a *small enough window* around a threshold, then treatment `\(D_i\)` is **as good as randomly assigned**
+
+Whatever we were worried about in the error term that was correlated with `\(D_i\)` (and was correlated with SAT score) would be unlikely to be correlated with such a tiny, tiny difference in SAT scores. 1199 and 1201 is not much of a difference.
+
+--
+
+`\(\rightarrow\)` *as good as randomly assigned* lets us treat the treatment as **exogenous**
+
+The *unobserved* endogenous problem in `\(u_i\)` is no longer a problem!
+
+---
+class: MSU
+# Regression Discontinuity
+
+### Let's make this assumption formal, and see how to leverage this intuition
+
+
+
+
+
+---
+class: heading-slide
+name: section7
+
+
+RD Assumptions and Estimations
+
+
+### [top](#Overview)
+
+
+
+
+
+
+
+---
+class: MSU
+# RD Assumptions and Estimation
+
+### What do we need for an RD?
+I. A **threshold**
+  - And it has to be exogenous
+  - Usually from a policy
+  - Arbitrary policies are...great!
+
+&lt;img src="img/RD_Federalism.jpg" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+class: MSU
+# RD Assumptions and Estimation
+
+### What do we need for an RD?
+II. A **running variable**
+  - We need some variable that crosses the threshold
+    - It cannot be binary
+  - It has to be *observed*
+  - It has to determine the treatment of interest `\(^\dagger\)`
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&gt; "Although treatment isn't randomly assigned, we know where it comes from"
+
+.pull-right[ 
+`\(-\)` Mastering Metrics, Ch. 4]
+
+.footnote[ 
+`\(^\dagger\)` A *fuzzy* RD relaxes this assumption]
+---
+class: MSU
+# RD Assumptions and Estimation
+
+### The **running variable** in our example is SAT score
+- Crosses the threshold
+- Non-binary
+- Observed
+- Determines scholarship (treatment) discontinuously
+  - A "jump"
+
+---
+class: MSU
+# RD Assumptions and Estimation
+
+### What do we need for an RD?
+III. A **window**
+  - We need somewhere to "draw the line"
+  - In our SAT example, some of us would have been OK with 1150 and 1250. 
+    - Some would want 1190 to 1210
+    - Some would say 1195 to 1205
+
+
+
+---
+class: MSU
+# RD Assumptions and Estimation
+
+### A **threshold**
+- Set exogenously
+
+### A **running variable**
+- Determines treatment
+- Continuous
+- Observable
+
+### A **window**
+- How close is close enough
+
+### The identifying assumption:
+.large[Within a small enough **window**, the treatment (as determined by the **running variable** and the **threshold**) is as good as randomly assigned]
+
+---
+class: MSU
+# RD Assumptions and Estimation
+
+### Specification of an RD
+- Let's call the running variable `\(x_r\)`
+- Let's call the threshold `\(\tau\)`
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+--
+
+### Our RD equation would be:
+`$$y_i = \beta_0 + \beta_1 D_i + \beta_2 x_{i,r} + \beta_3 x_{exogenous} + u_i$$`
+
+.pull-left[
+- `\(y_i\)` is outcome
+- `\(D_i=1(x_{i,r} &gt; \tau)\)`
+- `\(\tau\)` is the threshold
+]
+
+.pull-right[
+- `\(x_{i,r}\)` is the *running variable*
+- `\(x_{i, exogenous}\)` is an exogenous covariate (a control)
+- `\(u_i\)` is the error
+]
+
+
+---
+class: MSU
+# RD Assumptions and Estimation
+
+### Our RD equation would be:
+`$$y_i = \beta_0 + \beta_1 D_i + \beta_2 x_{i,r} + \beta_3 x_{exogenous} + u_i$$`
+
+and
+
+`$$D_i = 1(x_{i,r} &gt; \tau)$$`
+
+&lt;br&gt;
+#### Note that we have a continuous running variable `\(x_{i,r}\)` with a linear coefficient
+- We can still control for the effect of the running variable
+- That's why we need the `\(\tau\)` threshold where treatment "jumps"
+
+#### And we can still control for other things
+- `\(x_{exogenous}\)`
+
+---
+class: MSU
+# RD Assumptions and Estimation
+
+### Our RD equation would be:
+`$$y_i = \beta_0 + \beta_1 D_i + \beta_2 x_{i,r} + \beta_3 x_{exogenous} + u_i$$`
+
+#### But where is the window?
+- We *could* just use a sample within the window
+- Define the window as being (a,b)
+  - R: `myData[myData$xir &gt;=a &amp; myData$xir &lt;=b,]`
+--
+
+- Another option is to use *local linear regresion*, which can be implemented as a *weighted regression*
+
+---
+class: MSU
+# RD Assumptions and Estimation
+
+### A quick aside to establish weighted regression:
+We know that OLS minimizes the sum of the squared error term `\(u_i\)`
+`$$\sum (y_i - \beta_0 - \beta_1 x_1)^2 = \sum (u_i)^2$$`
+
+### Weighted regression just puts weights on that sum:
+`$$\sum w_i(u_i)^2$$`
+and 
+
+`$$\sum w_i = 1$$`
+
+---
+class: MSU
+# RD Assumptions and Estimation
+
+### Weights can set the estimation sample
+If we said that `\(w_i=0\)` if `\(i\)` is not "in the window", and constant otherwise, we would just be setting the estimating sample.
+
+### Weights can be continuous
+What if we set `\(w_i\)` to be some function of *how far away from the threshold* an observation `\(x_{i,r}\)` is?
+- If `\(x_{i,r}\)` is far away from `\(\tau\)`, then it gets a low weight
+- If `\(x_{i,r}\)` is practically equal to `\(\tau\)`, then it gets a high weight
+
+`$$\tilde{w_i} = \frac{1}{|x_{i,r}-\tau|}$$`
+
+Of course, we might have to re-scale all the `\(w_i\)`'s to make sure they add to 1:
+
+`$$w_i = \frac{\tilde{w}_i}{\sum_{j=1}^N \tilde{w}_j}$$`
+
+
+---
+class: MSU
+# RD Assumptions and Estimation
+
+### This "local linear regression" because it puts more weight on those observations where `\(x_{i,r}\)` is very close to `\(\tau\)`
+- You still have to determine the form of the weights
+- We call the function that generates weights the *kernel*
+- Since we are not making an assumption about how the distance away from `\(\tau\)` enters the main regression, this is **non-parametric**.
+
+
+---
+class: MSU
+# RD Assumptions and Estimation
+
+### Other kernels include:
+.pull-left[
+- Rectangular Kernel
+  - Puts equal weight on all observations between `\(a\)` and `\(b\)`]
+  
+.pull-right[
+- Triangle Kernel
+  - Puts weight on those closer to the center
+]
+
+&lt;img src="figs/Kernels-1.png" style="display: block; margin: auto;" /&gt;
+---
+class: MSU
+# RD Assumptions and Estimation
+
+Applying weights to OLS is easy:
+
+`myOLS = lm(Y ~ X1 + D + X2, data=myData, weights = 1/abs(myData$X1 - tau))`
+
+--
+
+"Local Linear Regression" will also usually allow for a different slope on each side of the cutoff `\(\tau\)`
+
+`$$y = \beta_0 + \beta_1 X_1 + \beta_2 D + \beta_3 D \cdot X_1 + \beta_4 X_2 + U$$`
+
+`myOLS = lm(Y ~ X1 + D + X1*D + X2, data = myData, weights = 1/abs(myData$X1-tau))`
+
+
+
+
+
+---
+class: heading-slide
+name: section8
+
+
+RD Examples
+
+
+### [top](#Overview)
+
+
+
+---
+class: MSU
+# RD Examples
+
+### Example 1
+Maimonides Rule
+- 12th century rabbinic scholar who determined that 40 students was the max. class size.
+- Anything larger had to be cut into two 20/21-person classes
+- Angrist and Lavy (1999) used threshold to look at effect of class size on student outcomes
+--
+
+  - What is the endogeneity problem between student outcomes and *assignment* of class sizes?
+  - What is the threshold and is it exogenously set?
+  - What is running variable?
+  - Evaluate whether or not we have an as-good-as-random treatment assignment
+  
+---
+class: MSU
+# RD Examples
+
+### Example 2
+Superfund cleanup
+- All superfund sites have a risk score
+- Congress determines how far down the 
+- Greenstone and Gallagher (2008) and Gamper-Rabindran and Timmins (2011) used threshold to look at effect of cleanup on housing prices
+--
+
+  - What is the endogeneity problem between home values and *assignment* of superfund cleanup?
+  - What is the threshold and is it exogenously set?
+  - What is the running variable?
+  - Evaluate whether or not we have an as-good-as-random treatment assignment
+  
+
+
+
+---
+class: heading-slide
+name: section9
+
+
+More Regression Discontinuity
+
+
+### [top](#Overview)
+
+
+
+
+---
+class: MSU
+# Running Variables
+
+### We have to be very careful with our *running variable* as it crosses the threshold
+- We assume that it is "smooth" over the threshold
+- This means we can estimate it's effect on the outcome `\(y\)` separate from the effect of crossing the threshold
+  - Remember, crossing the threshold triggers treatment
+  
+### We control *flexibly* for the relationship between `\(x\)`, the running variable; and `\(y\)`, the outcome.
+- How?
+
+
+---
+class: MSU
+# Running Variables
+
+### A linear control
+Assumes it's a constant marginal effect (a straight line)
+
+`$$\color{blue}{y_{i} = \beta_0 + \beta_1 D_i + \beta_2 x_{i,r} + u_{i}}$$`
+
+&lt;img src="img/MMfig43a.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+class: MSU
+# Running Variables
+
+`$$\color{green}{y_{i} = \beta_0 + \beta_1 D_i + \beta_2 x_{i,r} + \beta_3 x_{i,r}^2 + \beta_4 x_{i,r}^3 + u_{i}}$$`
+
+&lt;img src="img/MMfig43b.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+
+---
+class: MSU
+# Running Variables
+
+`$$\color{brown}{y_{i} = \beta_0 + \beta_1 D_i + \beta_2 (x_{i,r}-\tau) + \beta_3 (x_{i,r}-\tau) * D_i + u_{i}}$$`
+Here, we let the *slope* of the coefficient on the running variable change when it crosses the threshold. To the left of the threshold, `\(\frac{dy}{dx_{i,r}}=\beta_2\)`, and to the right, it is `\(\beta_2 + \beta_3\)` (dashed line).
+
+&lt;img src="img/MMfig44.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+class: MSU
+# Running Variables
+
+&lt;img src="img/MMfig43c.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+This one is not so good - the dashed line fits a possible non-linear trend.
+- Note that there is an upward trend just before the threshold
+- That trend is more consistent with a polynomial trend, and the linear trend + threshold gives a false effect.
+
+---
+class: MSU
+# RD Diagnostics
+
+### The implicit assumption in our RD "window"
+is that everything else *around* the threshold `\(\tau\)` varies *smoothly*
+- Then, we can control for it parametrically.
+
+### Which means that *other variables* not affected by the treatment should vary smoothly over the threshold
+- After all, if some unrelated variable is "jumping" at the threshold, then we shouldn't have much confidence in that threshold being exogenous
+  - And this would ruin our assumption.
+  
+  
+&gt; (Z)ero effects on outcomes that should be unchanged by treatment raise our confidence in the causal effects we are after
+
+.pull-right[ `\(-\)` Mastering Metrics]
+
+
+  
+---
+class: MSU
+# RD Diagnostics
+
+&lt;img src="img/MMfig45.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+
+---
+class: MSU
+# Fuzzy RD
+
+### What if the threshold doesn't perfectly determine treatment, but the other assumptions hold?
+In this case, we would have:
+- Something exogenous
+- That has an affect on treatment
+- But doesn't affect outcome except through treatment
+
+--
+
+### It's an instrument!
+
+---
+class: MSU
+# Fuzzy RD
+
+Back to our original example, except maybe we don't have perfect awarding of scholarships to SAT&gt;1200
+
+### First Stage:
+`$$\color{red}{SCHOLARSHIP_i = \alpha_0 + \alpha_1 SAT_i + \alpha_2 1(SAT_i&gt;1200) + \alpha_3 x_i + v_i}$$`
+This is just like our .blue[original] equation, but with `\(SCHOLARSHIP_i\)` on the LHS.
+
+---
+class: MSU
+# Fuzzy RD
+
+
+### Second Stage:
+`$$\color{red}{y_i = \beta_0 + \beta_1 \widehat{SCHOLARSHIP}_i + \beta_2 SAT_i + \beta_3 x_i + u_i}$$`
+
+`\(\beta_1\)` is our treatment of interest.
+
+Note that `\(SAT_i\)` is still in the second stage **but** the threshold dummy `\(1(SAT_i&gt;1200)\)` is *not*.
+
+This just follows the IV method, but gets the first-stage exogeneity from the RD specification! The *crossing of the threshold* is the exogenous event.
+
+---
+class: MSU
+# Fuzzy RD
+
+### In practice...
+We rarely get a threshold that is perfectly "sharp".
+- Age of drinking is pretty sharp
+- But many other things don't have a perfect relationship
+
+### So fuzzy is more common in the literature
+- And remember: when you have an instrument that is almost perfectly correlated with the endogenous variable, IV turns into OLS.
+  - If the first stage `\(Z\)` has a perfect prediction of `\(D\)`, then `\(\hat{D}=D=Z\)`
+
+
+
+
+---
+class: MSU
+# RD Wrap-Up    
+
+Hopefully, the RD *intuition* is clear
+- We find a source of exogeneity
+- We make our identifying assumptions about it explicit
+  - Which allows others to poke at them. Scientific method and such
+- And we implement it with OLS
+  - Or, in the case of weighted regression, something WOLS
+
+RD is only appropriate in certain circumstances
+- It's not always the right tool in the toolbox
+- Many seemingly random spatial boundaries (county lines, etc.) actually have a lot of variation in other unobservables when you cross them
+  - School district lines
+- Use wisely, and be prepared to *state and justify assumptions*.
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
