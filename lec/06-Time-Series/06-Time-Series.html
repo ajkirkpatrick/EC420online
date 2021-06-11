@@ -16,7 +16,7 @@ class: center, middle, inverse, title-slide
 # Time Series
 ## EC420 MSU Online
 ### Justin Kirkpatrick
-### Last updated June 10, 2021
+### Last updated June 11, 2021
 
 ---
 
@@ -77,6 +77,10 @@ name: Overview
 (5) [Stationarity](#section5)
 
 (6) [Lag Models: MA and AR](#section6)
+
+(7) [Asymptotic Properties](#section7)
+
+(8) [Random Walk](#section8)
 
 
 
@@ -817,7 +821,7 @@ class: MSU
 
 `$$\color{darkorange}{x_t = e_t + \alpha_1 e_{t-1}}$$`
 
-&lt;img src="img/MA1.png" width="469" style="display: block; margin: auto;" /&gt;
+&lt;img src="img/MA1.png" width="451" style="display: block; margin: auto;" /&gt;
 ### `\(x\)` has constant mean, constant variance
 
 ### `\(x_t\)` and `\(x_{t+h}\)` have the same covariance `\(\forall\)` `\(h\)`
@@ -902,6 +906,250 @@ The only way strict exogeneity can hold in an AR(1) model with `\(y_{t-1}\)` on 
 --
 
 ### But how does weakly dependent help?
+
+
+
+
+---
+class: heading-slide
+name: section7
+
+
+
+Asymptotic Properties of TS OLS
+
+
+
+### [top](#Overview)
+
+---
+class: MSU
+# Asymptotic Properties
+
+### TS.1' - Linearity and Weak Dependence
+`$$\{(\mathbf{x}_t, y_t):t = 1, 2, \cdots\}\text{ is stationary and weakly dependent}$$`
+
+in a model such as:
+
+`$$y_t = \beta_0 + \beta_1 x_{1,t} + \beta_2 x_{1,t-1} + \cdots + \beta_j y_{t-1} + u_{t}$$`
+Note that
+- `\(\mathbf{x}\)` has `\(x\)` and lags of `\(x\)`
+- `\(\mathbf{x}\)` also has lags of `\(y\)`
+
+### Really, we just need weak dependence, but Wooldridge includes stationarity
+
+--
+
+### TS.2' - No Perfect Multicolinearity (same as before)
+
+---
+class: MSU
+# Asymptotic Properties
+
+### TS.3' - `\(\mathbf{x}_t\)` is contemporaneously exogenous
+`$$E[u_t | \mathbf{x}_t] = 0$$`
+
+We've relaxed that pernicious **strict exogeneity** assumption from before by adding TS.1'
+
+- Remember, **strict exogeneity** was `\(E[u_t | \mathbf{X}]=0\)`, all future values of `\(\mathbf{x}_t\)`.
+
+- So as long as TS.1' and TS.3' hold, we don't have to worry about correlation between `\(u_{t-1}\)` and `\(x_t\)`, even when it's because `\(x_t\)` is related to past `\(y_{t-1}\)`!
+
+
+
+---
+class: MSU
+# Asymptotic Properties
+
+### With TS.1', TS.2', TS.3', `\(\hat{\beta}\)` is consistent
+Not necessarily unbiased, but with larger and larger `\(N\)`, the estimate gets better!
+
+So our **AR(q)** model estimators, if it meets TS.1'-TS.3', are consistent.
+- To meet TS.1', it has to be stable
+
+So are our **MA(q)** model estimators.
+
+So are our FDL estimators, even when future values of `\(x_t\)` are affected by `\(y_{t-1}\)`
+
+---
+class: MSU
+# Asymptotic Properties
+
+### TS.4' - Contemporaneous homoskedasticity
+`$$Var(u_t|\mathbf{x}_t) = \sigma^2$$`
+
+As opposed to TS.4 - `\(Var(u_t | \mathbf{X}) = \sigma^2\)`
+&lt;br&gt;
+### TS.5' - No Serial Correlation
+`$$Corr(u_t, u_s | \mathbf{x}_t, \mathbf{x}_s) = 0 \quad \forall t,s$$`
+As Wooldridge says, ignore the conditioning and just think of whether or not `\(u_t\)` and `\(u_s\)` are correlated.
+
+--
+
+Note that specifying an **AR(1)** when the real process is **AR(2)** results in serial correlation (because `\(y_{t-2}\)` is in the error and `\(y_t\)` is serially correlated)
+
+---
+class: MSU
+# Asymptotic Properties
+
+### Under TS.1'-TS.5', the errors are asymptotically normally distributed
+Which lets us use `\(t\)`-statistics, `\(F\)`-tests, confidence intervals, p-value, etc.
+
+We've skipped assuming normal errors and gone straight to using the **asymptotic properties**.
+
+So we need to be able to say we have a large `\(N\)`
+- Which means a large `\(T\)`
+
+---
+class: MSU
+# Asymptotic Properties
+
+Serial correlation in `\(u\)` is not the end of the world. We won't get to the solution, but briefly, here's how it works:
+
+### Heteroskedasticity and Autorcorrelation-Consistent Errors
+or **HAC**, are calculated for each `\(\beta_j\)` by multiplying each "naive" OLS std. error by a correction factor, `\(\hat{v}_j\)`
+- `\(\hat{v}_j\)` is a function of two things:
+  - `\(u_t\)`, as one would expect
+  - `\(r_t\)`, where `\(r_t\)` is the error in `\(x_{jt} = \alpha_0 + \alpha_1 x_{kt} + \cdots + r_t\)`
+  - When `\(\hat{u}_t\)` covaries with `\(\hat{r}_t\)` (the part of `\(x_{jt}\)` not explained by `\(\mathbf{x}_t\)`), the correction factor `\(\hat{v}_j\)` gets bigger.
+  - When lags of `\(\hat{u}_t \times \hat{r}_t\)` covary, `\(\hat{v}_j\)` gets bigger.
+  - How many lags to include is a question for another day (1? 2? 10?)
+  
+
+
+
+
+
+
+---
+class: heading-slide
+name: section8
+
+
+
+
+
+Random Walk
+
+
+
+### [top](#Overview)
+
+
+
+---
+class: MSU
+# Random Walk
+
+### A **random walk** is a highly persistent time series
+It is not *weakly dependent*, so it poses a problem to TS.1'-TS.5'
+
+### A random walk is a process that follows:
+`$$y_t = \rho y_{t-1} + e_t \text{ where } \rho=1$$`
+and `\(e\)` is iid, `\(E[e] = 0\)` (mean zero errors) and `\(Var(e) = \sigma^2_e\)`
+&lt;img src="figs/RW1-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+
+---
+class: MSU
+# Random Walk
+
+### We can write
+`$$y_t = \color{purple}{y_{t-1}} + e_t$$`
+which is the same as 
+`$$y_t = \color{purple}{y_{t-2} + e_{t-1}} + e_{t}$$`
+which generalizes to:
+`$$y_t = y_0 + e_{1} + e_{2} + \cdots + e_{t}$$`
+
+---
+class: MSU
+# Random Walk
+
+### A Random Walk has a constant `\(E[y_t]\)`
+`$$y_t = y_0 + e_{1} + e_{2} + \cdots + e_{t}$$`
+means
+`$$E[y_t] = E[y_0] + 0 + 0 + \cdots + 0$$`
+
+### But a Random Walk does not have constant variance:
+`$$Var(y_t) = Var(y_0) + Var(e_1) + Var(e_2) + \cdots + Var(e_t)$$`
+Which is `\(t\sigma^2_e\)`, so it changes over time!
+
+--
+
+### A Random Walk is not stationary and TSR.1'-TSR.5' do not hold!
+
+### Nor is a Random Walk covariance-stationary (depends on `\(t\)`), and is not weakly dependent.
+
+---
+class: MSU
+# Random Walk
+
+### So what do we do? First difference
+- Note that the `\(e_t\)` term is iid.
+- The issue is that the time series is highly persistent. 
+- `\(\rho=1\)` means nothing ever "dies out" as `\(t\rightarrow \infty\)`
+
+### First differencing eliminates the persistence:
+`$$y_t - y_{t-1} = \Delta y_t = (y_{t-1} + e_{t}) - y_{t-1} = e_t$$`
+
+And `\(e_t\)` is no longer persistent, no longer fails weak dependence, etc.
+
+--
+
+### Time Series that are weakly dependent after first differencing (FD)
+- Are called I(1)
+  - Integrated of order one
+- I(0) means not integrated (not random walk, no FD necessary)
+
+---
+class: MSU
+# Random Walk
+
+### So how do we know when `\(\rho=1\)` vs `\(\rho&lt;1\)`
+- Important because the first requires first differencing
+- The second, `\(\rho&lt;1\)`, is not highly persistent and is likely to be weakly dependent
+
+### The rough method
+- Regress the time series `\(y_t\)` on the first lag `\(y_{t-1}\)` with or without drift and see if `\(\rho\neq 1\)`
+  - `\(y_t = \alpha + \rho y_{t-1} + e_t\)` where `\(\alpha\)` is the drift term
+- Problem is, you only get a consistent estimate of `\(\rho\)` *if* `\(\rho&lt;1\)`
+
+
+### But there's a better way
+- We just have to handle the strange properties of an estimator that tests for `\(\rho=1\)` but has to assume that `\(\rho&lt;1\)`
+
+
+---
+class: MSU
+# Random Walk
+
+
+### Dickey-Fuller
+- See Ch. 18, *Testing for Unit Roots*
+- Define `\(\theta = \rho-1\)`
+- Subtract `\(y_{t-1}\)` from both sides of `\(y_t = \alpha + \rho y_{t-1} + e_t\)`
+- `\(\rightarrow \Delta y_t = \alpha + \theta y_{t-1} + e_t\)`
+- Test if `\(\theta = 0\)`
+- Dickey and Fuller (1979) showed that the distribution of this t-statistic has to be adjusted for the situation where `\(\rho=1\)`
+  - Adjustment can be expressed as new critical values with `\(\pm 2.86\)` replacing our usual `\(\pm 1.96\)`
+- Rejecting null hypothesis is equivalent to rejecting that `\(\rho=1\)`
+  - So rejecting null is rejecting Random Walk, rejecting that `\(y\)` is I(1)
+  
+### Fail to reject Dickey-Fuller?
+- If we fail to reject, then we say the data does not provide evidence against the series being I(1)
+- So we first difference it.
+
+---
+class: MSU
+# Thats It
+
+### You've made it to the end of time series
+
+--
+
+### And to the end of the course
+
+Congratulations.
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
