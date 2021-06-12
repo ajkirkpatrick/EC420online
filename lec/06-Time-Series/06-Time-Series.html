@@ -16,7 +16,7 @@ class: center, middle, inverse, title-slide
 # Time Series
 ## EC420 MSU Online
 ### Justin Kirkpatrick
-### Last updated June 11, 2021
+### Last updated June 12, 2021
 
 ---
 
@@ -68,11 +68,11 @@ name: Overview
 
 (1) [Introducing Time Series](#section1)
 
-(4) [Functional Forms and Time Trends](#section4)
+(2) [Functional Forms and Time Trends](#section4)
 
-(2) [Lag Models: Finite Distributed Lag](#section2)
+(3) [Lag Models: Finite Distributed Lag](#section2)
 
-(3) [Properties of Time Series Estimators](#section3)
+(4) [Properties of Time Series Estimators](#section3)
 
 (5) [Stationarity](#section5)
 
@@ -412,7 +412,7 @@ things tend to be correlated over time. `\(z_t\)` and `\(z_{t-1}\)` are probably
 
 ---
 class: heading-slide
-name: section3
+name: section4
 
 Properties of Time Series Estimators
 
@@ -446,7 +446,7 @@ First, a little notation:
 class: MSU
 # Properties of Time Series Estimators
 
-&lt;img src="img/something2.png" width="70%" style="display: block; margin: auto;" /&gt;
+&lt;img src="img/something2.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 `\(x_{2,2}=.24\)`
 
@@ -821,7 +821,7 @@ class: MSU
 
 `$$\color{darkorange}{x_t = e_t + \alpha_1 e_{t-1}}$$`
 
-&lt;img src="img/MA1.png" width="451" style="display: block; margin: auto;" /&gt;
+&lt;img src="img/MA1.png" width="35%" style="display: block; margin: auto;" /&gt;
 ### `\(x\)` has constant mean, constant variance
 
 ### `\(x_t\)` and `\(x_{t+h}\)` have the same covariance `\(\forall\)` `\(h\)`
@@ -835,8 +835,13 @@ class: MSU
 ### We can go beyond the first lag of `\(e\)` and have a MA(2) or more...
 `$$x_t = e_t + \alpha_1 e_{t-1} + \alpha_2 e_{t-2}$$`
 
-- This is still stationary
+- This is still stationary (try taking expectation of each side)
+  - `\(E[x_t] = E[e_t] + \alpha_1 E[e_{t-1}] + \alpha_2 E[e_{t-2}]\)`
+  - `\(\rightarrow E[x_t] = 0 + 0 + 0\)` which does not depend on `\(t\)`
+  
 - This is still weakly dependent
+  - Is there an `\(h\)` where `\(Cov(x_t, x_{t+h})=0\)`?
+  - Yes! `\(h&gt;2\)` does it.
 
 ---
 class: MSU

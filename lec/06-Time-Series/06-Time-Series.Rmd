@@ -127,11 +127,11 @@ name: Overview
 
 (1) [Introducing Time Series](#section1)
 
-(4) [Functional Forms and Time Trends](#section4)
+(2) [Functional Forms and Time Trends](#section4)
 
-(2) [Lag Models: Finite Distributed Lag](#section2)
+(3) [Lag Models: Finite Distributed Lag](#section2)
 
-(3) [Properties of Time Series Estimators](#section3)
+(4) [Properties of Time Series Estimators](#section3)
 
 (5) [Stationarity](#section5)
 
@@ -472,7 +472,7 @@ $z_t$ and $z_{t-1}$ might even be highly correlated
 
 ---
 class: heading-slide
-name: section3
+name: section4
 
 Properties of Time Series Estimators
 
@@ -506,7 +506,7 @@ First, a little notation:
 class: MSU
 # Properties of Time Series Estimators
 
-```{r SampleTS1, echo=F, include=T, warning=F, out.width='70%'}
+```{r SampleTS1, echo=F, include=T, warning=F, out.width='60%'}
 ts1 = tibble(
   t = 1:4,
   x_1 = c(2,3,1,2),
@@ -906,7 +906,7 @@ class: MSU
 
 $$\color{darkorange}{x_t = e_t + \alpha_1 e_{t-1}}$$
 
-```{r MA1, echo=F, include=T}
+```{r MA1, echo=F, include=T, out.width = '35%'}
 NN = 5
 ma1 = tibble(t = 1:NN,
              e = round(rnorm(NN, 0, 1), 1),
@@ -930,8 +930,13 @@ class: MSU
 ### We can go beyond the first lag of $e$ and have a MA(2) or more...
 $$x_t = e_t + \alpha_1 e_{t-1} + \alpha_2 e_{t-2}$$
 
-- This is still stationary
+- This is still stationary (try taking expectation of each side)
+  - $E[x_t] = E[e_t] + \alpha_1 E[e_{t-1}] + \alpha_2 E[e_{t-2}]$
+  - $\rightarrow E[x_t] = 0 + 0 + 0$ which does not depend on $t$
+  
 - This is still weakly dependent
+  - Is there an $h$ where $Cov(x_t, x_{t+h})=0$?
+  - Yes! $h>2$ does it.
 
 ---
 class: MSU
