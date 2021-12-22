@@ -497,7 +497,7 @@ knitr::kable(df, format='latex', align = 'cc') %>%
 ]
 
 
-.pull-right[
+.pull-right[ 
 
 One particularly important property is revealed here: the sum of all deviations from the *sample mean* is zero.
 
