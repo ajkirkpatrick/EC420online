@@ -1,7 +1,7 @@
 ---
 title: "Midterm Review"
 subtitle: "EC420 MSU"
-author: "Justin Kirkpatrick"
+author: "Justin Kirkpatrick<br>.orange[Follow along: https://bit.ly/MSUEC420_midterm]"
 date: "Last updated `r format(Sys.Date(), '%B %d, %Y')`"
 output:
   xaringan::moon_reader:
@@ -192,6 +192,13 @@ If you are stuck in working though the quiz questions, ask for help!
 
 ### Class is curved overall
 - Credit/No Credit grading option doesn't change curve (I don't see what you choose)
+
+---
+class: MSU
+# Link
+
+### For those who arrived late:
+https://bit.ly/MSUEC420_midterm
 
 
 ---
