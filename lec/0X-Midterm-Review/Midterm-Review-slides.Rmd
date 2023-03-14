@@ -41,6 +41,7 @@ require(broom)
 require(wooldridge)
 require(lmtest)
 require(sandwich)
+require(flair)
 
 
 options("getSymbols.warning4.0"=FALSE)
@@ -97,47 +98,106 @@ name: Overview
 
 # This Review
 
-### Today, we will spend 60 minutes or so reviewing some key concepts that will be necessary for the midterm
+### Today, we will spend our time reviewing some key concepts that will be necessary for the midterm
 
-1. The slides **absolutely will not** be a complete and total review. They will be guides that we will use during class.
+1. The slides **will not** be a complete and total review. They will be guides that we will use during class.
 
 3. Ask questions.
 
 5. These topics are not an exhaustive list of things you should know. They are the core concepts of the course.
 
 6. Use the practice problems online. Be able to do them by hand with your calculator.
+
   - But most importantly, know *what* you are doing as you do them.
   
   
+
+
 ---
 class: MSU
-# The Midterm
+# The midterm
 
-### The midterm will be very much like your quizzes, but with short- and long-answer questions.
-- Mix of multiple choice, short answer, interpretation, and numeric exercises
-- Heavier on interpretation of coefficients and thinking through problems
-- Cumulative up to and including last week
-  - Interactions in regression
-
---
-
-- You are permitted to have a "cheat sheet". I will **not** be providing anything more than that most basic formulas, so make sure you have a robust set of notes.
-  - One page, two sides, 8.5 x 11 paper.
-  - No funny stuff
+### There were three types of questions turned in
+- Very insightful and targeted questions, all of which are covered here
+- Very general questions "can you go over regression please"
+- A small number of people who have not yet attended class nor read our syllabus nor checked their emails
+  - I am rolling my eyes at you, but have incorporated your questions here as well
+  
   
 ---
 class: MSU
 # The midterm
 
-### I cannot over-emphasize enough that the quizzes are vital to your understanding of the material.
+### There are two parts: the first will be very much like your quizzes but with short answer
+- 30 points
+- Multiple Choice
+- 3-5 interpretation / slightly longer answers (1-2 sentences)
+- Heavier on interpretation of coefficients and thinking through problems
+- Cumulative up to and including last week
+  - Interactions in regression
+
+### The second part will look a **lot** like the practice numeric problem
+- It is 50 points
+- Consider your timing
+
+### No computers, no internet, no book
+
+
+---
+class: MSU
+# The midterm
+
+
+- You are permitted to have a "cheat sheet". I will **not** be providing anything more than that most basic formulas, so make sure you have a robust set of notes.
+  - One page, two sides, 8.5 x 11 paper.
+  - No funny stuff
+
+- You need a non-internet-capable calculator
+  - ABSOLUTELY no phones
+  - Pencils + eraser
+  
+- The exam is in person, no exceptions
+
+
+
+
+---
+class: MSU
+# The midterm
+
+### There are practice problems on D2L
+- They have been there all semester
+- I mention them approximately one per class meeting
+- We walked through an example in the videos
+- We did one in class up to $\hat{\beta}_1$
+- I literally state "you will need to know this for the midterm. Watch your toes, I'm dropping hints".
+
+### Single-variable only for the numeric problem
+- I won't ask you to do a multivariate by hand
+- But you do need to know what is going on when we ask R to do a multivariate regression:
+  - Partialling out
+  - Different formula for multivariate $se(\hat{\beta}_1$)
+    - Has $(1-\hat{R}^2_j)$
+  
+  
+
+---
+class: MSU
+# The midterm
+
+### Quiz questions are a good source of material
 If you are stuck in working though the quiz questions, ask for help!
 
 ### TA Office Hours are in syllabus.
 
+### Class is curved overall
+- Credit/No Credit grading option doesn't change curve (I don't see what you choose)
+
+
 ---
 class: heading-slide
 
-Prof. Kirkpatrick's chosen topics
+Questions from RR3
 
 ---
 class: MSU
@@ -158,6 +218,16 @@ From a prior year's quiz:
 $X \sim N(\mu_X, \sigma^2_X)$ an $Y \sim N(\mu_Y, \sigma^2_Y)$. Define $W = aX + Y$ where $a$ is a constant. What is $E[W]$ and $Var(W)$?
 - $E[W] = E(aX+Y) = ??$
 - $Var(W) = Var(aX+Y) = ??$
+
+---
+class: MSU
+# Variance and Covariance
+
+### Rescaling $\beta$
+- Using the rules of $E$, $Var$ and $Cov$, what would happen if we multiplied $X$ by 2?
+
+$$\frac{\widehat{Cov}(2X, Y)}{\widehat{Var}(2X)} = $$
+
 
 ---
 class: MSU
@@ -208,17 +278,35 @@ class: MSU
 # Population vs. Sample
 
 ### The Population Regression Function (PRF)
-$$E[Y|X] = \beta_0 + \beta_1 x_1 + \beta_2 x_2$$
+$$E[Y|X] = \beta_0 + \beta_1 X_1 + \beta_2 X_2$$
+
+- This tells us about the population. That is, it tells us something about the *world*.
+- It may tell us that cigarettes shorten your life, or that having a college education increases your wages *ceteris paribus*
 
 ### The Sample Regression Function (SRF)
 $$\hat{y} = \hat{\beta}_0 + \hat{\beta}_1 x_1 + \hat{\beta}_2 x_2$$
 
 - The SRF is the OLS regression line - it is the fitted values ( $\hat{y}$ ) using the regression estimate
+- It lets us test us something about the true population values
 - It should never have the $u$ or $\hat{u}$ in it
   - It never has $y$ in it, only $\hat{y}$
 - $\hat{y}$ given $\hat{\beta}$ and $x_1,x_2$ is our best estimate of $E[Y|X_1 = x_1, X_2 = x_2]$
-  
-  
+
+---
+class: MSU
+# Population vs. Sample
+
+
+### The Sample Regression Function (SRF)
+$$\hat{y} = \hat{\beta}_0 + \hat{\beta}_1 x_1 + \hat{\beta}_2 x_2 + \cdots$$
+
+- $\hat{y}$ given $\hat{\beta}$ and $x_1,x_2$ is our best estimate of $E[Y|X_1 = x_1, X_2 = x_2]$
+- $\hat{y}$ is the $E[Y|X]$. Note that there is no $\hat{u}$ here. In **expectation** it is zero
+- We can get $\hat{u}$ by looking at the difference between $\hat{y}$ and $y$ for each observation: 
+  - $\hat{u} = y - \hat{y}$ for each observation
+- We then use $\hat{u}$ as our sample version of $u$
+  - $u$ is the error and $\hat{u}$ is the residual
+
 ---
 class: MSU
 # R
@@ -226,14 +314,13 @@ class: MSU
 It would behoove you to know the use of the basic R commands that appeared in your homeworks:
 
 - .pseudocode[lm]
-- .pseudocode[which]
-- .pseudocode[coeftest] for robust errors
+- .pseudocode[coeftest] for HC-robust errors
 - .pseudocode[df[1,5:6]] to index row 1, columns 5-6
 - .pseudocode[plot]
 
-
-You should know the inputs and outputs from our most commonly used functions. A simple review of your problem sets will get you there.
-
+### Very little of the test will involve any use of R
+- Your problem sets evaluate your progress in R.
+- The midterm is about the concepts you are implementing in R
 
 ---
 class: MSU
@@ -300,6 +387,7 @@ are **as if we had partialed $x_2$ out of $x_1$, and partialed $x_1$ out of $x_2
 
 ---
 class: MSU
+exclude: true
 # Partialing Out
 
 ### Let's compare a simple and multiple regression estimates
@@ -321,14 +409,19 @@ class: MSU
 # Variance in multiple regression
 
 ### The variance of $\hat{\beta}_1$ in single variable:
-$$\frac{\sigma^2_u}{SST_x}$$
+$$\frac{\hat{\sigma}^2_u}{SST_x}$$
 
 ### The variance of $\hat{\beta}_j$ in multiple regression:
-$$\frac{\sigma^2_u}{SST_{x_j}(1-\hat{R}^2_j)}$$
+$$\frac{\hat{\sigma}^2_u}{SST_{x_j}(1-\hat{R}^2_j)}$$
 
 where $\hat{R}^2_j$ is the $R^2$ from a regression of
 $$x_j = \delta_0 + \delta_1 x_k + \cdots + v$$
 - It is "how much of $x_j$ is explained by the other variables, $x_k, \cdots$"
+
+--
+
+Note: we don't care about $se(\hat{\beta}_0)$
+
 
 ---
 class: MSU
@@ -340,8 +433,24 @@ $$\hat{\sigma}^2_u = \frac{SSR}{N-K-1} = \frac{\sum_{i=1}^N \hat{u}^2}{N-K-1}$$
 ### We subtract K and 1 because of the number of parameters we are estimating
 - In single-variable, we did $N-2$, which is $N-K-1$ when $K=1$
 
-### $\hat{\sigma}^2$ is then used in the formula for $Var(\hat{\beta})$
+### $\hat{\sigma}^2_u$ is then used in the formula for $Var(\hat{\beta})$
 
+---
+class: MSU
+# Variance in multiple regression
+
+### A quick note on df, the *degrees of freedom*
+- Degrees of freedom start with our sample size, $N$
+- We lose one degree of freedom per "thing that is a function of the data"
+  - When we calculated variance of $Y$, we use $(y_i - \bar{y})$
+  - $\bar{y}$ was from the data
+  - So our sample variance used $\frac{1}{N-1}$
+- When we have a single variable regression:
+  - Sample variance of $X$ is still calculated with $N-1$ df. .orange[Why?]
+  - The variance of $\hat{u}$, which we call $\hat{\sigma}^2_u$, however, uses *two estimated things*: $\hat{\beta}_0$ and $\hat{\beta}_1$.
+  - $\Rightarrow N-2$ df
+- In multivariate
+  - $\hat{\sigma}^2_u$ uses $N-K-1$ df, where $K$ is the number of X's (and the -1 is from $\beta_0$)
 
 ---
 class: MSU
@@ -350,16 +459,62 @@ class: MSU
 ### You will need to have memorized the following:
 
 - $SST = \sum_{i=1}^n (y_i - \bar{y})^2$
-- $SSR = \sum_{i=1}^n (u_i - \bar{u})^2$
+- $SSR = \sum_{i=1}^n (\hat{u}_i - \bar{u})^2$
 - $SSE = \sum_{i=1}^n (\hat{y} - \hat{\bar{y}})^2$
 - $SST = SSR + SSE$
 
 You will also need to be able to interpret them (what do they mean)
 
-### Be able to calculate an $R^2$ (as on the quiz)
+### Be able to calculate an $R^2$
 - $R^2 = \frac{SSE}{SST} = 1 - \frac{SSR}{SST}$
 
+Note that you can do this with only two of the three "SS"'s. 
 
+The $SSE$ is generally harder to calculate....
+
+---
+class: MSU
+# Goodness of Fit
+
+```{r, echo=T}
+df = data.frame(Y = c(1,5,3,3), X = c(2,7,4,2))
+ols1 = lm(Y ~ X, data = df)
+df$Yhat = coefficients(ols1)['(Intercept)'] + coefficients(ols1)['X']*df$X
+df$Uhat = df$Y-df$Yhat
+df$Uhat2 = df$Uhat^2
+knitr::kable(df, digits = 3)
+```
+
+$SSR$ is `r round(sum(df$Uhat2), 2)`; $SST$ is `r round(sum((df$Y-mean(df$Y))^2), 2)`; $R^2$ is `r 1-(round(sum(df$Uhat2), 2)/round(sum((df$Y-mean(df$Y))^2), 2))`
+
+---
+class: MSU
+# Goodness of Fit
+
+### Interpreting $R^2$
+> The fraction of variation in $Y$ explained by the model
+
+At most 100% ( $R^2=1$ ). At least 0% ( $R^2=0$ ). Somewhere in between. 
+
+Look at $SSE$ if $y_i = \hat{y}_i$ for every observation
+- Is this a good model?
+- What would the $R^2$ be?
+
+---
+class: MSU
+# Interactions
+
+
+### Two types of interactions
+
+1. Intercept shift
+
+2. Slope shift
+  - Dummy x continuous
+    - Dummy may be a binary, or it may be part of a categorical variable
+  - Continuous x Continuous
+  
+  
 ---
 class: MSU
 # Interactions
@@ -381,6 +536,9 @@ $$y = \beta_0 + \beta_1 x_1 + \beta_2 1(condition) + \beta_3x_11(condition) + u$
 class: MSU
 # Interactions 
 
+$$y = \beta_0 + \beta_1 x_1 + \beta_2 1(condition) + \beta_3x_11(condition) + u$$
+
+
 ### Know the difference between the shift and the $E[Y|X]$
 - $E[Y|condition==TRUE, x_1] = \beta_0 + \beta_1 x_1 + \beta_2 + \beta_2x_1$
 - $E[Y|condition==FALSE, x_1] = \beta_0 + \beta_1 x_1$
@@ -389,7 +547,7 @@ class: MSU
 
 ---
 class: MSU
-# Interaction
+# Interactions
 
 ### Continuous-Continuous Interactions
 Occur when one variable shifts the relationship between another variable and the outcome
@@ -405,14 +563,97 @@ Or think of it as a continuous slope shift. When $x_1$ changes, the *relationshi
 
 ---
 class: MSU
+# Interactions
+
+```{r, echo=T}
+library(AER)
+data("CollegeDistance")
+head(CollegeDistance)
+```
+
+
+---
+class: MSU
+# Interactions
+
+### Intercept shift only
+
+```{r, echo=T}
+summary(lm(score ~ distance + as.factor(income), data = CollegeDistance))
+```
+
+---
+class: MSU
+# Interactions
+
+### Slope-shift only (an odd regression)
+
+```{r, echo=T}
+summary(lm(score ~ distance + distance:as.factor(income) , data = CollegeDistance))
+```
+
+---
+class: MSU
+# Interactions
+
+### Slope- and intercept-shift
+```{r, echo=T}
+summary(lm(score ~ distance*as.factor(income) , data = CollegeDistance))
+```
+
+
+---
+class: MSU
+# Interactions
+
+### Continuous-by-continuous
+```{r, echo=T}
+summary(lm(score ~ distance*education , data = CollegeDistance))
+```
+
+---
+class: MSU
+# Interactions
+
+
+### Dummy variables
+- Dummies are used when something is a *binary*: only takes the value of 0 or 1.
+- Sets of dummies can also represent categorical variables (3, 4, or more discrete values)
+  - "Education" may be "HS", "Undergrad","Graduate" -- dummies for "Undergrad" and "Graduate" with base level "HS"
+  - "Undergrad=0" and "Graduate=0" means.... .orange[?]
+
+---
+class: MSU
+# Interactions
+
+  
+### A useful question:
+
+> What is something dummy variables are not worth using for?
+
+1. If they are perfectly colinear (e.g. "College Student" and "Non-College Student")
+  - That's why we have a "base" level
+  
+2. If they absorb all variation in a key variable
+  - If a group defined by a dummy variable has a constant value for some variable of interest (if all high-income people lived .2 miles from a college), then you cannot estimate an effect of `distance`
+  
+
+
+---
+class: MSU
 # Heteroskedasticity
 
 ### Be able to spot it in an example
 - Variance around the fitted line is not constant over all values of $x$
 - The Wooldridge example plot we used many times
 
+### Testing for it
+- Breusch-Pagan looks to see if $\hat{u}^2$ is correlated with X
+- Why $\hat{u}^2$? Why not $\hat{u}$?
+
 ### Know how to fix it in R in general
 - Eicker-Huber-White Heteroskedastic-Consistent Errors
+- Via `coeftest` or using `feols` with `HC1`
 
 ---
 class: MSU
@@ -428,28 +669,53 @@ MLR3. No multicolinearity / "full rank": $x_j$ is not a linear transformation of
 
 MLR4. Zero conditional mean: $E[u|x_1,x_2,\cdots,x_k] = 0$ for all $x$.
 
---
+$\Rightarrow$ Estimate of $\hat{\beta}$ is unbiased
 
-MLR5. $Var[u|x_1, \cdots, x_k]= \sigma^2_u$ for all $x$.
-
---
-
-MLR6. The population error $u$ is *independent* of the explanatory variables $x_1, x_2, \cdots, x_k$ and is normally distributed with zero mean and variance $\sigma^2$: $u\sim N(0,\sigma^2)$
-  - "exact normality" needed *only* for inference (t's, F-tests)
-  - We can relax this assumption and still have inference 
-  
 
 ---
 class: MSU
+# Gauss-Markov
+
+MLR1-MLR4, plus:
+
+**MLR5.** $Var[u|x_1, \cdots, x_k]= \sigma^2_u$ for all $x$.
+
+$\Rightarrow$ Gets us variance (and thus standard errors) for $\hat{\beta}$
+
+--
+
+But wait! Heteroskedasticity! 
+
+Relax this assumption by using HC-robust errors and move on...
+
+--
+
+**MLR6.** The population error $u$ is *independent* of the explanatory variables $x_1, x_2, \cdots, x_k$ and is normally distributed with zero mean and variance $\sigma^2$: $u\sim N(0,\sigma^2)$
+  - "exact normality" needed *only* for inference (t's, F-tests)
+  - We can relax this assumption and still have inference 
+
+
+---
+class: MSU
+exclude: false
 # Hypothesis testing
 
 ### For a single beta (in single or multiple regression)
 - We have a $\hat{\beta}$, a $Var(\hat{\beta})$, and a distribution (Normal)
+  - Know which Gauss-Markov MLR assumptions get you each of these $\uparrow$
+- And a hypothesized true value $H0: \beta_1 = 0$
+- We can take our estimate, standardize it *under the null* by subtracting the hypothesized true value and dividing by our calculated std. error
 
-Let's sketch out on the board how we think of hypothesis tests.
+$$\frac{\hat{\beta}_1 - 0}{se(\hat{\beta}_1)} = \frac{\hat{\beta}_1}{se(\hat{\beta}_1)}$$
+
+This statistic, the $t$, under the null, is $\sim N(0,1)$. 
+- So we expect to see values between $-1.96$ and $+1.96$ -- the 95% CI of a $N(0,1)$
+- If we see outside those values, we reject the $H0$
+
 
 ---
 class: MSU
+exclude: true
 # Linear Hypotheses
 
 ### We can test hypotheses about one coefficient
@@ -467,12 +733,14 @@ class: MSU
 
 ---
 class: MSU
+exclude: false
 # F-test
 
 ### Joint restrictions
 - We use the $F-test$ to do a test of the form  $\beta_1 = \beta_2 = \beta_3 = 0$ 
 - We have an "unrestricted" model with all $\beta$'s.
 - We have a "restricted" model where these $\beta$'s are zero.
+- Our test **compares the errors $\hat{u}$ to see if one explains more than the other**
 
 ### We can calculate
 - $SSR_{UR}$
@@ -481,27 +749,15 @@ class: MSU
 $$F \sim \frac{\frac{SSR_{R} - SSR_{UR}}{K}}{\frac{SSR_{UR}}{N-K-1}}$$
 Where we are restricting all $K$ $\beta$'s. The formula is similar when restricting $q<K$ parameters.
 
+
 ---
 class: MSU
-# From the reading responses
+exclude: false
+# F-test
 
-### What formulas do we need to memorize
-
-### Know the sample calculations for:
-- $\bar{x}$
-- $Var(x)$
-  - and that Std. Dev = $\sqrt{Var(x)}$
-- $Cov(x,y)$
-- $SSR$
-- $SSE$
-- $SST$
-- $\hat{\beta}_0$
-- $\hat{\beta}_1$
-- $se(\hat{\beta}_1)$ for single-variable regression
-- $se(\hat{\beta}_j)$ for multivariable regression
-  - Including what $\hat{R}^2_j$ is.
-  
-
+### Why F-test?
+- We need to know if our model is explaining anything
+- Because in a sample there will always be some non-zero coefficient, we need a statistical test to see if our result is any better than "just guess the mean of the $Y$"
 
 
 
