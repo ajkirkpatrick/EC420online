@@ -1,0 +1,1966 @@
+"","city","county","PACE.start"
+"1","Downey","Los Angeles",NA
+"2","Rancho Palos Verdes","Los Angeles",NA
+"3","Alpine","San Diego",NA
+"4","alpine","San Diego",NA
+"5","ALPINE","San Diego",NA
+"6","Chula Vista","San Diego",NA
+"7","San Diego","San Diego",NA
+"8","Bonita","San Diego",NA
+"9","BONITA","San Diego",NA
+"10","bonita","San Diego",NA
+"11","Boulevard","San Diego",NA
+"12","Live Oak Springs","San Diego",NA
+"13","Jacumba","San Diego",NA
+"14","Campo","San Diego",NA
+"15","CAMPO","San Diego",NA
+"16","CHULA VISTA","San Diego",NA
+"17","Chula vista","San Diego",NA
+"18","Descanso","San Diego",NA
+"19","DESCANSO","San Diego",NA
+"20","Dulzura","San Diego",NA
+"21","Guatay","San Diego",NA
+"22","Imperial Beach","San Diego",NA
+"23","IMPERIAL BEACH","San Diego",NA
+"24","Jamul","San Diego",NA
+"25","JAMUL","San Diego",NA
+"26","La Mesa","San Diego",NA
+"27","la mesa","San Diego",NA
+"28","LA MESA","San Diego",NA
+"29","la Mesa","San Diego",NA
+"30","Lemon Grove","San Diego",NA
+"31","LEMON GROVE","San Diego",NA
+"32","Mount Laguna","San Diego",NA
+"33","National City","San Diego",NA
+"34","National city","San Diego",NA
+"35","Pine Valley","San Diego",NA
+"36","Potrero","San Diego",NA
+"37","SPRING VALLEY","San Diego",NA
+"38","Spring Valley","San Diego",NA
+"39","Spring VALLEY","San Diego",NA
+"40","Bonsall","San Diego",NA
+"41","BONSALL","San Diego",NA
+"42","Borrego springs","San Diego",NA
+"43","Borrego Springs","San Diego",NA
+"44","borego springs","San Diego",NA
+"45","Cardiff by the Sea","San Diego",NA
+"46","Cardiff","San Diego",NA
+"47","Cardiff By The Sea","San Diego",NA
+"48","CARDIFF","San Diego",NA
+"49","Carlsbad","San Diego",NA
+"50","CARLSBAD","San Diego",NA
+"51","carlsbad","San Diego",NA
+"52","Rancho La Costa","San Diego",NA
+"53","Carslabd","San Diego",NA
+"54","Carslbad","San Diego",NA
+"55","Del Mar","San Diego",NA
+"56","Solana Beach","San Diego",NA
+"57","DEL MAR","San Diego",NA
+"58","el cajon","San Diego",NA
+"59","El Cajon","San Diego",NA
+"60","EL CAJON","San Diego",NA
+"61","El cajon","San Diego",NA
+"62","Crest","San Diego",NA
+"63","El CAJON","San Diego",NA
+"64","Lakeside","San Diego",NA
+"65","El Cajon, California","San Diego",NA
+"66","Encinitas","San Diego",NA
+"67","encinitas","San Diego",NA
+"68","Leucadia","San Diego",NA
+"69","ENCINITAS","San Diego",NA
+"70","Escondido","San Diego",NA
+"71","ESCONDIDO","San Diego",NA
+"72","Escondio","San Diego",NA
+"73","escondido","San Diego",NA
+"74","Escondido, CA 92026","San Diego",NA
+"75","Fallbrook","San Diego",NA
+"76","fallbrook","San Diego",NA
+"77","FALLBROOK","San Diego",NA
+"78","Fallbrok","San Diego",NA
+"79","Rainbow","San Diego",NA
+"80","Escondidio","San Diego",NA
+"81","Julian","San Diego",NA
+"82","La Jolla","San Diego",NA
+"83","la jolla","San Diego",NA
+"84","LaJolla","San Diego",NA
+"85","LA JOLLA","San Diego",NA
+"86","La jolla","San Diego",NA
+"87","LAKESIDE","San Diego",NA
+"88","lakeside","San Diego",NA
+"89","OCEANSIDE","San Diego",NA
+"90","Oceanside","San Diego",NA
+"91","Camp Pendleton","San Diego",NA
+"92","oceanside","San Diego",NA
+"93","Pala","San Diego",NA
+"94","PALA","San Diego",NA
+"95","Pauma Valley","San Diego",NA
+"96","Poway","San Diego",NA
+"97","POWAY","San Diego",NA
+"98","poway","San Diego",NA
+"99","San Marcos","San Diego",NA
+"100","Ramona","San Diego",NA
+"101","RAMONA","San Diego",NA
+"102","ramona","San Diego",NA
+"103","WARNER SPRINGS","San Diego",NA
+"104","Ranchita","San Diego",NA
+"105","Rancho Santa Fe","San Diego",NA
+"106","RANCHO SANTA FE","San Diego",NA
+"107","Rancho Sante Fe","San Diego",NA
+"108","Ranco Santa Fe","San Diego",NA
+"109","san marcos","San Diego",NA
+"110","SAN MARCOS","San Diego",NA
+"111","Santa Ysabel","San Diego",NA
+"112","Santee","San Diego",NA
+"113","SANTEE","San Diego",NA
+"114","santee","San Diego",NA
+"115","SOLANA BEACH","San Diego",NA
+"116","San marcos","San Diego",NA
+"117","Vista","San Diego",NA
+"118","Valley Center","San Diego",NA
+"119","VALLEY CENTER","San Diego",NA
+"120","valley Center","San Diego",NA
+"121","Valley center","San Diego",NA
+"122","vista","San Diego",NA
+"123","VISTA","San Diego",NA
+"124","Warner Springs","San Diego",NA
+"125","SAN DIEGO","San Diego",NA
+"126","San diego","San Diego",NA
+"127","san Diego","San Diego",NA
+"128","Point Loma","San Diego",NA
+"129","Pacific Beach","San Diego",NA
+"130","san diego","San Diego",NA
+"131","PACIFIC BEACH","San Diego",NA
+"132","Coronado","San Diego",NA
+"133","CORONADO","San Diego",NA
+"134","San DIego","San Diego",NA
+"135","Tierrasanta","San Diego",NA
+"136","San Diego`","San Diego",NA
+"137","Rancho Bernardo","San Diego",NA
+"138","San  Diego","San Diego",NA
+"139","Rancho Penasquitos","San Diego",NA
+"140","San Clemente","Orange",NA
+"141","Carmel Valley","Monterey",NA
+"142","SAn Diego","San Diego",NA
+"143","San Ysidro","San Diego",NA
+"144","SAN YSIDRO","San Diego",NA
+"145","Murrieta","Riverside",NA
+"146","Laguna Niguel","Orange",NA
+"147","Dana Point","Orange",NA
+"148","Capistrano Beach","Orange",NA
+"149","CAPISTRANO BEACH","Orange",NA
+"150","DANA POINT","Orange",NA
+"151","Laguna Hills","Orange",NA
+"152","Aliso Viejo","Orange",NA
+"153","South Laguna","Orange",NA
+"154","Laguna Beach","Orange",NA
+"155","laguna Beach","Orange",NA
+"156","LAGUNA HILLS","Orange",NA
+"157","San Clamente","Orange",NA
+"158","san clemente","Orange",NA
+"159","SAN CLEMENTE","Orange",NA
+"160","San Juan Capistrano","Orange",NA
+"161","SAN JUAN CAPISTRANO","Orange",NA
+"162","san juan capistrano","Orange",NA
+"163","LAGUNA NIGUEL","Orange",NA
+"164","Trabuco Canyon","Orange",NA
+"165","Coto De Caza","Orange",NA
+"166","Coto de Caza","Orange",NA
+"167","COTO DE CAZA","Orange",NA
+"168","Coto De Casa","Orange",NA
+"169","LAS FLORES","Orange",NA
+"170","Rancho Santa Margarita","Orange",NA
+"171","Las Flores","Orange",NA
+"172","Santa Margarita","San Luis Obispo",NA
+"173","RANCHO SANTA MARGARITA","Orange",NA
+"174","Mission Viejo","Orange",NA
+"175","MISSION VIEJO","Orange",NA
+"176","Ladera Ranch","Orange",NA
+"177","LADERA RANCH","Orange",NA
+"178","Ladera ranch","Orange",NA
+"179","El Sobrante","Contra Costa",NA
+"180","Rohnert Park","Sonoma","2009-05-01"
+"181","Gilroy","Santa Clara",NA
+"182","Santa Cruz","Santa Cruz",NA
+"183","Santa Rosa","Sonoma","2009-05-01"
+"184","Cloverdale","Sonoma","2009-05-01"
+"185","Chico","Butte",NA
+"186","Mcfarland","Kern",NA
+"187","BRENTWOOD","Los Angeles",NA
+"188","Fresno","Fresno",NA
+"189","Garden Grove","Orange",NA
+"190","Santa Barbara","Santa Barbara",NA
+"191","Arvin","Kern",NA
+"192","Avenal","Kings",NA
+"193","buttonwillow","Kern",NA
+"194","Buttonwillow","Kern",NA
+"195","Coalinga","Fresno",NA
+"196","COALINGA","Fresno",NA
+"197","Corcoran","Kings",NA
+"198","CORCORAN","Kings",NA
+"199","Edison","Kern",NA
+"200","HANFORD","Kings",NA
+"201","Hanford","Kings",NA
+"202","Kettleman City","Kings",NA
+"203","Lamont","Kern",NA
+"204","Laton","Fresno",NA
+"205","LATON","Fresno",NA
+"206","Lemoore","Kings",NA
+"207","LEMOORE","Kings",NA
+"208","Lemooore","Kings",NA
+"209","LOST HILLS","Kern",NA
+"210","Lost Hills","Kern",NA
+"211","Bakersfield","Kern",NA
+"212","McFarland","Kern",NA
+"213","Mc Farland","Kern",NA
+"214","Maricopa","Kern",NA
+"215","Shafter","Kern",NA
+"216","BAKERSFIELD","Kern",NA
+"217","SHAFTER","Kern",NA
+"218","bakersfield","Kern",NA
+"219","Stratford","Kings",NA
+"220","Taft","Kern",NA
+"221","TAFT","Kern",NA
+"222","Tupman","Kern",NA
+"223","Wasco","Kern",NA
+"224","WASCO","Kern",NA
+"225","Woodlake","Tulare",NA
+"226","Visalia","Tulare",NA
+"227","Bakesfield","Kern",NA
+"228","San Luis Obispo","San Luis Obispo",NA
+"229","SAN LUIS OBISPO","San Luis Obispo",NA
+"230","San Luis Obisop","San Luis Obispo",NA
+"231","Los Osos","San Luis Obispo",NA
+"232","LOS OSOS","San Luis Obispo",NA
+"233","Arroyo Grande","San Luis Obispo",NA
+"234","Pismo Beach","San Luis Obispo",NA
+"235","ARROYO GRANDE","San Luis Obispo",NA
+"236","Atascadero","San Luis Obispo",NA
+"237","ATASCADERO","San Luis Obispo",NA
+"238","atascadero","San Luis Obispo",NA
+"239","Moro Bay","San Luis Obispo",NA
+"240","6355 SAN GABRIEL RD LOT 3","San Luis Obispo",NA
+"241","AVILA BEACH","San Luis Obispo",NA
+"242","Bradley","Monterey",NA
+"243","BRADLEY","Monterey",NA
+"244","Buellton","Santa Barbara",NA
+"245","Cambria","San Luis Obispo",NA
+"246","cambria","San Luis Obispo",NA
+"247","Cayucos","San Luis Obispo",NA
+"248","cayucos","San Luis Obispo",NA
+"249","CAYUCOS","San Luis Obispo",NA
+"250","Creston","San Luis Obispo",NA
+"251","Grover Beach","San Luis Obispo",NA
+"252","Harmony","San Luis Obispo",NA
+"253","Lompoc","Santa Barbara",NA
+"254","LOMPOC","Santa Barbara",NA
+"255","Los Alamos","Santa Barbara",NA
+"256","LOS ALAMOS","Santa Barbara",NA
+"257","Los Olivos","Santa Barbara",NA
+"258","Morro Bay","San Luis Obispo",NA
+"259","MORRO BAY","San Luis Obispo",NA
+"260","NIPOMO","San Luis Obispo",NA
+"261","Nipomo","San Luis Obispo",NA
+"262","Oceano","San Luis Obispo",NA
+"263","PASO ROBLES","San Luis Obispo",NA
+"264","Paso Robles","San Luis Obispo",NA
+"265","Paso Rolbes","San Luis Obispo",NA
+"266","San Miguel","San Luis Obispo",NA
+"267","SAN MIGUEL","San Luis Obispo",NA
+"268","California Valley","San Luis Obispo",NA
+"269","Santa Maria","Santa Barbara",NA
+"270","SANTA MARIA","Santa Barbara",NA
+"271","Orcutt","Santa Barbara",NA
+"272","Santa Ynez","Santa Barbara",NA
+"273","SANTA YNEZ","Santa Barbara",NA
+"274","SHANDON","San Luis Obispo",NA
+"275","Cholame","San Luis Obispo",NA
+"276","Solvang","Santa Barbara",NA
+"277","Ballard","Santa Barbara",NA
+"278","SOLVANG","Santa Barbara",NA
+"279","Templeton","San Luis Obispo",NA
+"280","TEMPLETON","San Luis Obispo",NA
+"281","Keene","Kern",NA
+"282","Tehachapi","Kern",NA
+"283","Sanger","Fresno",NA
+"284","AHWAHNEE","Madera",NA
+"285","Ahwahnee","Madera",NA
+"286","Auberry","Fresno",NA
+"287","AUBERRY","Fresno",NA
+"288","Badger","Tulare",NA
+"289","Burrel","Fresno",NA
+"290","Caruthers","Fresno",NA
+"291","Chowchilla","Madera",NA
+"292","Clovis","Fresno",NA
+"293","CLOVIS","Fresno",NA
+"294","clovis","Fresno",NA
+"295","Clovs","Fresno",NA
+"296","Coarsegold","Madera",NA
+"297","COARSEGOLD","Madera",NA
+"298","Coursegold","Madera",NA
+"299","O'Neals","Madera",NA
+"300","Cutler","Tulare",NA
+"301","Del Rey","Fresno",NA
+"302","Dinuba","Tulare",NA
+"303","DINUBA","Tulare",NA
+"304","Dos Palos","Merced",NA
+"305","Dunlap","Fresno",NA
+"306","Firebaugh","Fresno",NA
+"307","FIREBAUGH","Fresno",NA
+"308","Five Points","Fresno",NA
+"309","Fowler","Fresno",NA
+"310","FOWLER","Fresno",NA
+"311","Friant","Fresno",NA
+"312","Kerman","Fresno",NA
+"313","KERMAN","Fresno",NA
+"314","Kingsburg","Fresno",NA
+"315","KINGSBURG","Fresno",NA
+"316","Kingsburge","Fresno",NA
+"317","LOS BANOS","Merced",NA
+"318","Los Banos","Merced",NA
+"319","Raymond","Madera",NA
+"320","Madera","Madera",NA
+"321","MADERA","Madera",NA
+"322","Mendota","Fresno",NA
+"323","Miramonte","Fresno",NA
+"324","North Fork","Madera",NA
+"325","Northfork","Madera",NA
+"326","NORTH FORK","Madera",NA
+"327","Oakhurst","Madera",NA
+"328","O NEALS","Madera",NA
+"329","Oneals","Madera",NA
+"330","O Neals","Madera",NA
+"331","Orange Cove","Fresno",NA
+"332","Orosi","Tulare",NA
+"333","Parlier","Fresno",NA
+"334","PARLIER","Fresno",NA
+"335","FRESNO","Fresno",NA
+"336","fresno","Fresno",NA
+"337","Prather","Fresno",NA
+"338","PRATHER","Fresno",NA
+"339","Reedley","Fresno",NA
+"340","REEDLEY","Fresno",NA
+"341","Riverdale","Fresno",NA
+"342","riverdale","Fresno",NA
+"343","sanger","Fresno",NA
+"344","SANGER","Fresno",NA
+"345","SAN JOAQUIN","Fresno",NA
+"346","San Joaquin","Fresno",NA
+"347","Selma","Fresno",NA
+"348","Shaver Lake","Fresno",NA
+"349","Sultana","Tulare",NA
+"350","Tollhouse","Fresno",NA
+"351","Tranquility","Kern",NA
+"352","Squaw Valley","Fresno",NA
+"353","SQUAW VALLEY","Fresno",NA
+"354","Salinas","Monterey",NA
+"355","SALINAS","Monterey",NA
+"356","Prunedale","Monterey",NA
+"357","Pruneda","Monterey",NA
+"358","Salians","Monterey",NA
+"359","Big Sur","Monterey",NA
+"360","Carmel By the Sea","Monterey",NA
+"361","Carmel","Monterey",NA
+"362","Carmel by the Sea","Monterey",NA
+"363","CARMEL","Monterey",NA
+"364","CARMEL VALLEY","Monterey",NA
+"365","Chualar","Monterey",NA
+"366","Gonzales","Monterey",NA
+"367","Greenfield","Monterey",NA
+"368","King City","Monterey",NA
+"369","KING CITY","Monterey",NA
+"370","Lockwood","Monterey",NA
+"371","Marina","Monterey",NA
+"372","MONTEREY","Monterey",NA
+"373","Monterey","Monterey",NA
+"374","Montery","Monterey",NA
+"375","PACIFIC GROVE","Monterey",NA
+"376","Pacific Grove","Monterey",NA
+"377","Pebble Beach","Monterey",NA
+"378","San Lucas","Monterey",NA
+"379","Seaside","Monterey",NA
+"380","Soledad","Monterey",NA
+"381","Spreckels","Monterey",NA
+"382","SPRECKELS","Monterey",NA
+"383","Belmont","San Mateo",NA
+"384","Brisbane","San Mateo",NA
+"385","Burlingame","San Mateo",NA
+"386","BURLINGAME","San Mateo",NA
+"387","Hillsborough","San Mateo",NA
+"388","HillsBorough","San Mateo",NA
+"389","HILLSBOROUGH","San Mateo",NA
+"390","Daly City","San Mateo",NA
+"391","DALY CITY","San Mateo",NA
+"392","Colma","San Mateo",NA
+"393","El Granada","San Mateo",NA
+"394","EL GRANADA","San Mateo",NA
+"395","Half Moon Bay","San Mateo",NA
+"396","HALF MOON BAY","San Mateo",NA
+"397","La Honda","San Mateo",NA
+"398","La honda","San Mateo",NA
+"399","LA HONDA","San Mateo",NA
+"400","Loma Mar","San Mateo",NA
+"401","Los Altos","Santa Clara",NA
+"402","Los Altos Hills","Santa Clara",NA
+"403","LOS ALTOS","Santa Clara",NA
+"404","LOS ALTOS HILLS","Santa Clara",NA
+"405","Los altos","Santa Clara",NA
+"406","Menlo Park","San Mateo",NA
+"407","MENLO PARK","San Mateo",NA
+"408","Atherton","San Mateo",NA
+"409","ATHERTON","San Mateo",NA
+"410","Portola Valley","San Mateo",NA
+"411","PORTOLA VALLEY","San Mateo",NA
+"412","MILLBRAE","San Mateo",NA
+"413","Millbrae","San Mateo",NA
+"414","Mountain View","Santa Clara",NA
+"415","MOUNTAIN VIEW","Santa Clara",NA
+"416","Montara","San Mateo",NA
+"417","Moss Beach","San Mateo",NA
+"418","MOSS BEACH","San Mateo",NA
+"419","MOUNTAIN VIEW,","Santa Clara",NA
+"420","Pacifica","San Mateo",NA
+"421","PACIFICA","San Mateo",NA
+"422","Pescadero","San Mateo",NA
+"423","Redwood City","San Mateo",NA
+"424","REDWOOD CITY","San Mateo",NA
+"425","WOODSIDE","San Mateo",NA
+"426","Woodside","San Mateo",NA
+"427","Emerald Hills","San Mateo",NA
+"428","Redwood city","San Mateo",NA
+"429","Palomar Park","San Mateo",NA
+"430","woodside","San Mateo",NA
+"431","San Bruno","San Mateo",NA
+"432","SAN BRUNO","San Mateo",NA
+"433","San Carlos","San Mateo",NA
+"434","SAN CARLOS","San Mateo",NA
+"435","san carlos","San Mateo",NA
+"436","South San Francisco","San Mateo",NA
+"437","SOUTH SAN FRANCISCO","San Mateo",NA
+"438","Sunnyvale","Santa Clara",NA
+"439","SUNNYVALE","Santa Clara",NA
+"440","sunnyvale","Santa Clara",NA
+"441","Sonora","Santa Clara",NA
+"442","Sunyvale","Santa Clara",NA
+"443","SAN FRANCISCO","San Francisco",NA
+"444","San Francisco","San Francisco",NA
+"445","san francisco","San Francisco",NA
+"446","San Francsico","San Francisco",NA
+"447","San Francusco","San Francisco",NA
+"448","san Francisco","San Francisco",NA
+"449","San francisco","San Francisco",NA
+"450","SAN FRANCISSO","San Francisco",NA
+"451","EAST PALO ALTO","Santa Clara",NA
+"452","East Palo Alto","Santa Clara",NA
+"453","Palo Alto","Santa Clara",NA
+"454","Stanford","Santa Clara",NA
+"455","San Mateo","San Mateo",NA
+"456","SAN MATEO","San Mateo",NA
+"457","san mateo","San Mateo",NA
+"458","Los Gatos","Santa Clara",NA
+"459","Foster City","San Mateo",NA
+"460","FOSTER CITY","San Mateo",NA
+"461","American Canyon","Napa",NA
+"462","AMERICAN CANYON","Napa",NA
+"463","Byron","Contra Costa",NA
+"464","Discovery Bay","Contra Costa",NA
+"465","BYRON","Contra Costa",NA
+"466","DISCOVERY BAY","Contra Costa",NA
+"467","DANVILLE","Contra Costa",NA
+"468","Danville","Contra Costa",NA
+"469","Alamo","Contra Costa",NA
+"470","ALAMO","Contra Costa",NA
+"471","Angwin","Napa",NA
+"472","Antioch","Contra Costa",NA
+"473","ANTIOCH","Contra Costa",NA
+"474","Benicia","Solano",NA
+"475","BENICIA","Solano",NA
+"476","Bethel Island","Contra Costa",NA
+"477","Suisun City","Solano",NA
+"478","Brentwood","Los Angeles",NA
+"479","Calistoga","Napa",NA
+"480","CALISTOGA","Sonoma","2009-05-01"
+"481","Clayton","Contra Costa",NA
+"482","CLAYTON","Contra Costa",NA
+"483","Concord","Contra Costa",NA
+"484","CONCORD","Contra Costa",NA
+"485","concord","Contra Costa",NA
+"486","Pleasant Hill","Contra Costa",NA
+"487","PLEASANT HILL","Contra Costa",NA
+"488","Crockett","Contra Costa",NA
+"489","DIABLO","Contra Costa",NA
+"490","Diablo","Contra Costa",NA
+"491","El Cerrito","Contra Costa",NA
+"492","el cerrito","Contra Costa",NA
+"493","EL CERRITO","Contra Costa",NA
+"494","Fairfield","Solano",NA
+"495","FAIRFIELD","Solano",NA
+"496","Fairfiled","Solano",NA
+"497","SUISUN CITY","Solano",NA
+"498","Fremont","Alameda",NA
+"499","FREMONT","Alameda",NA
+"500","Hayward","Alameda",NA
+"501","HAYWARD","Alameda",NA
+"502","hayward","Alameda",NA
+"503","Castro Valley","Alameda",NA
+"504","CASTRO VALLEY","Alameda",NA
+"505","Hercules","Contra Costa",NA
+"506","Knightsen","Contra Costa",NA
+"507","KNIGHTSEN","Contra Costa",NA
+"508","Lafayette","Contra Costa",NA
+"509","LAFAYETTE","Contra Costa",NA
+"510","lafayette","Contra Costa",NA
+"511","LaFayette","Contra Costa",NA
+"512","Layfayette","Contra Costa",NA
+"513","Livermore","Alameda",NA
+"514","LIVERMORE","Alameda",NA
+"515","Martinez","Contra Costa",NA
+"516","Pacheco","Contra Costa",NA
+"517","Briones","Contra Costa",NA
+"518","Moraga","Contra Costa",NA
+"519","MORAGA","Contra Costa",NA
+"520","Pleasanton","Alameda",NA
+"521","Napa","Napa",NA
+"522","NAPA","Napa",NA
+"523","St. Helena","Napa",NA
+"524","Lake Berryessa","Napa",NA
+"525","napa","Napa",NA
+"526","Greenbrae","Marin",NA
+"527","Newark","Alameda",NA
+"528","NEWARK","Alameda",NA
+"529","Oakley","Contra Costa",NA
+"530","OAKLEY","Contra Costa",NA
+"531","Oakville","Napa",NA
+"532","Orinda","Contra Costa",NA
+"533","ORINDA","Contra Costa",NA
+"534","orinda","Contra Costa",NA
+"535","Pinole","Contra Costa",NA
+"536","Pincole","Contra Costa",NA
+"537","Pittsburg","Contra Costa",NA
+"538","Bay Point","Contra Costa",NA
+"539","PITTSBURG","Contra Costa",NA
+"540","PLEASANTON","Alameda",NA
+"541","Pleasonton","Alameda",NA
+"542","Pope Valley","Napa",NA
+"543","Dublin","Alameda",NA
+"544","DUBLIN","Alameda",NA
+"545","Rio Vista","Solano",NA
+"546","RIO VISTA","Solano",NA
+"547","Rodeo","Contra Costa",NA
+"548","RODEO","Contra Costa",NA
+"549","Rutherford","Napa",NA
+"550","Saint Helena","Napa",NA
+"551","SAINT HELENA","Napa",NA
+"552","Kenwood","Sonoma","2009-05-01"
+"553","Deer Park","Napa",NA
+"554","San Leandro","Alameda",NA
+"555","SAN LEANDRO","Alameda",NA
+"556","San Lorenzo","Alameda",NA
+"557","SAN RAMON","Contra Costa",NA
+"558","San Ramon","Contra Costa",NA
+"559","Sunol","Alameda",NA
+"560","Union City","Alameda",NA
+"561","UNION CITY","Alameda",NA
+"562","Vallejo","Napa",NA
+"563","VALLEJO","Napa",NA
+"564","WALNUT CREEK","Contra Costa",NA
+"565","Walnut Creek","Contra Costa",NA
+"566","walnut creek","Contra Costa",NA
+"567","yountville","Napa",NA
+"568","Yountville","Napa",NA
+"569","OAKLAND","Alameda",NA
+"570","Oakland","Alameda",NA
+"571","PIEDMONT","Alameda",NA
+"572","Piedmont","Alameda",NA
+"573","Emeryville","Alameda",NA
+"574","piedmont","Alameda",NA
+"575","oakland","Alameda",NA
+"576","Sacramento","Sacramento",NA
+"577","BERKELEY","Alameda",NA
+"578","Berkeley","Alameda",NA
+"579","Berkely","Alameda",NA
+"580","berkeley","Alameda",NA
+"581","Berkley","Alameda",NA
+"582","Albany","Alameda",NA
+"583","KENSINGTON","Alameda",NA
+"584","Kensington","Alameda",NA
+"585","ALBANY","Alameda",NA
+"586","Richmond","Contra Costa",NA
+"587","Point Richmond","Contra Costa",NA
+"588","RICHMOND","Contra Costa",NA
+"589","EL SOBRANTE","Contra Costa",NA
+"590","ElSobrante","Contra Costa",NA
+"591","San Pablo","Contra Costa",NA
+"592","San Rafael","Marin",NA
+"593","SAN RAFAEL","Marin",NA
+"594","Kentfield","Marin",NA
+"595","KENTFIELD","Marin",NA
+"596","Larkspur","Marin",NA
+"597","Tiburon","Marin",NA
+"598","Belvedere Tiburon","Marin",NA
+"599","Belvedere","Marin",NA
+"600","BELVEDERE","Marin",NA
+"601","TIBURON","Marin",NA
+"602","Bodega","Sonoma","2009-05-01"
+"603","Bodega Bay","Sonoma","2009-05-01"
+"604","BODEGA BAY","Sonoma","2009-05-01"
+"605","Bolinas","Marin",NA
+"606","BOLINAS","Marin",NA
+"607","CORTE MADERA","Marin",NA
+"608","Corte Madera","Marin",NA
+"609","COTATI","Sonoma","2009-05-01"
+"610","ROHNERT PARK","Sonoma","2009-05-01"
+"611","Rohnert","Sonoma","2009-05-01"
+"612","Dillon Beach","Marin",NA
+"613","Fairfax","Marin",NA
+"614","Faifax","Marin",NA
+"615","Cotati","Sonoma","2009-05-01"
+"616","FOREST KNOLLS","Marin",NA
+"617","Forest Knolls","Marin",NA
+"618","Lagunitas","Marin",NA
+"619","Inverness","Marin",NA
+"620","INVERNESS","Marin",NA
+"621","LARKSPUR","Marin",NA
+"622","Marshall","Marin",NA
+"623","Mill Valley","Marin",NA
+"624","MILL VALLEY","Marin",NA
+"625","Stinson Beach","Marin",NA
+"626","NOVATO","Marin",NA
+"627","Novato","Marin",NA
+"628","Nicasio","Marin",NA
+"629","Olema","Marin",NA
+"630","Penngrove","Sonoma","2009-05-01"
+"631","PENNGROVE","Sonoma","2009-05-01"
+"632","Pengrove","Sonoma","2009-05-01"
+"633","Petaluma","Sonoma","2009-05-01"
+"634","PETALUMA","Sonoma","2009-05-01"
+"635","Bloomfield","Sonoma","2009-05-01"
+"636","petaluma","Sonoma","2009-05-01"
+"637","Point Reyes Station","Marin",NA
+"638","Pt Reyes Station","Marin",NA
+"639","Ross","Marin",NA
+"640","ROSS","Marin",NA
+"641","San Anselmo","Marin",NA
+"642","SAN ANSELMO","Marin",NA
+"643","San Geronimo","Marin",NA
+"644","San Quentin","Marin",NA
+"645","Sausalito","Marin",NA
+"646","Muir Beach","Marin",NA
+"647","SAUSALITO","Marin",NA
+"648","STINSON BEACH","Marin",NA
+"649","Tomales","Marin",NA
+"650","Valley Ford","Sonoma","2009-05-01"
+"651","Woodacre","Marin",NA
+"652","APTOS","Santa Cruz",NA
+"653","Aptos","Santa Cruz",NA
+"654","Alviso","Santa Clara",NA
+"655","Aromas","Monterey",NA
+"656","AROMAS","Monterey",NA
+"657","Watsonville","Santa Cruz",NA
+"658","aromas","Monterey",NA
+"659","BEN LOMOND","Santa Cruz",NA
+"660","Ben Lomond","Santa Cruz",NA
+"661","Boulder Creek","Santa Cruz",NA
+"662","BOULDER CREEK","Santa Cruz",NA
+"663","Brookdale","Santa Cruz",NA
+"664","Campbell","Santa Clara",NA
+"665","CAMPBELL","Santa Clara",NA
+"666","san jose","Santa Clara",NA
+"667","San Jose","Santa Clara",NA
+"668","Capitola","Santa Cruz",NA
+"669","Castroville","Monterey",NA
+"670","Cupertino","Santa Clara",NA
+"671","CUPERTINO","Santa Clara",NA
+"672","Davenport","Santa Cruz",NA
+"673","FELTON","Santa Cruz",NA
+"674","Felton","Santa Cruz",NA
+"675","GILROY","Santa Clara",NA
+"676","Santa Clara County","Santa Clara",NA
+"677","Hollister","San Benito",NA
+"678","HOLLISTER","San Benito",NA
+"679","Holliser","San Benito",NA
+"680","Monte Sereno","Santa Clara",NA
+"681","Monte Serano","Santa Clara",NA
+"682","LOS GATOS","Santa Clara",NA
+"683","Monteo Sereno","Santa Clara",NA
+"684","MONTE SERENO","Santa Clara",NA
+"685","Milpitas","Santa Clara",NA
+"686","Morgan hill","Santa Clara",NA
+"687","Morgan Hill","Santa Clara",NA
+"688","MORGAN HILL","Santa Clara",NA
+"689","Mount Hermon","Santa Cruz",NA
+"690","Paicines","San Benito",NA
+"691","San Juan Bautista","San Benito",NA
+"692","San Martin","Santa Clara",NA
+"693","SAN MARTIN","Santa Clara",NA
+"694","Santa Clara","Santa Clara",NA
+"695","SCOTTS VALLEY","Santa Cruz",NA
+"696","Bonny Doon","Santa Cruz",NA
+"697","santa cruz","Santa Cruz",NA
+"698","Scotts Valley","Santa Cruz",NA
+"699","SANTA CRUZ","Santa Cruz",NA
+"700","Santa  Cruz","Santa Cruz",NA
+"701","Saratoga","Santa Clara",NA
+"702","SARATOGA","Santa Clara",NA
+"703","saratoga","Santa Clara",NA
+"704","Soquel","Santa Cruz",NA
+"705","SOQUEL","Santa Cruz",NA
+"706","Tres Pinos","San Benito",NA
+"707","TRES PINOS","San Benito",NA
+"708","WATSONVILLE","Santa Cruz",NA
+"709","Royal Oaks","Santa Cruz",NA
+"710","Corralitos","Santa Cruz",NA
+"711","ROYAL OAKS","Monterey",NA
+"712","SAN JOSE","Santa Clara",NA
+"713","San jose","Santa Clara",NA
+"714","STOCKTON","San Joaquin",NA
+"715","Stockton","San Joaquin",NA
+"716","stockton","San Joaquin",NA
+"717","Morada","San Joaquin",NA
+"718","Stockon","San Joaquin",NA
+"719","Acampo","San Joaquin",NA
+"720","acampo","San Joaquin",NA
+"721","ACAMPO","San Joaquin",NA
+"722","Angels Camp","Calaveras",NA
+"723","ANGELS CAMP","Calaveras",NA
+"724","Arnold","Calaveras",NA
+"725","Burson","Calaveras",NA
+"726","Valley Springs","Calaveras",NA
+"727","VALLEY SPRINGS","Calaveras",NA
+"728","Clements","San Joaquin",NA
+"729","BURSON","San Joaquin",NA
+"730","Copperopolis","Calaveras",NA
+"731","DOUGLAS FLAT","Calaveras",NA
+"732","Murphys","Calaveras",NA
+"733","Farmington","San Joaquin",NA
+"734","French Camp","San Joaquin",NA
+"735","GLENCOE","Calaveras",NA
+"736","Glencoe","Calaveras",NA
+"737","Linden","San Joaquin",NA
+"738","Lockeford","San Joaquin",NA
+"739","Lodi","San Joaquin",NA
+"740","LODI","San Joaquin",NA
+"741","lodi","San Joaquin",NA
+"742","Mokelumne Hill","Calaveras",NA
+"743","MOKELUMNE HILL","Calaveras",NA
+"744","Mountain Ranch","Calaveras",NA
+"745","MURPHYS","Calaveras",NA
+"746","Railroad Flat","Calaveras",NA
+"747","Rail Road Flat","Calaveras",NA
+"748","San Andreas","Calaveras",NA
+"749","Vallecito","Calaveras",NA
+"750","Valley Spgs","Calaveras",NA
+"751","WALLACE","Calaveras",NA
+"752","Wallace","Calaveras",NA
+"753","wallace","Calaveras",NA
+"754","West Point","Calaveras",NA
+"755","Woodbridge","San Joaquin",NA
+"756","WOODBRIDGE","San Joaquin",NA
+"757","Atwater","Merced",NA
+"758","ATWATER","Merced",NA
+"759","atwater","Merced",NA
+"760","Ballico","Merced",NA
+"761","Tracy","San Joaquin",NA
+"762","TRACY","San Joaquin",NA
+"763","Banta","San Joaquin",NA
+"764","Catheys Valley","Mariposa",NA
+"765","Columbia","Tuolumne",NA
+"766","COLUMBIA","Tuolumne",NA
+"767","Coulterville","Mariposa",NA
+"768","Greeley Hill","Mariposa",NA
+"769","Denair","Stanislaus",NA
+"770","El Nido","Merced",NA
+"771","El Portal","Mariposa",NA
+"772","Escalon","San Joaquin",NA
+"773","escalon","San Joaquin",NA
+"774","ESCALON","San Joaquin",NA
+"775","Groveland","Tuolumne",NA
+"776","Groveland, Ca","Tuolumne",NA
+"777","Gustine","Merced",NA
+"778","Jamestown","Tuolumne",NA
+"779","La Grange","Stanislaus",NA
+"780","LA GRANGE","Stanislaus",NA
+"781","Lathrop","San Joaquin",NA
+"782","LATHROP","San Joaquin",NA
+"783","Le Grand","Merced",NA
+"784","Le Grande","Merced",NA
+"785","LE GRAND","Merced",NA
+"786","Livingston","Merced",NA
+"787","Manteca","San Joaquin",NA
+"788","MANTECA","San Joaquin",NA
+"789","Mariposa","Mariposa",NA
+"790","MARIPOSA","Mariposa",NA
+"791","Merced","Merced",NA
+"792","Midpines","Mariposa",NA
+"793","Mi Wuk Village","Tuolumne",NA
+"794","Moccasin","Tuolumne",NA
+"795","Newman","Stanislaus",NA
+"796","Oakdale","Stanislaus",NA
+"797","OAKDALE","Stanislaus",NA
+"798","oakdale","Stanislaus",NA
+"799","Knights Ferry","Stanislaus",NA
+"800","Patterson","Stanislaus",NA
+"801","Planada","Merced",NA
+"802","Ripon","San Joaquin",NA
+"803","Riverbank","Stanislaus",NA
+"804","Snelling","Merced",NA
+"805","SONORA","Tuolumne",NA
+"806","Soulsbyville","Tuolumne",NA
+"807","Stevinson","Merced",NA
+"808","STEVINSON","Merced",NA
+"809","Tuolumne","Tuolumne",NA
+"810","Toulumne","Tuolumne",NA
+"811","Twain Harte","Tuolumne",NA
+"812","Westley","Stanislaus",NA
+"813","Winton","Merced",NA
+"814","WINTON","Merced",NA
+"815","Yosemite National Park","Mariposa",NA
+"816","SANTA ROSA","Sonoma","2009-05-01"
+"817","SAnta Rosa","Sonoma","2009-05-01"
+"818","Santa rosa","Sonoma","2009-05-01"
+"819","santa Rosa","Sonoma","2009-05-01"
+"820","Santa Rosa, Ca","Sonoma","2009-05-01"
+"821","santa rosa","Sonoma","2009-05-01"
+"822","Albion","Mendocino",NA
+"823","albion","Mendocino",NA
+"824","Annapolis","Sonoma","2009-05-01"
+"825","Boonville","Mendocino",NA
+"826","Booneville","Mendocino",NA
+"827","Laytonville","Mendocino",NA
+"828","Ukiah","Mendocino",NA
+"829","UKIAH","Mendocino",NA
+"830","Camp Meeker","Sonoma","2009-05-01"
+"831","Caspar","Mendocino",NA
+"832","Cazadero","Sonoma","2009-05-01"
+"833","Clearlake","Lake",NA
+"834","CLEARLAKE","Lake",NA
+"835","Clearlake Oaks","Lake",NA
+"836","CLEARLAKE OAKS","Lake",NA
+"837","CLOVERDALE","Sonoma","2009-05-01"
+"838","Cobb","Lake",NA
+"839","COBB","Lake",NA
+"840","Covelo","Mendocino",NA
+"841","Dos Rios","Mendocino",NA
+"842","ELK","Mendocino",NA
+"843","Forestville","Sonoma","2009-05-01"
+"844","Forsetville","Sonoma","2009-05-01"
+"845","FORESTVILLE","Sonoma","2009-05-01"
+"846","Fort Bragg","Mendocino",NA
+"847","FORT BRAGG","Mendocino",NA
+"848","Fulton","Sonoma","2009-05-01"
+"849","Geyserville","Sonoma","2009-05-01"
+"850","Glen Ellen","Sonoma","2009-05-01"
+"851","GLEN ELLEN","Sonoma","2009-05-01"
+"852","Glenn Ellen","Sonoma","2009-05-01"
+"853","glen ellen","Sonoma","2009-05-01"
+"854","Graton","Sonoma","2009-05-01"
+"855","Gualala","Mendocino",NA
+"856","The Sea Ranch","Mendocino",NA
+"857","Guerneville","Sonoma","2009-05-01"
+"858","GURENVILLE","Sonoma","2009-05-01"
+"859","Healdsburg","Sonoma","2009-05-01"
+"860","HEALDSBURG","Sonoma","2009-05-01"
+"861","Healsburg","Sonoma","2009-05-01"
+"862","Hopland","Mendocino",NA
+"863","GUALALA","Mendocino",NA
+"864","Jenner","Sonoma","2009-05-01"
+"865","Kelseyville","Lake",NA
+"866","KELSEYVILLE","Lake",NA
+"867","KENWOOD","Sonoma","2009-05-01"
+"868","Lakeport","Lake",NA
+"869","LAKEPORT","Lake",NA
+"870","Little River","Mendocino",NA
+"871","Lower Lake","Lake",NA
+"872","LOWER LAKE","Lake",NA
+"873","Lucerne","Lake",NA
+"874","Manchester","Mendocino",NA
+"875","Mendocino","Mendocino",NA
+"876","MENDOCINO","Mendocino",NA
+"877","Middletown","Lake",NA
+"878","MIDDLETOWN","Lake",NA
+"879","Monte Rio","Sonoma","2009-05-01"
+"880","Navarro","Mendocino",NA
+"881","NAVARRO","Mendocino",NA
+"882","Nice","Lake",NA
+"883","Occidental","Sonoma","2009-05-01"
+"884","Occidenal","Sonoma","2009-05-01"
+"885","OCCIDENTAL","Sonoma","2009-05-01"
+"886","Sebastopol","Sonoma","2009-05-01"
+"887","Philo","Mendocino",NA
+"888","philo","Mendocino",NA
+"889","Hidden Valley Lake","Lake",NA
+"890","HIDDEN VALLEY LAKE","Lake",NA
+"891","Sonoma","Sonoma","2009-05-01"
+"892","Point Arena","Mendocino",NA
+"893","Potter Valley","Mendocino",NA
+"894","Redwood Valley","Mendocino",NA
+"895","SEBASTOPOL","Sonoma","2009-05-01"
+"896","Freestone","Sonoma","2009-05-01"
+"897","Sebastopl","Sonoma","2009-05-01"
+"898","SONOMA","Sonoma","2009-05-01"
+"899","sonoma","Sonoma","2009-05-01"
+"900","Elverono","Sonoma","2009-05-01"
+"901","Stewarts Point","Sonoma","2009-05-01"
+"902","Stewarts Point Rancheria","Sonoma","2009-05-01"
+"903","Upper Lake","Lake",NA
+"904","Villa Grande","Sonoma","2009-05-01"
+"905","Westport","Mendocino",NA
+"906","Willits","Mendocino",NA
+"907","WILLITS","Mendocino",NA
+"908","Windsor","Sonoma","2009-05-01"
+"909","WINDSOR","Sonoma","2009-05-01"
+"910","Yorkville","Mendocino",NA
+"911","Sea Ranch","Mendocino",NA
+"912","Eureka","Humboldt",NA
+"913","Arcata","Humboldt",NA
+"914","ARCATA","Humboldt",NA
+"915","McKinleyville","Humboldt",NA
+"916","McKinnleyville","Humboldt",NA
+"917","Mckinleyville","Humboldt",NA
+"918","bayside","Humboldt",NA
+"919","Bayside","Humboldt",NA
+"920","Blue Lake","Humboldt",NA
+"921","Mad River","Humboldt",NA
+"922","Bridgeville","Humboldt",NA
+"923","Burnt Ranch","Trinity",NA
+"924","Ferndale","Humboldt",NA
+"925","Fortuna","Humboldt",NA
+"926","FORTUNA","Humboldt",NA
+"927","Garberville","Humboldt",NA
+"928","GARBERVILLE","Humboldt",NA
+"929","Weitchpec","Humboldt",NA
+"930","Hydesville","Humboldt",NA
+"931","Kneeland","Humboldt",NA
+"932","Loleta","Humboldt",NA
+"933","Miranda","Humboldt",NA
+"934","Orleans","Humboldt",NA
+"935","Petrolia","Humboldt",NA
+"936","Redway","Humboldt",NA
+"937","Rio Dell","Humboldt",NA
+"938","Scotia","Humboldt",NA
+"939","Trinidad","Humboldt",NA
+"940","Trinadad","Humboldt",NA
+"941","Trinaidad","Humboldt",NA
+"942","TRINIDAD","Humboldt",NA
+"943","Willow Creek","Humboldt",NA
+"944","Whitethorn","Humboldt",NA
+"945","Amador City","Amador",NA
+"946","Auburn","Placer",NA
+"947","AUBURN","Placer",NA
+"948","West Sacramento","Yolo",NA
+"949","WEST SACRAMENTO","Yolo",NA
+"950","Brooks","Yolo",NA
+"951","Capay","Yolo",NA
+"952","Esparto","Yolo",NA
+"953","WEST POINT","Sacramento",NA
+"954","Clarksburg","Yolo",NA
+"955","CLARKSBURG","Yolo",NA
+"956","Coloma","El Dorado",NA
+"957","Cool","El Dorado",NA
+"958","Davis","Yolo",NA
+"959","DAVIS","Yolo",NA
+"960","davis","Yolo",NA
+"961","El Macero","Yolo",NA
+"962","EL DORADO HILLS","El Dorado",NA
+"963","Diamond Springs","El Dorado",NA
+"964","DIAMOND SPRINGS","El Dorado",NA
+"965","DIXON","Solano",NA
+"966","Dixon","Solano",NA
+"967","El Dorado","El Dorado",NA
+"968","EL DORADO","El Dorado",NA
+"969","Elverta","Sacramento",NA
+"970","ELVERTA","Sacramento",NA
+"971","ESPARTO","Yolo",NA
+"972","Fiddletown","Amador",NA
+"973","FIDDLETOWN","Amador",NA
+"974","Foresthill","Placer",NA
+"975","FORESTHILL","Placer",NA
+"976","Galt","Sacramento",NA
+"977","Garden Valley","El Dorado",NA
+"978","Georgetown","El Dorado",NA
+"979","GEORGETOWN","El Dorado",NA
+"980","Greenwood","El Dorado",NA
+"981","GREENWOOD","El Dorado",NA
+"982","Grizzly Flats","El Dorado",NA
+"983","Guinda","Yolo",NA
+"984","Ione","Amador",NA
+"985","IONE","Amador",NA
+"986","Camanche Lake","Amador",NA
+"987","ISLETON","Sacramento",NA
+"988","Isleton","Sacramento",NA
+"989","Jackson","Amador",NA
+"990","JACKSON","Amador",NA
+"991","Knights Landing","Yolo",NA
+"992","Lincoln","Placer",NA
+"993","LINCOLN","Placer",NA
+"994","LincolN","Placer",NA
+"995","lincoln","Placer",NA
+"996","LOOMIS","Placer",NA
+"997","Loomis","Placer",NA
+"998","LOOMIS,","Placer",NA
+"999","Lomis","Placer",NA
+"1000","loomis","Placer",NA
+"1001","Lotus","El Dorado",NA
+"1002","LOTUS","El Dorado",NA
+"1003","Madison","Yolo",NA
+"1004","MADISON","Yolo",NA
+"1005","Mount Aukum","El Dorado",NA
+"1006","Mt. Aukum","El Dorado",NA
+"1007","Newcastle","Placer",NA
+"1008","NewCastle","Placer",NA
+"1009","NEWCASTLE","Placer",NA
+"1010","New Castle","Placer",NA
+"1011","NEwcastle","Placer",NA
+"1012","Trowbridge","Sutter",NA
+"1013","Nicolaus","Sutter",NA
+"1014","East Nicolaus","Sutter",NA
+"1015","Roseville","Placer",NA
+"1016","Penryn","Placer",NA
+"1017","Pemryn","Placer",NA
+"1018","PENRYN","Placer",NA
+"1019","Pilot Hill","El Dorado",NA
+"1020","Pine Grove","Amador",NA
+"1021","Pinegrove","Shasta",NA
+"1022","PINE GROVE","Amador",NA
+"1023","PIONEER","Amador",NA
+"1024","Pioneer","Amador",NA
+"1025","Placerville","El Dorado",NA
+"1026","PLACERVILLE","El Dorado",NA
+"1027","Kelsey","El Dorado",NA
+"1028","Pleasant Grove","Sutter",NA
+"1029","Plymouth","Amador",NA
+"1030","PLYMOUTH","Amador",NA
+"1031","Rescue","El Dorado",NA
+"1032","RESCUE","El Dorado",NA
+"1033","El Dorado Hills","El Dorado",NA
+"1034","Rio Oso","Sutter",NA
+"1035","Rocklin","Placer",NA
+"1036","ROCKLIN","Placer",NA
+"1037","Rumsey","Yolo",NA
+"1038","Sheridan","Sonoma","2009-05-01"
+"1039","Shingle Springs","El Dorado",NA
+"1040","Cameron Park","El Dorado",NA
+"1041","SHINGLE SPRINGS","El Dorado",NA
+"1042","Shingle Spgs","El Dorado",NA
+"1043","CAMERON PARK","El Dorado",NA
+"1044","Shingle  Springs","El Dorado",NA
+"1045","Somerset","El Dorado",NA
+"1046","SOMERSET","El Dorado",NA
+"1047","Sutter Creek","Amador",NA
+"1048","Vacaville","Solano",NA
+"1049","VACAVILLE","Solano",NA
+"1050","Vacaville CA","Solano",NA
+"1051","Volcano","Amador",NA
+"1052","Walnut Grove","Sacramento",NA
+"1053","Wheatland","Yuba",NA
+"1054","WHEATLAND","Yuba",NA
+"1055","Winters","Yolo",NA
+"1056","WINTERS","Yolo",NA
+"1057","Woodland","Yolo",NA
+"1058","WOODLAND","Yolo",NA
+"1059","woodland","Yolo",NA
+"1060","Yolo","Yolo",NA
+"1061","Zamora","Yolo",NA
+"1062","Drytown","Amador",NA
+"1063","Alta","Placer",NA
+"1064","Applegate","Placer",NA
+"1065","Camino","El Dorado",NA
+"1066","Colfax","Placer",NA
+"1067","Eden Valley","Placer",NA
+"1068","COLFAX","Placer",NA
+"1069","DUTCH FLAT","Placer",NA
+"1070","Dutch Flat","Placer",NA
+"1071","Gold Run","Placer",NA
+"1072","Meadow Vista","Placer",NA
+"1073","MEADOWVISTA","Placer",NA
+"1074","Pollock Pines","El Dorado",NA
+"1075","Granite Bay","Placer",NA
+"1076","GRANITE BAY","Placer",NA
+"1077","ROSEVILLE","Placer",NA
+"1078","granite bay","Placer",NA
+"1079","Granite bay","Placer",NA
+"1080","el dorado hills","El Dorado",NA
+"1081","El Dorado HIlls","El Dorado",NA
+"1082","rocklin","Placer",NA
+"1083","Marysville","Yuba",NA
+"1084","MARYSVILLE","Yuba",NA
+"1085","Loma Rica","Yuba",NA
+"1086","ARBUCKLE","Colusa",NA
+"1087","Arbuckle","Colusa",NA
+"1088","College City","Colusa",NA
+"1089","Grass Valley","Nevada",NA
+"1090","Artois","Glenn",NA
+"1091","Bangor","Butte",NA
+"1092","BANGOR","Butte",NA
+"1093","Oroville","Plumas",NA
+"1094","OROVILLE","Butte",NA
+"1095","Berry Creek","Butte",NA
+"1096","BERRY CREEK","Butte",NA
+"1097","Biggs","Butte",NA
+"1098","BIGGS","Butte",NA
+"1099","Browns Valley","Yuba",NA
+"1100","browns valley","Yuba",NA
+"1101","BROWNS VALLEY","Yuba",NA
+"1102","Brownsville","Yuba",NA
+"1103","Butte City","Glenn",NA
+"1104","CAMPTONVILLE","Yuba",NA
+"1105","CHICO","Butte",NA
+"1106","Colusa","Colusa",NA
+"1107","colusa","Colusa",NA
+"1108","Crescent Mills","Plumas",NA
+"1109","Dobbins","Yuba",NA
+"1110","Downieville","Sierra",NA
+"1111","Dunnigan","Yolo",NA
+"1112","Durham","Butte",NA
+"1113","DURHAM","Butte",NA
+"1114","durham","Butte",NA
+"1115","Elk Creek","Glenn",NA
+"1116","Forest Ranch","Butte",NA
+"1117","FOREST RANCH","Butte",NA
+"1118","Glenn","Glenn",NA
+"1119","GLENN","Glenn",NA
+"1120","GRASS VALLEY","Nevada",NA
+"1121","Grass valley","Nevada",NA
+"1122","Penn Valley","Nevada",NA
+"1123","PENN VALLEY","Nevada",NA
+"1124","Greenville","Plumas",NA
+"1125","Gridley","Butte",NA
+"1126","GRIDLEY","Butte",NA
+"1127","Grimes","Colusa",NA
+"1128","Hamilton City","Glenn",NA
+"1129","HAMILTON CITY","Glenn",NA
+"1130","Live Oak","Sutter",NA
+"1131","Magalia","Butte",NA
+"1132","Maxwell","Colusa",NA
+"1133","Meadow Valley","Plumas",NA
+"1134","Meridian","Sutter",NA
+"1135","Nelson","Butte",NA
+"1136","Nevada City","Nevada",NA
+"1137","NEVADA CITY","Nevada",NA
+"1138","North San Juan","Nevada",NA
+"1139","Olivehurst","Yuba",NA
+"1140","PLUMAS LAKE","Yuba",NA
+"1141","Plumas Lake","Yuba",NA
+"1142","Oregon House","Yuba",NA
+"1143","OREGON HOUSE","Yuba",NA
+"1144","Orland","Glenn",NA
+"1145","ORLAND","Glenn",NA
+"1146","Yankee Hill","Butte",NA
+"1147","BUTTE VALLEY","Butte",NA
+"1148","Paradise","Butte",NA
+"1149","PARADISE","Butte",NA
+"1150","Palermo","Butte",NA
+"1151","Princeton","Colusa",NA
+"1152","Quincy","Plumas",NA
+"1153","quincy","Plumas",NA
+"1154","chico","Butte",NA
+"1155","Cohasset","Butte",NA
+"1156","Richvale","Butte",NA
+"1157","Rough and Ready","Nevada",NA
+"1158","Rough And Ready","Nevada",NA
+"1159","Smartville","Nevada",NA
+"1160","Big Oak Valley","Nevada",NA
+"1161","SMARTVILLE","Nevada",NA
+"1162","Smartsville","Nevada",NA
+"1163","Sutter","Sutter",NA
+"1164","Taylorsville","Plumas",NA
+"1165","Twain","Plumas",NA
+"1166","Williams","Colusa",NA
+"1167","Willows","Glenn",NA
+"1168","WILLOWS","Glenn",NA
+"1169","Yuba City","Sutter",NA
+"1170","YUBA CITY","Sutter",NA
+"1171","Redding","Shasta",NA
+"1172","REDDING","Shasta",NA
+"1173","Anderson","Shasta",NA
+"1174","ANDERSON","Shasta",NA
+"1175","Bella Vista","Shasta",NA
+"1176","Burney","Shasta",NA
+"1177","Cassel","Shasta",NA
+"1178","Shasta Lake","Shasta",NA
+"1179","CORNING","Tehama",NA
+"1180","Corning","Tehama",NA
+"1181","Cottonwood","Shasta",NA
+"1182","COTTONWOOD","Shasta",NA
+"1183","Fall River Mills","Shasta",NA
+"1184","FALL RIVER MILLS","Shasta",NA
+"1185","Flournoy","Tehama",NA
+"1186","Gerber","Tehama",NA
+"1187","Hat Creek","Shasta",NA
+"1188","Igo","Shasta",NA
+"1189","IGO","Shasta",NA
+"1190","Lakehead","Shasta",NA
+"1191","Los Molinos","Tehama",NA
+"1192","McArthur","Lassen",NA
+"1193","MANTON","Tehama",NA
+"1194","Manton","Tehama",NA
+"1195","Millville","Shasta",NA
+"1196","millville","Shasta",NA
+"1197","Montgomery Creek","Shasta",NA
+"1198","Oak Run","Shasta",NA
+"1199","Palo Cedro","Shasta",NA
+"1200","PALO CEDRO","Shasta",NA
+"1201","Palo Cedero","Shasta",NA
+"1202","Paskenta","Tehama",NA
+"1203","Platina","Shasta",NA
+"1204","Proberta","Tehama",NA
+"1205","Red Bluff","Tehama",NA
+"1206","RED BLUFF","Tehama",NA
+"1207","Red Bluff`","Tehama",NA
+"1208","Shasta","Shasta",NA
+"1209","Shingletown","Shasta",NA
+"1210","Vina","Tehama",NA
+"1211","VINA","Tehama",NA
+"1212","Whitmore","Shasta",NA
+"1213","whitmore","Shasta",NA
+"1214","Westwood","Lassen",NA
+"1215","Lake Almanor","Lassen",NA
+"1216","LAKE ALMANOR","Lassen",NA
+"1217","Los Angeles","Los Angeles",NA
+"1218","West Hollywood","Los Angeles",NA
+"1219","Commerce","Los Angeles",NA
+"1220","LOS ANGELES","Los Angeles",NA
+"1221","Culver City","Los Angeles",NA
+"1222","Bell","Los Angeles",NA
+"1223","Beverly Hills","Los Angeles",NA
+"1224","Bevery Hills","Los Angeles",NA
+"1225","Compton","Los Angeles",NA
+"1226","COMPTON","Los Angeles",NA
+"1227","Rosewood","Los Angeles",NA
+"1228","CULVER CITY","Los Angeles",NA
+"1229","Culver city","Los Angeles",NA
+"1230","DOWNEY","Los Angeles",NA
+"1231","El Segundo","Los Angeles",NA
+"1232","el segundo","Los Angeles",NA
+"1233","EL SEGUNDO","Los Angeles",NA
+"1234","Gardena","Los Angeles",NA
+"1235","Hawthorne","Los Angeles",NA
+"1236","HAWTHORNE","Los Angeles",NA
+"1237","Hermosa Beach","Los Angeles",NA
+"1238","HERMOSA BEACH","Los Angeles",NA
+"1239","Huntington Park","Los Angeles",NA
+"1240","Walnut Park","Los Angeles",NA
+"1241","Lawndale","Los Angeles",NA
+"1242","Lynnwood","Los Angeles",NA
+"1243","Lynwood","Los Angeles",NA
+"1244","Malibu","Los Angeles",NA
+"1245","malibu","Los Angeles",NA
+"1246","Manhattan Beach","Los Angeles",NA
+"1247","Manhattan Bch","Los Angeles",NA
+"1248","manhattan beach","Los Angeles",NA
+"1249","MANHATTAN BEACH","Los Angeles",NA
+"1250","MANHATTAN Beach","Los Angeles",NA
+"1251","Manhattan Beach, CA","Los Angeles",NA
+"1252","Manhattan beach","Los Angeles",NA
+"1253","Palos Verdes Peninsula","Los Angeles",NA
+"1254","Rolling Hills Estates","Los Angeles",NA
+"1255","Rolling Hills","Los Angeles",NA
+"1256","Palos Verdes Estates","Los Angeles",NA
+"1257","rolling hills estates","Los Angeles",NA
+"1258","Palos Verdes","Los Angeles",NA
+"1259","ROLLING HILLS","Los Angeles",NA
+"1260","Rolling hills Estates","Los Angeles",NA
+"1261","PALOS VERDES ESTATES","Los Angeles",NA
+"1262","Ranco Palos Verdes","Los Angeles",NA
+"1263","PALO VERDE ESTATE","Orange",NA
+"1264","Rolling Hills Estate","Los Angeles",NA
+"1265","Rolling Hils","Los Angeles",NA
+"1266","Rancho Palos Verde","Los Angeles",NA
+"1267","RANCHO PALOS VERDES","Los Angeles",NA
+"1268","RANCHO PALOS VERDE","Los Angeles",NA
+"1269","Rancho Palos verdes","Los Angeles",NA
+"1270","rancho Palos Verdes","Los Angeles",NA
+"1271","Ranchos Palos Verdes","Los Angeles",NA
+"1272","Rancho  Palos Verdes","Los Angeles",NA
+"1273","Rancho Palo Verdes","Los Angeles",NA
+"1274","Redondo Beach","Los Angeles",NA
+"1275","REDONDO BEACH","Los Angeles",NA
+"1276","South Gate","Los Angeles",NA
+"1277","Topanga","Los Angeles",NA
+"1278","TOPANGA","Los Angeles",NA
+"1279","Inglewood","Los Angeles",NA
+"1280","INGLEWOOD","Los Angeles",NA
+"1281","inglewood","Los Angeles",NA
+"1282","lennox","Los Angeles",NA
+"1283","Santa Monica","Los Angeles",NA
+"1284","Santa Moncia","Los Angeles",NA
+"1285","SANTA MONICA","Los Angeles",NA
+"1286","santa monica","Los Angeles",NA
+"1287","Torrance","Los Angeles",NA
+"1288","torrance","Los Angeles",NA
+"1289","TORRANCE","Los Angeles",NA
+"1290","Whittier","Los Angeles",NA
+"1291","WHITTIER","Los Angeles",NA
+"1292","whittier","Los Angeles",NA
+"1293","Whitter","Los Angeles",NA
+"1294","Buena Park","Orange",NA
+"1295","BUENA PARK","Orange",NA
+"1296","La Palma","Orange",NA
+"1297","LA PALMA","Orange",NA
+"1298","CYPRESS","Orange",NA
+"1299","Cypress","Orange",NA
+"1300","La Habra","Orange",NA
+"1301","La Habra Heights","Orange",NA
+"1302","LA HABRA","Orange",NA
+"1303","La habra","Orange",NA
+"1304","La Habra heights","Orange",NA
+"1305","La Mirada","Los Angeles",NA
+"1306","LA MIRADA","Los Angeles",NA
+"1307","La mirada","Los Angeles",NA
+"1308","Montebello","Los Angeles",NA
+"1309","Norwalk","Los Angeles",NA
+"1310","NORWALK","Los Angeles",NA
+"1311","PICO RIVERA","Los Angeles",NA
+"1312","Pico Riveria","Los Angeles",NA
+"1313","Pico Rivera","Los Angeles",NA
+"1314","pico rivera","Los Angeles",NA
+"1315","Santa Fe Springs","Los Angeles",NA
+"1316","Sana Fe Springs","Los Angeles",NA
+"1317","Stanton","Orange",NA
+"1318","STANTON","Orange",NA
+"1319","Cerritos","Los Angeles",NA
+"1320","Artesia","Los Angeles",NA
+"1321","CERRITOS","Los Angeles",NA
+"1322","Avalon","Orange",NA
+"1323","Bellflower","Los Angeles",NA
+"1324","BELLFLOWER","Los Angeles",NA
+"1325","bellflower","Los Angeles",NA
+"1326","Harbor City","Los Angeles",NA
+"1327","Lakewood","Los Angeles",NA
+"1328","LAKEWOOD","Los Angeles",NA
+"1329","Hawaiian Gardens","Los Angeles",NA
+"1330","LOMITA","Los Angeles",NA
+"1331","Lomita","Los Angeles",NA
+"1332","LOS ALAMITOS","Orange",NA
+"1333","Los Alamitos","Orange",NA
+"1334","Rossmoor","Orange",NA
+"1335","los alamitos","Orange",NA
+"1336","Los alamitos","Orange",NA
+"1337","Paramount","Los Angeles",NA
+"1338","San Pedro","Los Angeles",NA
+"1339","Seal Beach","Orange",NA
+"1340","SEAL BEACH","Orange",NA
+"1341","seal beach","Orange",NA
+"1342","Seal beach","Orange",NA
+"1343","Sunset Beach","Orange",NA
+"1344","Surfside","Orange",NA
+"1345","Carson","Los Angeles",NA
+"1346","Long Beach","Los Angeles",NA
+"1347","CARSON","Los Angeles",NA
+"1348","carson","Los Angeles",NA
+"1349","Signal Hill","Los Angeles",NA
+"1350","signal hill","Los Angeles",NA
+"1351","LONG BEACH","Los Angeles",NA
+"1352","Long beach","Los Angeles",NA
+"1353","long beach","Los Angeles",NA
+"1354","Altadena","Los Angeles",NA
+"1355","ALTADENA","Los Angeles",NA
+"1356","AltaDena","Los Angeles",NA
+"1357","Alta Dena","Los Angeles",NA
+"1358","altadena","Los Angeles",NA
+"1359","Arcadia","Los Angeles",NA
+"1360","ARCADIA","Los Angeles",NA
+"1361","Arcaida","Los Angeles",NA
+"1362","arcadia","Los Angeles",NA
+"1363","Duarte","Los Angeles",NA
+"1364","Bradbury","Los Angeles",NA
+"1365","DUARTE","Los Angeles",NA
+"1366","Irwindale","Los Angeles",NA
+"1367","La Canada","Los Angeles",NA
+"1368","La Canada Flintridge","Los Angeles",NA
+"1369","LA CANADA","Los Angeles",NA
+"1370","Flintridge","Los Angeles",NA
+"1371","la Canada","Los Angeles",NA
+"1372","LA Canada","Los Angeles",NA
+"1373","Monrovia","Los Angeles",NA
+"1374","monrovia","Los Angeles",NA
+"1375","MONROVIA","Los Angeles",NA
+"1376","Montrose","Los Angeles",NA
+"1377","Sierra Madre","Los Angeles",NA
+"1378","South Pasadena","Los Angeles",NA
+"1379","SOUTH PASADENA","Los Angeles",NA
+"1380","Pasadena","Los Angeles",NA
+"1381","S. Pasadena","Los Angeles",NA
+"1382","PASADENA","Los Angeles",NA
+"1383","San Marino","Los Angeles",NA
+"1384","SAN MARINO","Los Angeles",NA
+"1385","san marino","Los Angeles",NA
+"1386","La Crescenta","Los Angeles",NA
+"1387","LA CRESCENTA","Los Angeles",NA
+"1388","La Cresenta","Los Angeles",NA
+"1389","LA Crescenta","Los Angeles",NA
+"1390","Agoura Hills","Los Angeles",NA
+"1391","Calabasas","Los Angeles",NA
+"1392","AGOURA HILLS","Los Angeles",NA
+"1393","Agoura","Los Angeles",NA
+"1394","Agora Hills","Los Angeles",NA
+"1395","AGOURA","Los Angeles",NA
+"1396","CALABASAS","Los Angeles",NA
+"1397","Hidden Hills","Los Angeles",NA
+"1398","Calbasas","Los Angeles",NA
+"1399","Calabasas,","Los Angeles",NA
+"1400","hidden Hills","Los Angeles",NA
+"1401","CALBASAS","Los Angeles",NA
+"1402","Calabassas","Los Angeles",NA
+"1403","Calabasis","Los Angeles",NA
+"1404","Monte Nido","Los Angeles",NA
+"1405","Canoga Park","Los Angeles",NA
+"1406","Bell Canyon","Los Angeles",NA
+"1407","West Hills","Los Angeles",NA
+"1408","Castaic","Los Angeles",NA
+"1409","Santa Clarita","Los Angeles",NA
+"1410","Chatsworth","Los Angeles",NA
+"1411","Newbury Park","Ventura",NA
+"1412","Thousand Oaks","Ventura",NA
+"1413","NewBury Park","Ventura",NA
+"1414","NEWBURY PARK","Ventura",NA
+"1415","THOUSAND OAKS","Ventura",NA
+"1416","Newhall","Los Angeles",NA
+"1417","SANTA CLARITA","Los Angeles",NA
+"1418","San Fernando","Los Angeles",NA
+"1419","Sylmar","Los Angeles",NA
+"1420","Kagel Canyon","Los Angeles",NA
+"1421","Saugus","Los Angeles",NA
+"1422","Agua Dulce","Los Angeles",NA
+"1423","AGUA DULCE","Los Angeles",NA
+"1424","SAUGUS","Los Angeles",NA
+"1425","Canyon Country","Los Angeles",NA
+"1426","CANYON COUNTRY","Los Angeles",NA
+"1427","Canyon Cntry","Los Angeles",NA
+"1428","Valencia","Los Angeles",NA
+"1429","VALENCIA","Los Angeles",NA
+"1430","Thousand oaks","Ventura",NA
+"1431","Westlake Village","Ventura",NA
+"1432","WESTLAKE VILLAGE","Ventura",NA
+"1433","West Lake Village","Ventura",NA
+"1434","Thousand Oak","Ventura",NA
+"1435","Westlake Vlg","Ventura",NA
+"1436","Lake Sherwood","Ventura",NA
+"1437","Westlake City","Ventura",NA
+"1438","1000 OAKS","Ventura",NA
+"1439","Woodland Hills","Los Angeles",NA
+"1440","Oak Park","Los Angeles",NA
+"1441","OAK PARK","Los Angeles",NA
+"1442","Stevenson Ranch","Los Angeles",NA
+"1443","STEVENSON RANCH","Los Angeles",NA
+"1444","castaic","Los Angeles",NA
+"1445","CASTAIC","Los Angeles",NA
+"1446","Canyon country","Los Angeles",NA
+"1447","Aqua Dulce","Los Angeles",NA
+"1448","Green Valley","Los Angeles",NA
+"1449","Sherman Oaks","Los Angeles",NA
+"1450","Alta Loma","San Bernardino",NA
+"1451","RANCHO CUCAMONGA","San Bernardino",NA
+"1452","Rancho Cucamonga","San Bernardino",NA
+"1453","ALTA LOMA","San Bernardino",NA
+"1454","altaloma","San Bernardino",NA
+"1455","Altaloma","San Bernardino",NA
+"1456","Rancho Cuc","San Bernardino",NA
+"1457","Azusa","Los Angeles",NA
+"1458","AZUSA","Los Angeles",NA
+"1459","Baldwin Park","Los Angeles",NA
+"1460","Chino","San Bernardino",NA
+"1461","Chino Hills","San Bernardino",NA
+"1462","CHINO HILLS","San Bernardino",NA
+"1463","Chino hills","San Bernardino",NA
+"1464","Chino HIlls","San Bernardino",NA
+"1465","CHino Hills","San Bernardino",NA
+"1466","CHINO","San Bernardino",NA
+"1467","chino","San Bernardino",NA
+"1468","Claremont","Los Angeles",NA
+"1469","CLAREMONT","Los Angeles",NA
+"1470","claremont","Los Angeles",NA
+"1471","Clarmont","Los Angeles",NA
+"1472","City of Industry","Los Angeles",NA
+"1473","COVINA","Los Angeles",NA
+"1474","Covina","Los Angeles",NA
+"1475","rancho cucamonga","San Bernardino",NA
+"1476","El Monte","Los Angeles",NA
+"1477","EL MONTE","Los Angeles",NA
+"1478","S El Monte","Los Angeles",NA
+"1479","South El Monte","Los Angeles",NA
+"1480","Etiwanda","San Bernardino",NA
+"1481","ETIWANDA","San Bernardino",NA
+"1482","etiwanda","San Bernardino",NA
+"1483","Glendora","Los Angeles",NA
+"1484","GLENDORA","Los Angeles",NA
+"1485","glendora","Los Angeles",NA
+"1486","LA PUENTE","Los Angeles",NA
+"1487","La Puente","Los Angeles",NA
+"1488","Valinda","Los Angeles",NA
+"1489","Hacienda Heights","Los Angeles",NA
+"1490","HACIENDA HEIGHTS","Los Angeles",NA
+"1491","Hacienda Hts","Los Angeles",NA
+"1492","Hacieneda Heights","Los Angeles",NA
+"1493","hacienda heights","Los Angeles",NA
+"1494","Hacienda Hights","Los Angeles",NA
+"1495","Hacienda heights","Los Angeles",NA
+"1496","Rowland Heights","Los Angeles",NA
+"1497","ROWLAND HEIGHTS","Los Angeles",NA
+"1498","LA VERNE","Los Angeles",NA
+"1499","La Verne","Los Angeles",NA
+"1500","La-Verne","Los Angeles",NA
+"1501","La verne","Los Angeles",NA
+"1502","LaVerne","Los Angeles",NA
+"1503","Mira Loma","Riverside",NA
+"1504","Mira loma","Riverside",NA
+"1505","MIRA LOMA","Riverside",NA
+"1506","MiraLoma","San Bernardino",NA
+"1507","Monterey Park","Los Angeles",NA
+"1508","Monterrey Park","Los Angeles",NA
+"1509","MONTEREY PARK","Los Angeles",NA
+"1510","monterey park","Los Angeles",NA
+"1511","Mt Baldy","Los Angeles",NA
+"1512","Ontario","San Bernardino",NA
+"1513","ONTARIO","San Bernardino",NA
+"1514","ontario","San Bernardino",NA
+"1515","MONTCLAIR","San Bernardino",NA
+"1516","Montclair","San Bernardino",NA
+"1517","Diamond Bar","Los Angeles",NA
+"1518","Diamond bar","Los Angeles",NA
+"1519","DIAMOND BAR","Los Angeles",NA
+"1520","Pomona","Los Angeles",NA
+"1521","diamond bar","Los Angeles",NA
+"1522","POMONA","Los Angeles",NA
+"1523","Walnut","Los Angeles",NA
+"1524","Phillips Ranch","Los Angeles",NA
+"1525","Rosemead","Los Angeles",NA
+"1526","ROSEMEAD","Los Angeles",NA
+"1527","San Dimas","Los Angeles",NA
+"1528","SAN DIMAS","Los Angeles",NA
+"1529","San dimas","Los Angeles",NA
+"1530","San Gabriel","Los Angeles",NA
+"1531","Temple City","Los Angeles",NA
+"1532","TEMPLE CITY","Los Angeles",NA
+"1533","Upland","San Bernardino",NA
+"1534","UPLAND","San Bernardino",NA
+"1535","WALNUT","Los Angeles",NA
+"1536","walnut","Los Angeles",NA
+"1537","West Covina","Los Angeles",NA
+"1538","WEST COVINA","Los Angeles",NA
+"1539","Alhambra","Los Angeles",NA
+"1540","ALHAMBRA","Los Angeles",NA
+"1541","Indian Wells","Riverside",NA
+"1542","Palm Desert","Riverside","2008-08-01"
+"1543","Indian wells","Riverside",NA
+"1544","INDIAN WELLS","Riverside",NA
+"1545","PALM DESERT","Riverside",NA
+"1546","Palm desert","Riverside",NA
+"1547","Banning","Riverside",NA
+"1548","Beaumont","Riverside",NA
+"1549","Cherry Valley","Riverside",NA
+"1550","BEAUMONT","Riverside",NA
+"1551","CHERRY VALLEY","Riverside",NA
+"1552","Blythe","Riverside",NA
+"1553","BLYTHE","Riverside",NA
+"1554","blythe","Riverside",NA
+"1555","Cathedral City","Riverside",NA
+"1556","CATHEDRAL CITY","Riverside",NA
+"1557","Desert Hot Springs","Riverside",NA
+"1558","DESERT HOT SPRINGS","Riverside",NA
+"1559","Joshua Tree","San Bernardino",NA
+"1560","JOSHUA TREE","San Bernardino",NA
+"1561","Joshua Tre","San Bernardino",NA
+"1562","Morongo Valley","San Bernardino",NA
+"1563","Morongo valley","San Bernardino",NA
+"1564","palm desert","Riverside",NA
+"1565","Palm Springs","Riverside",NA
+"1566","PALM SPRINGS","Riverside",NA
+"1567","Palm Springs,","Riverside",NA
+"1568","Palm Spring","Riverside",NA
+"1569","palm springs","Riverside",NA
+"1570","palm Springs","Riverside",NA
+"1571","Palm Spings","Riverside",NA
+"1572","Palmspring","Riverside",NA
+"1573","Palo Verde","Imperial",NA
+"1574","Pioneertown","San Bernardino",NA
+"1575","Rancho Mirage","Riverside",NA
+"1576","RANCHO MIRAGE","Riverside",NA
+"1577","29 Palms","San Bernardino",NA
+"1578","Twentynine Palms","San Bernardino",NA
+"1579","twentynine palms","San Bernardino",NA
+"1580","29 PALMS","San Bernardino",NA
+"1581","29 palms","San Bernardino",NA
+"1582","Whitewater","Riverside",NA
+"1583","White Water","Riverside",NA
+"1584","Yucca Valley","San Bernardino",NA
+"1585","Yacca Valley","San Bernardino",NA
+"1586","YUCCA VALLEY","San Bernardino",NA
+"1587","Landers","San Bernardino",NA
+"1588","Adelanto","San Bernardino",NA
+"1589","Angelus Oaks","San Bernardino",NA
+"1590","Apple Valley","San Bernardino",NA
+"1591","APPLE VALLEY","San Bernardino",NA
+"1592","Barstow","San Bernardino",NA
+"1593","BARSTOW","San Bernardino",NA
+"1594","Grand Terrace","San Bernardino",NA
+"1595","GRAND TERRACE","San Bernardino",NA
+"1596","Big Bear City","San Bernardino",NA
+"1597","Bloomington","San Bernardino",NA
+"1598","BLOOMINGTON","San Bernardino",NA
+"1599","Blue Jay","San Bernardino",NA
+"1600","Calimesa","Riverside",NA
+"1601","CALIMESA","Riverside",NA
+"1602","Colton","San Bernardino",NA
+"1603","COLTON","San Bernardino",NA
+"1604","Crestline","San Bernardino",NA
+"1605","Death Valley","Inyo",NA
+"1606","Phelan","San Bernardino",NA
+"1607","Fontana","San Bernardino",NA
+"1608","FONTANA","San Bernardino",NA
+"1609","Newberry Springs","San Bernardino",NA
+"1610","Hesperia","San Bernardino",NA
+"1611","HESPERIA","San Bernardino",NA
+"1612","Green Valley Lake","San Bernardino",NA
+"1613","Helendale","San Bernardino",NA
+"1614","HELENDALE","San Bernardino",NA
+"1615","Silver Lakes","San Bernardino",NA
+"1616","Heneldale","San Bernardino",NA
+"1617","Oak Hills","San Bernardino",NA
+"1618","Oakhills","San Bernardino",NA
+"1619","OAK HILLS","San Bernardino",NA
+"1620","Highland","San Bernardino",NA
+"1621","HIGHLAND","San Bernardino",NA
+"1622","highland","San Bernardino",NA
+"1623","Hinkley","San Bernardino",NA
+"1624","Loma Linda","San Bernardino",NA
+"1625","Lake Arrowhead","San Bernardino",NA
+"1626","LOMA LINDA","San Bernardino",NA
+"1627","Loma linda","San Bernardino",NA
+"1628","Lucerne Valley","San Bernardino",NA
+"1629","LUCERNE VALLEY","San Bernardino",NA
+"1630","Lytle Creek","San Bernardino",NA
+"1631","Mentone","San Bernardino",NA
+"1632","MENTONE","San Bernardino",NA
+"1633","havasulk","Orange",NA
+"1634","Nipton","San Bernardino",NA
+"1635","Baker","San Bernardino",NA
+"1636","Oro Grande","San Bernardino",NA
+"1637","PHELAN","San Bernardino",NA
+"1638","West Cajon Valley","San Bernardino",NA
+"1639","Pinon Hills","San Bernardino",NA
+"1640","Pinion Hills","Orange",NA
+"1641","Redlands","San Bernardino",NA
+"1642","Corona","Riverside",NA
+"1643","REDLANDS","San Bernardino",NA
+"1644","redlands","San Bernardino",NA
+"1645","Rialto","San Bernardino",NA
+"1646","RIALTO","San Bernardino",NA
+"1647","Riallto","San Bernardino",NA
+"1648","Running Springs","San Bernardino",NA
+"1649","Twin Peaks","San Bernardino",NA
+"1650","Victorville","San Bernardino",NA
+"1651","VICTORVILLE","San Bernardino",NA
+"1652","victorville","San Bernardino",NA
+"1653","Wrightwood","San Bernardino",NA
+"1654","WRIGHTWOOD","San Bernardino",NA
+"1655","Yermo","San Bernardino",NA
+"1656","Yucaipa","San Bernardino","2009-07-01"
+"1657","yucaipa","San Bernardino",NA
+"1658","YUCAIPA","San Bernardino",NA
+"1659","Yucaipa, CA","San Bernardino",NA
+"1660","San Bernardino","San Bernardino",NA
+"1661","SAN BERNARDINO","San Bernardino",NA
+"1662","SAN BERNANDINO","San Bernardino",NA
+"1663","Riverside","Riverside",NA
+"1664","riverside","Riverside",NA
+"1665","RIVERSIDE","Riverside",NA
+"1666","Rubidoux","Riverside",NA
+"1667","LAKE ELSINORE","Riverside",NA
+"1668","Lake Elsinore","Riverside",NA
+"1669","lake Elsinore","Riverside",NA
+"1670","ELSINORE","Riverside",NA
+"1671","Elsinore","Riverside",NA
+"1672","Aguanga","Riverside",NA
+"1673","Hemet","Riverside",NA
+"1674","HEMET","Riverside",NA
+"1675","hemet","Riverside",NA
+"1676","Homeland","Riverside",NA
+"1677","HOMELAND","Riverside",NA
+"1678","Idyllwild","Riverside",NA
+"1679","Moreno Valley","Riverside",NA
+"1680","MORENO VALLEY","Riverside",NA
+"1681","Moreno","Riverside",NA
+"1682","Moreno valley","Riverside",NA
+"1683","Summit","Riverside",NA
+"1684","Mountain Center","Riverside",NA
+"1685","MURRIETA","Riverside",NA
+"1686","Murietta","Tulare",NA
+"1687","murrieta","Riverside",NA
+"1688","Murrietta","Riverside",NA
+"1689","Nuevo","Riverside",NA
+"1690","NUEVO","Riverside",NA
+"1691","Lakeview","Riverside",NA
+"1692","Perris","Riverside",NA
+"1693","PERRIS","Riverside",NA
+"1694","San Jacinto","Riverside",NA
+"1695","SAN JACINTO","Riverside",NA
+"1696","Menifee","Riverside",NA
+"1697","MENIFEE","Riverside",NA
+"1698","SUN CITY","Riverside",NA
+"1699","Sun City","Riverside",NA
+"1700","Menifee Ca 92584","Riverside",NA
+"1701","Wildomar","Riverside",NA
+"1702","menifee","Riverside",NA
+"1703","Romoland","Riverside",NA
+"1704","Canyon Lake","Riverside",NA
+"1705","CANYON LAKE","Riverside",NA
+"1706","Quail Valley","Riverside",NA
+"1707","QUAIL VALLEY","Riverside",NA
+"1708","Temecula","Riverside",NA
+"1709","TEMECULA","Riverside",NA
+"1710","temecula","Riverside",NA
+"1711","Rancho California","Riverside",NA
+"1712","WILDOMAR","Riverside",NA
+"1713","Wildmar","San Bernardino",NA
+"1714","Winchester","Riverside",NA
+"1715","WINCHESTER","Riverside",NA
+"1716","Winchter","Riverside",NA
+"1717","Irvine","Orange",NA
+"1718","IRVINE","Orange",NA
+"1719","irvine","Orange",NA
+"1720","Huntington Beach","Orange",NA
+"1721","HUNTINGTON BEACH","Orange",NA
+"1722","Santa Ana","Orange",NA
+"1723","Lake Forest","Orange",NA
+"1724","lake Forest","Orange",NA
+"1725","Foothill Ranch","Orange",NA
+"1726","Foothill Rnch","Orange",NA
+"1727","Corona Del Mar","Orange",NA
+"1728","CORONA DEL MAR","Orange",NA
+"1729","Corona del Mar","Orange",NA
+"1730","corona del mar","Orange",NA
+"1731","Costa Mesa","Orange",NA
+"1732","COSTA MESA","Orange",NA
+"1733","costa mesa","Orange",NA
+"1734","costa Mesa","Orange",NA
+"1735","Costa mesa","Orange",NA
+"1736","LAKE FOREST","Orange",NA
+"1737","Lake forest","Orange",NA
+"1738","El Toro","Orange",NA
+"1739","Laguna Woods","Orange",NA
+"1740","Laguna woods","Orange",NA
+"1741","Huntingtn Bch","Orange",NA
+"1742","Huntington","Orange",NA
+"1743","Huntington beach","Orange",NA
+"1744","huntington Beach","Orange",NA
+"1745","Huntigton Beach","Orange",NA
+"1746","huntington beach","Orange",NA
+"1747","Hunington Beach","Orange",NA
+"1748","hutington beach","Orange",NA
+"1749","LAGUNA BEACH","Orange",NA
+"1750","laguna beach","Orange",NA
+"1751","Midway City","Orange",NA
+"1752","ALISO VIEJO","Orange",NA
+"1753","Newport Coast","Orange",NA
+"1754","Newport Beach","Orange",NA
+"1755","NEWPORT BEACH","Orange",NA
+"1756","NewPort Beach","Orange",NA
+"1757","newport Beach","Orange",NA
+"1758","Newport beach","Orange",NA
+"1759","newport beach","Orange",NA
+"1760","New Port Beach","Orange",NA
+"1761","Silverado","Orange",NA
+"1762","SILVERADO","Orange",NA
+"1763","Laguna niguel","Orange",NA
+"1764","TRABUCO CANYON","Orange",NA
+"1765","Trabucco Canyon","Orange",NA
+"1766","Robinson Ranch","Orange",NA
+"1767","Trabuco","Orange",NA
+"1768","trabuco Canyon","Orange",NA
+"1769","Trabuco Cyn","Orange",NA
+"1770","coto de caza","Orange",NA
+"1771","TRABUCO CYN","Orange",NA
+"1772","ROBINSON RANCH","Orange",NA
+"1773","Portola Hills","Orange",NA
+"1774","Westminster","Orange",NA
+"1775","Westminister","Orange",NA
+"1776","WESTMINSTER","Orange",NA
+"1777","westminster","Orange",NA
+"1778","Mission viejo","Orange",NA
+"1779","SANTA ANA","Orange",NA
+"1780","santa ana","Orange",NA
+"1781","Santa Ana,","Orange",NA
+"1782","North Tustin","Orange",NA
+"1783","Cowan Heights","Orange",NA
+"1784","Tustin","Orange",NA
+"1785","Santa Ana, CA","Orange",NA
+"1786","FOUNTAIN VALLEY","Orange",NA
+"1787","Fountain Valley","Orange",NA
+"1788","fountain valley","Orange",NA
+"1789","Fountain valley","Orange",NA
+"1790","TUSTIN","Orange",NA
+"1791","tustin","Orange",NA
+"1792","Anaheim","Orange",NA
+"1793","ANAHEIM","Orange",NA
+"1794","Brea","Orange",NA
+"1795","BREA","Orange",NA
+"1796","Fullerton","Orange",NA
+"1797","FULLERTON","Orange",NA
+"1798","fullerton","Orange",NA
+"1799","GARDEN GROVE","Orange",NA
+"1800","Garden grove","Orange",NA
+"1801","Orange","Orange",NA
+"1802","ORANGE","Orange",NA
+"1803","Norco","Riverside",NA
+"1804","NORCO","Riverside",NA
+"1805","Norco,","Riverside",NA
+"1806","norco","Riverside",NA
+"1807","Villa Park","Orange",NA
+"1808","Villa PArk","Orange",NA
+"1809","VILLA PARK","Orange",NA
+"1810","villa park","Orange",NA
+"1811","Placentia","Orange",NA
+"1812","PlacentiA","Orange",NA
+"1813","PLACENTIA","Orange",NA
+"1814","CORONA","Riverside",NA
+"1815","EASTVALE","Riverside",NA
+"1816","corona","Riverside",NA
+"1817","Yorba Linda","Orange",NA
+"1818","YORBA LINDA","Orange",NA
+"1819","yorba linda","Orange",NA
+"1820","Yorba linda","Orange",NA
+"1821","yorba Linda","Orange",NA
+"1822","Ventura","Ventura",NA
+"1823","VENTURA","Ventura",NA
+"1824","Venture","Ventura",NA
+"1825","Camarillo","Ventura",NA
+"1826","camarillo","Ventura",NA
+"1827","CAMARILLO","Ventura",NA
+"1828","SANTA ROSA VALLEY","Ventura",NA
+"1829","Santa Rosa Valley","Ventura",NA
+"1830","Moorpark","Ventura",NA
+"1831","Carpinteria","Santa Barbara",NA
+"1832","CARPENTERIA","Ventura",NA
+"1833","Fillmore","Ventura",NA
+"1834","Filmore","Ventura",NA
+"1835","MOORPARK","Ventura",NA
+"1836","Moonpark","Ventura",NA
+"1837","MoorPark","Ventura",NA
+"1838","Oak View","Ventura",NA
+"1839","Ojai","Ventura",NA
+"1840","OJAI","Ventura",NA
+"1841","ojai","Ventura",NA
+"1842","Oxnard","Ventura",NA
+"1843","OXNARD","Ventura",NA
+"1844","Piru","Ventura",NA
+"1845","Port Hueneme","Ventura",NA
+"1846","SANTA PAULA","Ventura",NA
+"1847","Santa Paula","Ventura",NA
+"1848","Simi Valley","Ventura",NA
+"1849","SIMI VALLEY","Ventura",NA
+"1850","SImi Valley","Ventura",NA
+"1851","Semi Valley","Ventura",NA
+"1852","simi valley","Ventura",NA
+"1853","Simi VAlley","Ventura",NA
+"1854","Somis","Ventura",NA
+"1855","SOMIS","Ventura",NA
+"1856","Summerland","Santa Barbara",NA
+"1857","SANTA BARBARA","Santa Barbara",NA
+"1858","Santa Barbara, CA","Santa Barbara",NA
+"1859","santa barbara","Santa Barbara",NA
+"1860","Montecito","Santa Barbara",NA
+"1861","Goleta","Santa Barbara",NA
+"1862","Gaviota","Santa Barbara",NA
+"1863","Armona","Kings",NA
+"1864","Bodfish","Kern",NA
+"1865","CALIFORNIA HOT SPRINGS","Tulare",NA
+"1866","Springville","Tulare",NA
+"1867","Delano","Kern",NA
+"1868","DELANO","Kern",NA
+"1869","Earlimart","Tulare",NA
+"1870","Exeter","Tulare",NA
+"1871","Frazier Park","Kern",NA
+"1872","Pine Mountain Club","Kern",NA
+"1873","Farmersville","Tulare",NA
+"1874","Fazierpark","Kern",NA
+"1875","Fraiser Park","Kern",NA
+"1876","Glenville","Kern",NA
+"1877","Glennville","Kern",NA
+"1878","Goshen","Tulare",NA
+"1879","Handford","Kings",NA
+"1880","hanford","Kings",NA
+"1881","Ivanhoe","Tulare",NA
+"1882","Kernville","Kern",NA
+"1883","Lake Isabella","Kern",NA
+"1884","LAKE ISABELLA","Kern",NA
+"1885","Mt. Mesa","Kern",NA
+"1886","Lemon Cove","Tulare",NA
+"1887","LEMON COVE","Tulare",NA
+"1888","Lindsay","Tulare",NA
+"1889","LINDSAY","Tulare",NA
+"1890","ONYX","Kern",NA
+"1891","Onyx","Kern",NA
+"1892","Pixley","Tulare",NA
+"1893","Porterville","Tulare",NA
+"1894","PORTERVILLE","Tulare",NA
+"1895","porterville","Tulare",NA
+"1896","Richgrove","Tulare",NA
+"1897","SPRINGVILLE","Tulare",NA
+"1898","springville","Tulare",NA
+"1899","Strathmore","Tulare",NA
+"1900","STRATHMORE","Tulare",NA
+"1901","stathmore","Tulare",NA
+"1902","Terra Bella","Tulare",NA
+"1903","Terabela","Tulare",NA
+"1904","Three Rivers","Tulare",NA
+"1905","Tipton","Tulare",NA
+"1906","Tulare","Tulare",NA
+"1907","TULARE","Tulare",NA
+"1908","VISALIA","Tulare",NA
+"1909","Weldon","Kern",NA
+"1910","Wofford Heights","Kern",NA
+"1911","visalia","Tulare",NA
+"1912","Mojave","Kern",NA
+"1913","MOJAVE","Kern",NA
+"1914","California City","Kern",NA
+"1915","CALIFORNIA CITY","Kern",NA
+"1916","Calif City","Kern",NA
+"1917","Acton","Los Angeles",NA
+"1918","acton","Los Angeles",NA
+"1919","Benton","Mono",NA
+"1920","Big Pine","Inyo",NA
+"1921","Bishop","Mono",NA
+"1922","BISHOP","Inyo",NA
+"1923","Swall Meadows","Inyo",NA
+"1924","bishop","Mono",NA
+"1925","Boron","Kern",NA
+"1926","Bridgeport","Mono",NA
+"1927","Caliente","Kern",NA
+"1928","CALIENTE","Kern",NA
+"1929","Edwards","Kern",NA
+"1930","Inyokern","Kern",NA
+"1931","June Lake","Mono",NA
+"1932","Lake Hughes","Los Angeles",NA
+"1933","Lancaster","Los Angeles",NA
+"1934","Gorman","Kern",NA
+"1935","LANCASTER","Los Angeles",NA
+"1936","Lake Los Angeles","Los Angeles",NA
+"1937","Quartz Hill","Los Angeles",NA
+"1938","Quartz Hills","Los Angeles",NA
+"1939","Qrtz Hill","Los Angeles",NA
+"1940","Del Sur","Los Angeles",NA
+"1941","QUARTZ HILL","Los Angeles",NA
+"1942","Lee Vining","Mono",NA
+"1943","Littlerock","Los Angeles",NA
+"1944","LITTLEROCK","Los Angeles",NA
+"1945","Little Rock","Los Angeles",NA
+"1946","Juniper Hills","Los Angeles",NA
+"1947","Llano","Los Angeles",NA
+"1948","Crowley Lake","Mono",NA
+"1949","Mammoth Lakes","Mono",NA
+"1950","PALMDALE","Los Angeles",NA
+"1951","Palmdale","Los Angeles",NA
+"1952","Leona Valley","Los Angeles",NA
+"1953","Pearblossom","Los Angeles",NA
+"1954","Pearlblossom","Los Angeles",NA
+"1955","Ridgecrest","Kern",NA
+"1956","RIDGECREST","Kern",NA
+"1957","China Lake","Kern",NA
+"1958","ridgecrest","Kern",NA
+"1959","Rosamond","Kern",NA
+"1960","ROSEMOND","Kern",NA
+"1961","ROSAMOND","Kern",NA
+"1962","TEHACHAPI","Kern",NA
+"1963","Bear Valley Springs","Kern",NA
+"1964","Trona","San Bernardino",NA
+"1965","shaver lake","Fresno",NA

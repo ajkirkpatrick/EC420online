@@ -371,9 +371,11 @@ They mean we have a *sample estimate* of the population parameters.
 
 ### Where did $u$ go?
 Since we have a hat on $y_i$, there is no $u$, but $\hat{y}_i \neq y_i$.
-- Define $\hat{u}_i = \hat{y}_i - y_i$.
+- Define $\hat{u}_i = y_i - \hat{y}_i$.
 - $\hat{u}_i$ is the *residual*.
   
+.footnote[A correction was made to the second bullet above but an old version remains in video]
+
 ---
 class: MSU
 # Fitting the line
